@@ -1,4 +1,10 @@
-# Byte-compiled / optimized / DLL files
+# Specific to COS
+*~
+*.bak
+*.BAK
+manuelUtilisateur.tex
+
+#Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class

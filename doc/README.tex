@@ -1,0 +1,711 @@
+% Created 2017-10-28 sam. 16:23
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\author{Michel SIMATIC}
+\date{28/10/2017}
+\title{Manuel Utilisateur de l'outil C.O.S. (Collecte d'Opinions lors de Soutenances)}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Introduction}
+\label{sec-1}
+Lorsqu'un enseignant fait passer une soutenance à certains étudiants
+d'une classe, souvent, il demande aux autres étudiants de la classe
+d'assister à cette soutenance pour que les étudiants qui ne
+soutiennent pas :
+\begin{enumerate}
+\item profitent de la soutenance pour apprendre de nouvelles choses,
+\item profitent des remarques qu'il fera aux étudiants en train de
+soutenir,
+\item fassent des remarques à leurs collègues qui soutiennent. Ainsi, ces
+derniers auront un volument plus important de remarques/conseils et
+pourront encore plus s'améliorer.
+\end{enumerate}
+Hélas, très souvent, dans la pratique, les étudiants qui ne soutiennent
+pas n'écoutent pas la soutenance, car ils font autre chose.
+
+\emph{COS} (Collecte d'Opinions lors de Soutenances) est un outil destiné
+à favoriser l'attention des étudiants lors des soutenances de leur
+collègues. Ainsi, les objectifs évoqués précédemment ont plus de
+chances d'être atteints.
+
+\emph{COS} a été testé sous Linux, MacOS et Windows. Il est compatible avec
+LibreOffice/OpenOffice Calc et Excel.
+
+\emph{COS} s'inscrit dans la procédure suivante qui sera détaillée dans la
+suite de ce document:
+\begin{itemize}
+\item Phase 0 (configuration initiale) : l'enseignant configure \emph{COS} en
+indiquant :
+\begin{itemize}
+\item sur quel système d'exploitation il travaille (Linux, MacOS, Windows),
+\item quel tableur il envisage d'utiliser (\emph{Excel} ou \emph{LibreOffice
+Calc}). NB: \emph{COS} n'impose pas d'utiliser un tableur, mais
+l'utilisation d'un tableur facilite grandement la saisie de
+certaines informations ;
+\item sous quel nom il veut apparaître dans les documents de synthèse qui
+seront fournis aux étudiants,
+\end{itemize}
+\item Phase 1 (pré-soutenance) :
+\begin{itemize}
+\item l'enseignant spécifie les données concernant une soutenance :
+\begin{itemize}
+\item Le bonus qui sera accordé à la note de soutenance des étudiants
+qui ont fait la même évaluation de certains critères que le
+l'enseignant ;
+\item Type des critères d'évaluation (par exemple, "Fond", "Forme", etc.),
+\item Liste des critères d'évaluation (par exemple, "Résultats et
+recul", "Dynamisme", etc.),
+\item Liste des titres des soutenances,
+\item Liste des étudiants qui assisteront aux soutenances,
+\end{itemize}
+\item l'enseignant exécute \emph{COS} pour générer :
+\begin{itemize}
+\item un fichier avec des fiches d'évaluation nominatives qui seront
+remplies par les étudiants,
+\item un fichier avec des fiches d'évaluation génériques,
+\item un canevas fichier qui lui servira à entrer ses notes et
+commentaires pour les différentes soutenances.
+\end{itemize}
+\item l'enseignant prépare la soutenance :
+\begin{itemize}
+\item il recopie le fichier des fiches d'évaluation nominatives dans
+un éditeur de texte collaboratif (par exemple, \href{https://framapad.org/}{framapad}) ;
+\item il imprime autant de fiches d'évaluation génériques qu'il y aura
+d'étudiants sans accès à l'éditeur de texte collaboratif pendant
+les soutenances ;
+\item il enrichit le canevas de fichier pour que la saisie de notes
+et de commentaires lui soit plus facile.
+\end{itemize}
+\end{itemize}
+\item Phase Soutenance. Pendant la soutenance :
+\begin{itemize}
+\item l'enseignant explique comment seront exploitées les informations
+fournies par les étudiants. En particulier, il évoque le bonus
+dont profiteront les étudiants qui "joueront le jeu" de remplir
+ces informations ;
+\item les étudiants utilisent l'éditeur de texte collaboratif ou bien
+remplisse une fiche d'évaluation générique ;
+\item l'enseignant saisit des notes et des commentaires.
+\end{itemize}
+\item Phase 2 (post-soutenance) :
+\begin{itemize}
+\item l'enseignant récupère le contenu du fichier qui a été rempli avec
+l'éditeur de texte collaboratif ;
+\item l'enseignant retranscrit les notes prises manuellement sur les
+fiches d'information génériques dans ce fichier.
+\item l'enseignant finit de saisir ses notes et commentaires ;
+\item l'enseignant exécute \emph{COS} pour générer :
+\begin{itemize}
+\item Une synthèse des comentaires faits par les étudiants durant la
+soutenance,
+\item Un fichier donnant le détail des notes de chaqsue étudiant (note
+de soutenance attribuée par l'enseignant, bonus pour bonne
+évaluation de soutenance de collègues, note finale).
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+Dans la suite de ce document, nous commençons par présenter
+l'installation de \emph{COS}, avant de détailler chacune des phases
+mentionnées dans cette introduction. La dernière section explique
+comment changer les noms de fichier et les valeurs utilisés par
+défaut.
+\section{Installation de \emph{COS}}
+\label{sec-2}
+\subsection{Généralités}
+\label{sec-2-1}
+\begin{itemize}
+\item Téléchargez l'archive ZIP \verb~COS-master.zip~ de \emph{COS} sur \href{https://github.com/simatic/COS}{github}
+  (L'accès à l'archive se fait en cliquant sur le bouton vert \verb~Clone   or download~ en haut à droite, puis en cliquant sur \verb~Download ZIP~).
+\item Dézipper cette archive sur votre ordinateur à l'endroit qui vous
+arrange.
+\item \emph{COS} est un programme écrit en \emph{Python 3}. Les sous-sections
+suivantes détaillent l'installation de \emph{Python 3} selon votre
+système d'exploitation.
+\end{itemize}
+\subsection{Linux}
+\label{sec-2-2}
+Vous n'avez rien de spécial à faire (\emph{Python 3} est installé par
+défaut sur Linux).
+\subsection{MacOS}
+\label{sec-2-3}
+Ouvrez un terminal de commande.
+
+Tapez la commande \verb~python3~
+
+Si vous avez une fenêtre dont le contenu ressemble au contenu suivant
+(notez les \verb~>>>~ en dernière ligne) :
+\begin{verbatim}
+$ python3
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+\end{verbatim}
+alors \emph{Python 3} est déjà installé : vous n'avez rien à faire (hormis
+fermer votre terminal).
+
+Sinon, téléchargez \emph{Python 3} sur le \href{https://www.python.org/downloads/mac-osx/}{site officiel}. Puis, installez-le.
+\subsection{Windows}
+\label{sec-2-4}
+\begin{itemize}
+\item Appuyez sur la touche \verb~Windows~, puis sur la touche \verb~R~ (sans
+appuyer sur la touche \verb~Majuscule~ : une fenêtre \verb~Exécuter~ apparaît.
+\item Dans cette fenêtre, dans le champ \verb~Ouvrir:~, tapez \verb~cmd~. Puis,
+cliquez sur \verb~OK~ : uène fenêtre \verb~C:\WINDOWS\system32\cmd.exe~
+apparaît.
+\item Dans cette fenêtre, tapez \verb~python~, puis appuyez sur la touche
+\verb~Entrée~. 3 cas sont possibles :
+\end{itemize}
+\subsubsection{1er cas}
+\label{sec-2-4-1}
+Vous obtenez l'affichage :
+\begin{verbatim}
+Python 3.6.3 (v3.6.3:2c5fed8, Oct  3 2017, 17:26:49) [MSC v.1900 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+\end{verbatim}
+
+Vu qu'il y a écrit \verb~Python 3.~ au début de la première ligne, cela
+signifie que \emph{Python 3} est déjà installé sur votre machine : vous
+n'avez rien à faire (hormis fermer cette fenêtre).
+\subsubsection{2e cas}
+\label{sec-2-4-2}
+Vous obtenez l'affichage :
+\begin{verbatim}
+'python' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+\end{verbatim}
+
+Cela signifie que \emph{Python 3} n'est pas installé sur votre machine :
+\begin{itemize}
+\item Téléchargez \emph{Python 3} sur le \href{https://www.python.org/downloads/}{site officiel}
+\item Lancez l'installation sur votre ordinateur : une fenêtre \verb~Python 3   (32-bit) Setup~ apparaît.
+\item Dans cette fenêtre, cochez : \verb~Install laucher for all users   (recommended)~ et \verb~Add Python 3.6 to PATH~. Puis, cliquez sur
+"Install Now".
+\item Windows vous demande si vous autorisez cette application à apporter
+des modifications à votre ordinateur. Répondez que "Oui".
+\item Au bout d'un moment, une fenêtre affiche un message "Setup was
+successful". Cliquez sur "Close"
+\end{itemize}
+\subsubsection{3e cas}
+\label{sec-2-4-3}
+Vous obtenez l'affichage :
+\begin{verbatim}
+Python 2.7.3 (default, Apr 10 2012, 23:24:47) [MSC v.1500 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+\end{verbatim}
+
+Vu qu'il y a écrit \verb~Python 2.~ au début de la première ligne, cela
+signifie que c'est \emph{Python 2} qui est installé sur votre machine et
+non \emph{Python 3}. Il faut installer \emph{Python 3}, mais sans déranger
+l'installation de \emph{Python 2}. Pour ce faire :
+
+\begin{itemize}
+\item Téléchargez \emph{Python 3} sur le \href{https://www.python.org/downloads/}{site officiel}
+\item Lancez l'installation sur votre ordinateur : une fenêtre \verb~Python 3   (32-bit) Setup~ apparaît.
+\item Dans cette fenêtre, cochez : \verb~Install laucher for all users   (recommended)~. Vérifiez que \verb~Add Python 3.6 to PATH~ est
+\textbf{décoché}. Puis, cliquez sur "Install Now".
+\item Windows vous demande si vous autorisez cette application à apporter
+des modifications à votre ordinateur. Répondez que "Oui".
+\item Au bout d'un moment, une fenêtre affiche un message "Setup was
+successful". Cliquez sur "Close"
+\end{itemize}
+
+\emph{Python 3} est désormais installé sur votre machine. Mais, vous devez
+préciser à \emph{COS} qu'il doit utiliser ce \emph{Python 3} et non le \emph{Python
+2} auquel il accéderait spontanément :
+\begin{itemize}
+\item Avec un explorateur de fichier, allez dans le répertoire où vous
+avez dézippé \emph{COS}.
+\item Clic gauche sur le fichier \verb~cos.bat~, puis clic droit pour choisir
+de l'éditer avec votre éditeur de texte (par exemple, \emph{Notepad++}).
+\item Ajoutez la ligne \verb~set PATH=C:\Program Files (x86)\Python36-32\~ 
+après la ligne \verb~echo off~ et enregistrez votre fichier. Il doit 
+donc désormais ressembler à ceci :
+\end{itemize}
+\begin{verbatim}
+echo off
+set PATH=C:\Program Files (x86)\Python36-32\
+set PYTHONPATH=collectopiniondefenses
+python collectopiniondefenses/main.py -%1 configuration.txt
+pause
+\end{verbatim}
+
+\section{Configuration initiale de COS}
+\label{sec-3}
+\subsection{Configuration du système d'exploitation et du tableur que vous utilisez}
+\label{sec-3-1}
+Avec un explorateur de fichier, allez dans le répertoire \verb~modeles~ de
+\emph{COS}. Ce répertoire contient 4 fichiers archives. Double-cliquez sur
+l'archive correspondant à votre combinaison Système d'exploitation
+(Linux et MacOS OU BIEN Windows) / Tableur (LibreOffice Calc et
+OpenOffice Calc OU BIEN Excel), comme indiqué dans le tableau
+ci-dessous.
+\begin{center}
+\begin{tabular}{lll}
+\hline
+ & LibreOffice Calc & Excel\\
+\hline
+Linux/MacOS & \verb~linux_MacOS_LibreOffice_Calc.zip~ & \verb~linux_MacOS_Excel.zip~\\
+\hline
+Windows & \verb~windows_LibreOffice_Calc.zip~ & \verb~windows_Excel.zip~\\
+\hline
+\end{tabular}
+\end{center}
+
+Extrayez les fichiers de cette archive de sorte que :
+\begin{itemize}
+\item \verb~configuration.txt~ soit extrait dans le répertoire principal de
+\emph{COS};
+\item \verb~Phase_1_entree/listeCriteres.csv~ soit extrait dans le répertoire
+\verb~Phase_1_entree~ de \emph{COS};
+\item etc.
+\end{itemize}
+
+\subsubsection{Le coin du geek (à ne lire que si vous souhaitez en savoir plus)}
+\label{sec-3-1-1}
+Le fichier \verb~configuration.txt~ extrait dépend du système
+d'exploitation de la manière suivante :
+\begin{itemize}
+\item en Linux-MacOS, le champ \verb~Encodage des fichiers utilises (lus ou   generes)~ vaut \verb~utf8~ ;
+\item en Windows, il vaut \verb~windows-1252~.
+\end{itemize}
+
+Tous les fichiers extraits dépendent du système d'exploitation de la
+manière suivante :
+\begin{itemize}
+\item en Linux-MacOS, ils sont encodés en \verb~utf8~ avec des retours à la
+ligne simples ;
+\item en Windows, ils sont encodés en \verb~ASCII~ (\verb~windows-1252~) avec des
+retours à la ligne typiques de Windows (\emph{linefeed} suivi de
+\emph{Carriage return}).
+\end{itemize}
+
+Le fichier \verb~configuration.txt~ extrait dépend du tableur de la manière
+suivante :
+\begin{itemize}
+\item pour LibreOffice/OpenOffice Calc, le champ \verb~Separateur dans les   fichiers CSV~ vaut "," (virgule, sans les guillements) ;
+\item pour Excel, il vaut ";" (point-virgule, sans les guillements).
+\end{itemize}
+
+Tous les fichiers d'extension \textbf{.csv} extraits dépendent du système d'exploitation de la
+manière suivante :
+\begin{itemize}
+\item pour LibreOffice/OpenOffice Calc, le séparateur utilisé est une ","
+(virgule, sans les guillements) ;
+\item pour Excel, c'est ";" (point-virgule, sans les guillements).
+\end{itemize}
+
+Remarque : si vous travaillez avec un tableur configuré pour
+interpréter les nombres décimaux à l'américaine (pi s'écrit "3.14" et
+non "3,14", dans \verb~configuration.txt~, il vous faut changer le champ
+\verb~Separateur utilise par votre tableur pour separer la partie entiere et la partie decimale d'un nombre décimal~ en "." (point, sans les
+guillemets) à la place de "," (virgule, sans les guillemets).
+
+\subsection{Configuration de votre nom dans les documents de synthèse générés par COS}
+\label{sec-3-2}
+\begin{itemize}
+\item Éditez le fichier \verb~configuration.txt~ en double-cliquant dessus
+avec un explorateur de fichiers.
+\item Modifiez le champ \verb~Nom de l'encadrant·e~ pour y indiquer le nom sous
+lequel vous souhaitez apparaître dans les documents générés par
+\emph{COS} (par exemple, \verb~Jeanne Dupont~).
+\end{itemize}
+\begin{verbatim}
+# Nom de l'encadrant·e
+Jeanne Dupont
+\end{verbatim}
+\begin{itemize}
+\item Sauvegardez le fichier.
+\end{itemize}
+\section{Phase 1 (pré-soutenance)}
+\label{sec-4}
+\subsection{Configuration de COS}
+\label{sec-4-1}
+\subsubsection{Bonus accordé aux étudiants}
+\label{sec-4-1-1}
+Lors de la phase 2, quand \emph{COS} comparera les évaluations des
+étudiants et les évaluations de l'enseignant, il attribuera à chaque
+étudiant un bonus par évaluation d'étudiant correspondant à
+l'évaluation enseignant. Même si ce bonus ne servira qu'en phase 2,
+nous vous proposons de réfléchir à la valeur de ce bonus, \textbf{dès la
+phase 1}, pour pouvoir l'indiquer aux étudiants lors de la phase de
+soutenance.
+
+Pour changer la valeur de ce bonus :
+\begin{itemize}
+\item Éditez le fichier \verb~configuration.txt~ en double-cliquant dessus
+avec un explorateur de fichiers.
+\item Modifiez le champ \verb~Bonus sur note etudiant·e si l'etudiant·e juge   critere comme l'encadrant~ pour y indiquer la valeur de ce bonus
+(par exemple, \verb~0.1~). NB : écrivez ce nombre décimal en notation
+américaine (donc, "." (point) pour séparer la partie entière de la
+partie décimale).
+\end{itemize}
+\begin{verbatim}
+# Bonus sur note etudiant·e si l'etudiant·e juge critere comme l'encadrant
+# NB : Si ce bonus est decimal, utilisez un point ('.') et non une
+#      une virgule (',') pour separer la partie entiere et la pa'rtie decimale.
+#      Par exemple, pour un bonus egal a pi, ecrire (sans les guillemets)
+#      "3.14" et pas "3,14"
+0.1
+\end{verbatim}
+\begin{itemize}
+\item Sauvegardez le fichier.
+\end{itemize}
+\subsubsection{Types des critères d'évaluation}
+\label{sec-4-1-2}
+\emph{COS} impose de catégoriser les différents critères d'évaluation. (par
+exemple, "Fond", "Forme", etc.).
+
+Pour changer la liste des types de critères d'évaluation :
+\begin{itemize}
+\item Éditez le fichier \verb~Phase_1_entree/listeTypesCriteres.txt~ en
+double-cliquant dessus avec un explorateur de fichiers.
+\item Modifiez la liste des types de critère. L'exemple définit les types
+\verb~Fond~ et \verb~Forme~, la ligne \verb~# Nom de chaque type de critère~ étant
+un commentaire.
+\end{itemize}
+\begin{verbatim}
+# Nom de chaque type de critère
+Fond
+Forme
+\end{verbatim}
+\begin{itemize}
+\item Sauvegardez le fichier.
+\end{itemize}
+\subsubsection{Critères d'évaluation}
+\label{sec-4-1-3}
+\emph{COS} vous permet de personnaliser les critères d'évaluation de vos
+soutenances.
+
+Pour changer la liste des critères d'évaluation :
+\begin{enumerate}
+\item Éditez le fichier \verb~Phase_1_entree/listeCriteres.txt~ en
+double-cliquant dessus avec un explorateur de fichiers. Cela ouvre
+votre tableur.
+\begin{itemize}
+\item NB (lié à LibreOffice/OpenOffice Calc) : Dans le cas de
+\emph{LibreOffice Calc}, une fenêtre \verb~Import de texte~ s'affiche dans
+un premier temps. Veillez à ce que, dans la zone \verb~Options de      séparateur~, 1) \verb~Séparé par~ soit sélectionné, 2) seul \verb~Virgule~
+soit coché.
+\end{itemize}
+\item Modifiez la liste des critères. L'exemple définit 10 critères (5 de
+\verb~Fond~ et 5 de \verb~Forme~).
+\item Sauvegardez le fichier (au format \textbf{CSV}).
+\end{enumerate}
+\subsubsection{Titres des soutenances}
+\label{sec-4-1-4}
+\emph{COS} impose de lui fournir la liste des titres des soutenances qui
+vont avoir lieu. Nous vous recommandons de les lui fournir dans
+l'ordre de passage envisagé (cela facilite le remplissage des fiches
+par les étudiants et l'enseignant).
+
+Pour changer la liste des types de critères d'évaluation :
+\begin{itemize}
+\item Éditez le fichier \verb~Phase_1_entree/listeSoutenances.txt~ en
+double-cliquant dessus avec un explorateur de fichiers.
+\item Modifiez la liste des soutenances. L'exemple définit 3 soutenances
+\verb~Eugénie Grandet~, \verb~La Touche étoile~ et \verb~... Et mon tout est un   homme~, la ligne \verb~# Nom de chaque soutenance~ étant un commentaire.
+\end{itemize}
+\begin{verbatim}
+# Nom de chaque soutenance
+Eugénie Grandet
+La Touche étoile
+... Et mon tout est un homme
+\end{verbatim}
+\begin{itemize}
+\item Sauvegardez le fichier.
+\end{itemize}
+\subsubsection{Liste des étudiants}
+\label{sec-4-1-5}
+\emph{COS} impose de lui fournir la liste des étudiants qui vont soutenir
+et, sur quelle soutenance, ils vont soutenir. Notez que :
+\begin{itemize}
+\item Plusieurs étudiants peuvent soutenir ensemble (cf., dans l'exemple,
+\verb~M. AYRAUD Pierre (dit Thomas Narcejac)~ et \verb~M. BOILEAU Pierre   Louis~ qui font la même soutenance de titre \verb~... Et mon tout est un   homme~)
+\item Une soutenance de \verb~Phase_1_entree/listeSoutenances.txt~ peut ne pas
+se voir mentionnée à cette étape.
+\end{itemize}
+
+Pour changer la liste des étudiants :
+\begin{enumerate}
+\item Éditez le fichier \verb~Phase_1_entree/listeEtudiants.txt~ en
+double-cliquant dessus avec un explorateur de fichiers. Cela ouvre
+votre tableur.
+\begin{itemize}
+\item NB (lié à LibreOffice/OpenOffice Calc) : Dans le cas de
+\emph{LibreOffice Calc}, une fenêtre \verb~Import de texte~ s'affiche dans
+un premier temps. Veillez à ce que, dans la zone \verb~Options de      séparateur~, 1) \verb~Séparé par~ soit sélectionné, 2) seul \verb~Virgule~
+soit coché.
+\end{itemize}
+\item Modifiez la liste des étudiants. L'exemple définit 4 étudiants.
+\item Sauvegardez le fichier (au format \textbf{CSV}).
+\end{enumerate}
+\subsection{Exécution de la phase 1 de COS}
+\label{sec-4-2}
+Le lancement de la phase 1 de \emph{COS} dépend de votre système
+d'exploitation.
+\subsubsection{Linux/MacOS}
+\label{sec-4-2-1}
+Dans le répertoire de \emph{COS}, exécutez le programme
+\verb~cos_phase_1.sh~. En cas d'erreur, un message vous explique le
+problème détecté : à vous de le corriger. Si tout se passe bien, \emph{COS}
+affiche le message :
+\begin{verbatim}
+cos version 1.0.0
+
+OK, exécution de la phase 1 terminée : les fichiers...
+\end{verbatim}
+\subsubsection{Windows}
+\label{sec-4-2-2}
+Avec un explorateur de fichiers, allez dans le répertoire de
+\emph{COS}. Puis, double-cliquez sur le programme \verb~cos_phase_1.bat~ : une
+fenêtre s'ouvre et affiche un message d'erreur ou bien un message de
+bonne exécution (cf. exemple Linux/MacOS ci-dessus). Dans les 2 cas,
+appuyez sur une touche pour fermer la fenêtre.
+\subsection{Préparation de la soutenance}
+\label{sec-4-3}
+\subsubsection{Mise à disposition sur Internet des fiches d'évaluation nominatives}
+\label{sec-4-3-1}
+\begin{itemize}
+\item Dans un éditeur de texte collaboratif (par exemple, \href{https://framapad.org/}{framapad}), créez
+un \emph{pad} public ou privé (à vous de décider, l'essentiel étant que
+les étudiants puissent y accéder).
+\item Dans le répertoire \verb~Phase_1_sortie~, double-cliquez sur le fichier
+\verb~listeFichesEtudiants.txt~
+\item Recopiez son contenu dans le \emph{pad} créé.
+\end{itemize}
+\subsubsection{Impression des fiches d'évaluation génériques}
+\label{sec-4-3-2}
+\begin{itemize}
+\item Si vous savez que des étudiants n'auront pas accès à un ordinateur
+(ou une tablette, si vous estimez qu'une tablette peut permettre de
+modifier le \emph{pad}) pendant la soutenance, comptez le nombre
+d'étudiants dans ce cas.
+\item Dans le répertoire \verb~Phase_1_sortie~, imprimez le fichier
+\verb~ficheGeneriqueEtudiant.txt~ en autant d'exemplaires que nécessaire.
+\end{itemize}
+\subsubsection{Enrichissement du fichier canevas de notes}
+\label{sec-4-3-3}
+\begin{itemize}
+\item Dans le répertoire \verb~Phase_1_sortie~, double-cliquez sur le fichier
+\verb~Phase_1_sortie/canevasNotesEncadrant.csv~ : votre tableur s'ouvre.
+\item Enrichissez ce fichier, par exemple :
+\begin{itemize}
+\item en changeant la largeur des colonnes
+\item en changeant la colonne 1 de la ligne \verb~Ligne inutilisée (par     exemple...~
+\item en mettant dans les autres colonnes de cette ligne, une formule de
+calcul de somme des éléments de cette colonne
+\item etc.
+\end{itemize}
+\item Sauvegardez le tableau obtenu dans le répertoire \verb~Phase_2_entree~ au
+format standard de votre tableur (\verb~.odt~ pour LibreOffice/OpenOffice
+et \verb~.xlsx~ pour Excel).
+\end{itemize}
+\section{Phase de soutenance}
+\label{sec-5}
+\begin{enumerate}
+\item Indiquez aux étudiants comment ils peuvent fournir les
+informations. En particulier, fournissez l'adresse du \emph{pad}, voire
+un crayon pour les étudiants qui rempliront un exemplaire papier.
+\item Expliquez les "règles du jeu", i.e. les informations que les
+étudiants doivent fournir et comment ces informations seront
+exploitées :
+\begin{itemize}
+\item L'étudiant doit remplir la fiche correspondant à son nom.
+\item Pour chaque soutenance (hormis la sienne, évidemment), l'étudiant doit :
+\begin{itemize}
+\item Mettre un "+" au début de la ligne d'un critère dont il pense
+que l'enseignant estimera que le critère ne nécessite aucune
+amélioration (voire qu'il est impeccable).
+\item Mettre un commentaire au niveau du champ
+\verb~Commentaire/Justification du +~.
+\item S'il estime que l'enseignant considérera qu'il n'y aucun
+critère impeccable pour cette soutenance, l'étudiant doit
+mettre un "+" devant un critère dont il pense que l'enseignant
+estimera que le critère ne nécessite qu'une (ou des)
+amélioration(s) mineure(s).
+\item Même principe avec un "-" correspondant à un critère
+nécessitant une (ou des) amélioration(s) majeure(s).
+\end{itemize}
+\item Au moment du dépouillement par l'enseignant :
+\begin{itemize}
+\item Un "+" n'est pris en compte que si le champ
+\verb~Commentaire/Justification du +~ est rempli (intelligemment).
+\item Idem pour un "-"
+\item Si, pour une même soutenance, l'étudiant écrit plusieurs "+" ou
+plusieurs "-", aucun "+" ne sera considéré pour cette
+soutenance.
+\item Idem pour les "-"
+\item Si, pour une soutenance, l'étudiant remplit le champ
+\verb~Commentaire/Justification du +~ sans donner de "+" à un
+critère, son commentaire est ignoré.
+\item Idem pour \verb~Commentaire/Justification du -~
+\item Chaque "+" qui correspondant à un critère jugé impeccable par
+l'enseignant rapport un bonus de \emph{nombre de point bonus que
+vous avez décidé précédemment} à la note finale.
+\item Idem pour chaque "-"
+\item Expliquez le principe de bonus si, pour une soutenance,
+l'enseignant ne met aucun "+".
+\item Expliquez que c'est pareil dans le cas où il ne met aucun "-".
+\end{itemize}
+\end{itemize}
+\item Faites passer les soutenances.
+\item Remplissez votre fichier de notes/commentaires
+\end{enumerate}
+\section{Phase 2 (post-soutenance) :}
+\label{sec-6}
+\subsection{Configuration de COS}
+\label{sec-6-1}
+\begin{itemize}
+\item Complétez le \emph{pad} avec les réponses récupérées au format papier.
+\item Recopiez le contenu de votre \emph{pad} dans le fichier
+\verb~reponsesEtudiants.txt~ du répertoire \verb~Phase_2_entree~
+\item Sauvegardez dans le répertoire \verb~Phase_2_entree~ votre fichier de
+notes/commentaires au format \textbf{CSV} et sous le nom
+\verb~notesEncadrant.csv~
+\item NB : si vous le souhaitez, vous pouvez changer le bonus accordé aux
+étudiants. En effet, c'est seulement maintenant que sa valeur va
+vraiment être exploitée.
+\end{itemize}
+\subsection{Exécution de la phase 2 de COS}
+\label{sec-6-2}
+De même que pour la phase 1, la phase 2 de \emph{COS} dépend de votre
+système d'exploitation :
+\begin{itemize}
+\item Linux/MacOS : exécutez \verb~cos_phase_2.sh~ au lieu de \verb~cos_phase_1.sh~
+  précédemment.
+\item Windows : exécutez \verb~cos_phase_2.bat~ au lieu de \verb~cos_phase_1.bat~
+  précédemment.
+\end{itemize}
+
+En cas d'exécution correcte, vous aurez l'affichage suivant :
+\begin{verbatim}
+cos version 1.0.0
+
+OK, exécution de la phase 2 terminée : les fichiers...
+\end{verbatim}
+\subsection{Exploitation des fichiers générés par COS (en phase 2)}
+\label{sec-6-3}
+Les deux fichiers générés par \emph{COS} sont disponibles dans le
+répertoire \verb~Phase_2_sortie~ :
+\begin{itemize}
+\item \verb~syntheseCommentaires.txt~ contient la synthèse des commentaires
+faits par les étudiants et vous durant la soutenance. À vous de
+décider comment l'exploiter.
+\item \verb~notesEtudiants.csv~ contient le calcul des différentes notes.
+\begin{itemize}
+\item La note de soutenance
+\begin{itemize}
+\item Elle est calculée en faisant la somme des notes que vous avez
+attribuée à chaque critère, pour cette soutenance.
+\item Si vous préférez mettre d'autres valeurs que 0, 1 ou 2, allez
+dans le fichier \verb~configuration.txt~ pour changer les champs
+(NB : actuellement, ces champs doivent être forcément des
+entiers) :
+\begin{itemize}
+\item \verb~Nombre de points quand encadrant·e estime que critere revele une bonne maitrise~ (valeur actuelle : 2)
+\item \verb~Nombre de points quand encadrant·e estime que critere requiert ameliorations mineures~ (valeur actuelle : 1)
+\item \verb~Nombre de points quand encadrant·e estime que critere requiert ameliorations majeures~ (valeur actuelle : 0)
+\end{itemize}
+\end{itemize}
+\item La note de bonus (qui, rappelons-le, dépend du champ \verb~Bonus sur     note etudiant·e si l'etudiant·e juge critere comme l'encadrant~
+    dans le fichier \verb~configuration.txt~)
+\item La note finale du module (qui est la somme de ces deux notes).
+\item À vous de décider comment exploiter \verb~notesEtudiants.csv~.
+\end{itemize}
+\end{itemize}
+\section{Changement des noms ou des valeurs utilisés par défaut}
+\label{sec-7}
+\subsection{Changement des noms de fichier}
+\label{sec-7-1}
+\subsubsection{configuration.txt}
+\label{sec-7-1-1}
+Si vous souhaitez que le fichier \verb~configuration.txt~ s'appelle
+autrement, renommez-le et modifiez le nom dans \verb~cos.sh~ (si vous êtes
+sous Linux/MacOS) et \verb~cos.bat~ (si vous êtes sous Windows).
+\subsubsection{Autres fichiers}
+\label{sec-7-1-2}
+Le nom des autres fichiers et leur localisation peut être changé en
+modifiant le champ correspondant à ce fichier dans le fichier
+\verb~configuration.txt~.
+
+Imaginons, par exemple, que vous n'êtes pas satisfait du fait que le
+fichier des retours des étudiants s'appelle \verb~reponsesEtudiants.txt~ et
+est stocké dans \verb~Phase_2_entree~. Il faut la partie correspondante de
+\verb~configuration.txt~. Elle vaut actuellement :
+\begin{verbatim}
+# Nom du fichier contenant la version remplie des fiches nominatives
+# des etudiant·e·s (cf. outputListeFichesEtudiants.txt)
+Phase_2_entree/reponsesEtudiants.txt
+\end{verbatim}
+
+Si vous voulez que le fichier s'appelle désormais
+\verb~retoursDesEtudiants.txt~ et soit stocké au même niveau que le fichier
+\verb~configuration.txt~, il faut modifier \verb~configuration.txt~ de la
+manière suivante :
+\begin{verbatim}
+# Nom du fichier contenant la version remplie des fiches nominatives
+# des etudiant·e·s (cf. outputListeFichesEtudiants.txt)
+retoursDesEtudiants.txt
+\end{verbatim}
+\subsection{Changement des valeurs par défaut}
+\label{sec-7-2}
+Nous avons déjà évoqué comment (et pourquoi) changer dans
+\verb~configuration.txt~:
+\begin{itemize}
+\item \verb~Bonus sur note etudiant·e si l'etudiant·e juge    critere comme l'encadrant~
+\item \verb~Nombre de points quand encadrant·e estime que critere revele une bonne maitrise~
+\item \verb~Nombre de points quand encadrant·e estime que critere requiert ameliorations mineures~
+\item \verb~Nombre de points quand encadrant·e estime que critere requiert ameliorations majeures~
+\end{itemize}
+
+\verb~configuration.txt~ contient également la configuration des lignes
+générées dans \verb~listeFichesEtudiants.txt~ lors de la phase 1 :
+\begin{verbatim}
+# Delimiteur entre les etudiants dans le fichier avec toutes les fiches nominatives
+==================================================
+
+# Delimiteur entre les soutenances dans les fichiers avec les fiches (nominatives ou generiques)
+---------------------------------------------------------------------------------------
+
+# Delimiteur des commentaires positifs dans les fichiers avec les fiches (nominatives ou generiques)
+# NB : ce delimiteur ne doit pas commencer par le caractere '+' (plus) ou '-' (moins)
+Commentaire/Justification du +
+
+# Delimiteur des commentaires negatifs dans les fichiers avec les fiches (nominatives ou generiques)
+# NB : ce delimiteur ne doit pas commencer par le caractere '+' (plus) ou '-' (moins)
+Commentaire/Justification du -
+\end{verbatim}
+\section{Conclusion}
+\label{sec-8}
+Avec \emph{COS}, nous vous souhaitons des soutenances encore plus
+intéressantes qu'avant ! N'hésitez pas à nous faire des retours sur
+ \href{https://github.com/simatic/COS}{github} ou à \href{mailto:Michel.Simatic@telecom-sudparis.eu}{Michel.Simatic@telecom-sudparis.eu}.
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

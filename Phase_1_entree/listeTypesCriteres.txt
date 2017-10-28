@@ -1,0 +1,3 @@
+# Nom de chaque type de critère
+Fond
+Forme
