@@ -31,65 +31,9 @@ import sys
 def float2str(f, conf):
     ### Converts float f to a string with 1 decimal digit taking into account decimal separator to be used###
     s = "{:.1f}".format(f)
-    if '.' in s and conf.decimalSeparator != '.':
-        s = str2csvStr(s.replace('.', conf.decimalSeparator), conf.csvSeparator)
+    if '.' in s and conf.get("decimalSeparator") != '.':
+        s = str2csvStr(s.replace('.', conf.get("decimalSeparator")), conf.get("csvSeparator"))
     return s
-
-def lookForFloatValue(f, nbLinesRead, isEOF_OK, searchedInfo):
-    """
-    Looks for an float value in file .
-
-    Parameters
-    ----------
-    f : file
-        File descriptor to read
-    nbLinesRead : list containing one int
-        Number of lines read until now in the file. This number is incremented during execution
-    isEOF_OK : bool
-        If true, if EOF is detected, returns an empty string. Otherwise, generates an error.
-    searchedInfo : string
-        Searched info for which lookForNonBlankLine was called
-
-    Returns
-    -------
-    float
-        the int value read.
-    """
-    s = lookForNonBlankLine(f, nbLinesRead, isEOF_OK, searchedInfo)
-    try:
-        result = float(s)
-    except:
-        sys.exit("""ERREUR: Dans le fichier "{}", à la ligne "{}", la valeur du champ "{}" doit être un flottant. Or, c'est la chaîne "{}" qui a été lue. Et, ce n'est pas un flottant ! """.format(
-                    f.name, nbLinesRead[0], searchedInfo, s))
-    return result
-
-def lookForIntValue(f, nbLinesRead, isEOF_OK, searchedInfo):
-    """
-    Looks for an int value in file .
-
-    Parameters
-    ----------
-    f : file
-        File descriptor to read
-    nbLinesRead : list containing one int
-        Number of lines read until now in the file. This number is incremented during execution
-    isEOF_OK : bool
-        If true, if EOF is detected, returns an empty string. Otherwise, generates an error.
-    searchedInfo : string
-        Searched info for which lookForNonBlankLine was called
-
-    Returns
-    -------
-    int
-        the int value read.
-    """
-    s = lookForNonBlankLine(f, nbLinesRead, isEOF_OK, searchedInfo)
-    try:
-        result = int(s)
-    except:
-        sys.exit("""ERREUR: Dans le fichier "{}", à la ligne "{}", la valeur du champ "{}" doit être un entier. Or, c'est la chaîne "{}" qui a été lue. Et, ce n'est pas un flottant ! """.format(
-                    f.name, nbLinesRead[0], searchedInfo, s))
-    return result
 
 def lookForNonBlankLine(f, nbLinesRead, isEOF_OK, searchedInfo):
     """

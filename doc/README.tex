@@ -1,4 +1,4 @@
-% Created 2017-10-28 sam. 16:23
+% Created 2017-10-29 dim. 06:34
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -17,7 +17,7 @@
 \usepackage{hyperref}
 \tolerance=1000
 \author{Michel SIMATIC}
-\date{28/10/2017}
+\date{29/10/2017}
 \title{Manuel Utilisateur de l'outil C.O.S. (Collecte d'Opinions lors de Soutenances)}
 \hypersetup{
   pdfkeywords={},
@@ -289,32 +289,33 @@ Extrayez les fichiers de cette archive de sorte que :
 
 \subsubsection{Le coin du geek (à ne lire que si vous souhaitez en savoir plus)}
 \label{sec-3-1-1}
-Le fichier \verb~configuration.txt~ extrait dépend du système
+Le fichier \verb~configuration.txt~ extrait de l'archive dépend du système
 d'exploitation de la manière suivante :
 \begin{itemize}
-\item en Linux-MacOS, le champ \verb~Encodage des fichiers utilises (lus ou   generes)~ vaut \verb~utf8~ ;
-\item en Windows, il vaut \verb~windows-1252~.
+\item en Linux-MacOS, le champ \verb~encoding~ vaut \verb~utf-8~ ;
+\item en Windows, ce champ vaut \verb~windows-1252~.
 \end{itemize}
 
-Tous les fichiers extraits dépendent du système d'exploitation de la
-manière suivante :
+Tous les fichiers extraits de l'archive dépendent du système
+d'exploitation de la manière suivante :
 \begin{itemize}
-\item en Linux-MacOS, ils sont encodés en \verb~utf8~ avec des retours à la
+\item en Linux-MacOS, ils sont encodés en \verb~utf-8~ avec des retours à la
 ligne simples ;
 \item en Windows, ils sont encodés en \verb~ASCII~ (\verb~windows-1252~) avec des
 retours à la ligne typiques de Windows (\emph{linefeed} suivi de
 \emph{Carriage return}).
 \end{itemize}
 
-Le fichier \verb~configuration.txt~ extrait dépend du tableur de la manière
-suivante :
+Le fichier \verb~configuration.txt~ extrait de l'archive dépend du tableur
+de la manière suivante :
 \begin{itemize}
-\item pour LibreOffice/OpenOffice Calc, le champ \verb~Separateur dans les   fichiers CSV~ vaut "," (virgule, sans les guillements) ;
-\item pour Excel, il vaut ";" (point-virgule, sans les guillements).
+\item pour LibreOffice/OpenOffice Calc, le champ \verb~csvSeparator~ vaut ","
+(virgule, sans les guillements) ;
+\item pour Excel, ce champ vaut ";" (point-virgule, sans les guillements).
 \end{itemize}
 
-Tous les fichiers d'extension \textbf{.csv} extraits dépendent du système d'exploitation de la
-manière suivante :
+Tous les fichiers d'extension \textbf{.csv} extraits de l'archive dépendent
+du système d'exploitation de la manière suivante :
 \begin{itemize}
 \item pour LibreOffice/OpenOffice Calc, le séparateur utilisé est une ","
 (virgule, sans les guillements) ;
@@ -323,24 +324,19 @@ manière suivante :
 
 Remarque : si vous travaillez avec un tableur configuré pour
 interpréter les nombres décimaux à l'américaine (pi s'écrit "3.14" et
-non "3,14", dans \verb~configuration.txt~, il vous faut changer le champ
-\verb~Separateur utilise par votre tableur pour separer la partie entiere et la partie decimale d'un nombre décimal~ en "." (point, sans les
-guillemets) à la place de "," (virgule, sans les guillemets).
+non "3,14"), il vous faut changer, dans \verb~configuration.txt~, le champ
+\verb~decimalSeparator~ en "." (point, sans les guillemets) à la place de
+"," (virgule, sans les guillemets).
 
 \subsection{Configuration de votre nom dans les documents de synthèse générés par COS}
 \label{sec-3-2}
 \begin{itemize}
 \item Éditez le fichier \verb~configuration.txt~ en double-cliquant dessus
 avec un explorateur de fichiers.
-\item Modifiez le champ \verb~Nom de l'encadrant·e~ pour y indiquer le nom sous
-lequel vous souhaitez apparaître dans les documents générés par
-\emph{COS} (par exemple, \verb~Jeanne Dupont~).
-\end{itemize}
-\begin{verbatim}
-# Nom de l'encadrant·e
-Jeanne Dupont
-\end{verbatim}
-\begin{itemize}
+\item Modifiez le champ \verb~teacherName~ pour y indiquer le nom sous lequel
+vous souhaitez apparaître dans les documents générés par \emph{COS}. Par
+exemple, \verb~teacherName = Jeanne Dupont~ si vous souhaitez que
+l'encadrante s'appelle \emph{Jeanne Dupont}.
 \item Sauvegardez le fichier.
 \end{itemize}
 \section{Phase 1 (pré-soutenance)}
@@ -361,20 +357,11 @@ Pour changer la valeur de ce bonus :
 \begin{itemize}
 \item Éditez le fichier \verb~configuration.txt~ en double-cliquant dessus
 avec un explorateur de fichiers.
-\item Modifiez le champ \verb~Bonus sur note etudiant·e si l'etudiant·e juge   critere comme l'encadrant~ pour y indiquer la valeur de ce bonus
-(par exemple, \verb~0.1~). NB : écrivez ce nombre décimal en notation
+\item Modifiez le champ \verb~bonusCriteriaOK~ pour y indiquer la valeur de ce
+bonus. Par exemple, mettez \verb~bonusCriteriaOK = 0.1~ pour indiquer un
+bonus de \emph{0.1}. NB : écrivez ce nombre décimal en notation
 américaine (donc, "." (point) pour séparer la partie entière de la
 partie décimale).
-\end{itemize}
-\begin{verbatim}
-# Bonus sur note etudiant·e si l'etudiant·e juge critere comme l'encadrant
-# NB : Si ce bonus est decimal, utilisez un point ('.') et non une
-#      une virgule (',') pour separer la partie entiere et la pa'rtie decimale.
-#      Par exemple, pour un bonus egal a pi, ecrire (sans les guillemets)
-#      "3.14" et pas "3,14"
-0.1
-\end{verbatim}
-\begin{itemize}
 \item Sauvegardez le fichier.
 \end{itemize}
 \subsubsection{Types des critères d'évaluation}
@@ -626,16 +613,15 @@ décider comment l'exploiter.
 attribuée à chaque critère, pour cette soutenance.
 \item Si vous préférez mettre d'autres valeurs que 0, 1 ou 2, allez
 dans le fichier \verb~configuration.txt~ pour changer les champs
-(NB : actuellement, ces champs doivent être forcément des
-entiers) :
+(NB : actuellement, ces champs doivent être des entiers) :
 \begin{itemize}
-\item \verb~Nombre de points quand encadrant·e estime que critere revele une bonne maitrise~ (valeur actuelle : 2)
-\item \verb~Nombre de points quand encadrant·e estime que critere requiert ameliorations mineures~ (valeur actuelle : 1)
-\item \verb~Nombre de points quand encadrant·e estime que critere requiert ameliorations majeures~ (valeur actuelle : 0)
+\item \verb~pointsCriteriaOK = 2~ (valeur actuelle : 2)
+\item \verb~pointsCriteriaAverage = 1~ (valeur actuelle : 1)
+\item \verb~pointsCriteriaKO = 0~ (valeur actuelle : 0)
 \end{itemize}
 \end{itemize}
-\item La note de bonus (qui, rappelons-le, dépend du champ \verb~Bonus sur     note etudiant·e si l'etudiant·e juge critere comme l'encadrant~
-    dans le fichier \verb~configuration.txt~)
+\item La note de bonus (qui, rappelons-le, dépend du champ
+\verb~bonusCriteriaOK~ dans le fichier \verb~configuration.txt~)
 \item La note finale du module (qui est la somme de ces deux notes).
 \item À vous de décider comment exploiter \verb~notesEtudiants.csv~.
 \end{itemize}
@@ -657,51 +643,37 @@ modifiant le champ correspondant à ce fichier dans le fichier
 
 Imaginons, par exemple, que vous n'êtes pas satisfait du fait que le
 fichier des retours des étudiants s'appelle \verb~reponsesEtudiants.txt~ et
-est stocké dans \verb~Phase_2_entree~. Il faut la partie correspondante de
-\verb~configuration.txt~. Elle vaut actuellement :
-\begin{verbatim}
-# Nom du fichier contenant la version remplie des fiches nominatives
-# des etudiant·e·s (cf. outputListeFichesEtudiants.txt)
-Phase_2_entree/reponsesEtudiants.txt
-\end{verbatim}
+est stocké dans \verb~Phase_2_entree~. Il faut alors changer la valeur du
+champ \verb~filledNominativeSheetsFilename~.
 
 Si vous voulez que le fichier s'appelle désormais
 \verb~retoursDesEtudiants.txt~ et soit stocké au même niveau que le fichier
-\verb~configuration.txt~, il faut modifier \verb~configuration.txt~ de la
-manière suivante :
-\begin{verbatim}
-# Nom du fichier contenant la version remplie des fiches nominatives
-# des etudiant·e·s (cf. outputListeFichesEtudiants.txt)
-retoursDesEtudiants.txt
-\end{verbatim}
+\verb~configuration.txt~, il faut modifier \verb~configuration.txt~ en écrivant :
+
+\verb~filledNominativeSheetsFilename = retoursDesEtudiants.txt~
 \subsection{Changement des valeurs par défaut}
 \label{sec-7-2}
 Nous avons déjà évoqué comment (et pourquoi) changer dans
 \verb~configuration.txt~:
 \begin{itemize}
-\item \verb~Bonus sur note etudiant·e si l'etudiant·e juge    critere comme l'encadrant~
-\item \verb~Nombre de points quand encadrant·e estime que critere revele une bonne maitrise~
-\item \verb~Nombre de points quand encadrant·e estime que critere requiert ameliorations mineures~
-\item \verb~Nombre de points quand encadrant·e estime que critere requiert ameliorations majeures~
+\item \verb~bonusCriteriaOK~
+\item \verb~pointsCriteriaOK~
+\item \verb~pointsCriteriaAverage~
+\item \verb~pointsCriteriaKO~
 \end{itemize}
 
 \verb~configuration.txt~ contient également la configuration des lignes
 générées dans \verb~listeFichesEtudiants.txt~ lors de la phase 1 :
-\begin{verbatim}
-# Delimiteur entre les etudiants dans le fichier avec toutes les fiches nominatives
-==================================================
-
-# Delimiteur entre les soutenances dans les fichiers avec les fiches (nominatives ou generiques)
----------------------------------------------------------------------------------------
-
-# Delimiteur des commentaires positifs dans les fichiers avec les fiches (nominatives ou generiques)
-# NB : ce delimiteur ne doit pas commencer par le caractere '+' (plus) ou '-' (moins)
-Commentaire/Justification du +
-
-# Delimiteur des commentaires negatifs dans les fichiers avec les fiches (nominatives ou generiques)
-# NB : ce delimiteur ne doit pas commencer par le caractere '+' (plus) ou '-' (moins)
-Commentaire/Justification du -
-\end{verbatim}
+\begin{itemize}
+\item \verb~studentBound~ (Délimiteur entre les etudiants dans le fichier avec
+toutes les fiches nominatives)
+\item \verb~defenseBound~ (Délimiteur entre les soutenances dans les fichiers
+avec les fiches (nominatives ou génériques))
+\item \verb~positiveCommentBound~ (Délimiteur des commentaires positifs dans
+les fichiers avec les fiches (nominatives ou generiques))
+\item \verb~negativeCommentBound~ (Délimiteur des commentaires négatifs dans
+les fichiers avec les fiches (nominatives ou generiques))
+\end{itemize}
 \section{Conclusion}
 \label{sec-8}
 Avec \emph{COS}, nous vous souhaitons des soutenances encore plus

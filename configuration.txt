@@ -10,23 +10,23 @@
 ######################################################################
 
 # Nom de l'encadrant·e
-Jeanne Dupont
+teacherName = Jeanne Dupont
 
 # Bonus sur note etudiant·e si l'etudiant·e juge critere comme l'encadrant
 # NB : Si ce bonus est decimal, utilisez un point ('.') et non une
 #      une virgule (',') pour separer la partie entiere et la pa'rtie decimale.
 #      Par exemple, pour un bonus egal a pi, ecrire (sans les guillemets)
 #      "3.14" et pas "3,14"
-0.1
+bonusCriteriaOK = 0.1
 
 # Nombre de points quand encadrant·e estime que critere revele une bonne maitrise
-2
+pointsCriteriaOK = 2
 
 # Nombre de points quand encadrant·e estime que critere requiert ameliorations mineures
-1
+pointsCriteriaAverage = 1
 
 # Nombre de points quand encadrant·e estime que critere requiert ameliorations majeures
-0
+pointsCriteriaKO = 0
 
 
 ######################################################################
@@ -35,16 +35,16 @@ Jeanne Dupont
 ######################################################################
 
 # Nom du fichier contenant la liste des soutenances
-Phase_1_entree/listeSoutenances.txt
+defensesFilename= Phase_1_entree/listeSoutenances.txt
 
 # Nom du fichier contenant la liste des etudiant·e·s
-Phase_1_entree/listeEtudiants.csv
+studentsFilename= Phase_1_entree/listeEtudiants.csv
 
 # Nom du fichier contenant la liste des types de criteres
-Phase_1_entree/listeTypesCriteres.txt
+criteriaTypesFilename = Phase_1_entree/listeTypesCriteres.txt
 
 # Nom du fichier contenant la liste des criteres
-Phase_1_entree/listeCriteres.csv
+criteriasFilename = Phase_1_entree/listeCriteres.csv
 
 
 ######################################################################
@@ -52,16 +52,16 @@ Phase_1_entree/listeCriteres.csv
 ######################################################################
 
 # Nom du fichier contenant toutes les fiches nominatives des etudiant·e·s
-Phase_1_sortie/listeFichesEtudiants.txt
+nominativeSheetsFilename = Phase_1_sortie/listeFichesEtudiants.txt
 
 # Nom du fichier contenant une fiche generique a imprimer pour un etudiant·e
 # qui n'est pas en mesure de remplir le fichier precedent (par exemple, parce
 # qu'il·elle n'a pas d'ordinateur
-Phase_1_sortie/ficheGeneriqueEtudiant.txt
+genericSheetFilename = Phase_1_sortie/ficheGeneriqueEtudiant.txt
 
 # Nom du fichier contenant la structure de base du fichier d'evaluation de
 # l'encadrant
-Phase_1_sortie/canevasNotesEncadrant.csv
+genericTeacherMarksFilename = Phase_1_sortie/canevasNotesEncadrant.csv
 
 ######################################################################
 # Fichiers quand la phase de travail est la phase 2 (option '-2')
@@ -69,18 +69,18 @@ Phase_1_sortie/canevasNotesEncadrant.csv
 
 # Nom du fichier contenant la version remplie des fiches nominatives
 # des etudiant·e·s (cf. outputListeFichesEtudiants.txt)
-Phase_2_entree/reponsesEtudiants.txt
+filledNominativeSheetsFilename = Phase_2_entree/reponsesEtudiants.txt
 
 # Nom du fichier contenant les notes de l'encadrant·e et ses commentaires
 # pour chaque critere
-Phase_2_entree/notesEncadrant.csv
+teacherMarksFilename = Phase_2_entree/notesEncadrant.csv
 
 # Nom du fichier contenant la synthese des commentaires trouves dans le
 # fichier reponsesEtudiants.txt
-Phase_2_sortie/syntheseCommentaires.txt
+synthesisCommentsFilename = Phase_2_sortie/syntheseCommentaires.txt
 
 # Nom du fichier contenant les notes des etudiant·e·s
-Phase_2_sortie/notesEtudiants.csv
+studentsMarksSheetFilename = Phase_2_sortie/notesEtudiants.csv
 
 
 ######################################################################
@@ -91,31 +91,31 @@ Phase_2_sortie/notesEtudiants.csv
 # Valeurs possibles (sans les guillemets) :
 #   - "," (virgule) si vous utilisez LibreOffice Calc
 #   - ";" (point-virgule) si vous utilisez Excel
-;
+csvSeparator = ;
 
 # Separateur utilise par votre tableur pour separer la partie entiere et
 # la partie decimale d'un nombre décimal
 # Valeurs possibles (sans les guillemets) :
 #   - "," (virgule) comme, par exemple, dans "3,14"
 #   - "." (point) comme, par exemple, dans "3.14"
-,
+decimalSeparator = ,
 
 # Encodage des fichiers utilises (lus ou generes)
 # Valeurs possibles (sans les guillemets) :
-#   - "utf8" pour Unix
+#   - "utf-8" pour Unix
 #   - "windows-1252" pour Windows
-utf8
+encoding = utf-8
 
 # Delimiteur entre les etudiants dans le fichier avec toutes les fiches nominatives
-==================================================
+studentBound = ==================================================
 
 # Delimiteur entre les soutenances dans les fichiers avec les fiches (nominatives ou generiques)
----------------------------------------------------------------------------------------
+defenseBound = ---------------------------------------------------------------------------------------
 
 # Delimiteur des commentaires positifs dans les fichiers avec les fiches (nominatives ou generiques)
 # NB : ce delimiteur ne doit pas commencer par le caractere '+' (plus) ou '-' (moins)
-Commentaire/Justification du +
+positiveCommentBound = Commentaire/Justification du +
 
 # Delimiteur des commentaires negatifs dans les fichiers avec les fiches (nominatives ou generiques)
 # NB : ce delimiteur ne doit pas commencer par le caractere '+' (plus) ou '-' (moins)
-Commentaire/Justification du -
+negativeCommentBound = Commentaire/Justification du -

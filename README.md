@@ -340,50 +340,45 @@ Extrayez les fichiers de cette archive de sorte que :
 
 ### Le coin du geek (à ne lire que si vous souhaitez en savoir plus)<a id="sec-3-1-1" name="sec-3-1-1"></a>
 
-Le fichier `configuration.txt` extrait dépend du système
+Le fichier `configuration.txt` extrait de l'archive dépend du système
 d'exploitation de la manière suivante :
--   en Linux-MacOS, le champ `Encodage des fichiers utilises (lus ou
-      generes)` vaut `utf8` ;
--   en Windows, il vaut `windows-1252`.
+-   en Linux-MacOS, le champ `encoding` vaut `utf-8` ;
+-   en Windows, ce champ vaut `windows-1252`.
 
-Tous les fichiers extraits dépendent du système d'exploitation de la
-manière suivante :
--   en Linux-MacOS, ils sont encodés en `utf8` avec des retours à la
+Tous les fichiers extraits de l'archive dépendent du système
+d'exploitation de la manière suivante :
+-   en Linux-MacOS, ils sont encodés en `utf-8` avec des retours à la
     ligne simples ;
 -   en Windows, ils sont encodés en `ASCII` (`windows-1252`) avec des
     retours à la ligne typiques de Windows (*linefeed* suivi de
     *Carriage return*).
 
-Le fichier `configuration.txt` extrait dépend du tableur de la manière
-suivante :
--   pour LibreOffice/OpenOffice Calc, le champ `Separateur dans les
-      fichiers CSV` vaut "," (virgule, sans les guillements) ;
--   pour Excel, il vaut ";" (point-virgule, sans les guillements).
+Le fichier `configuration.txt` extrait de l'archive dépend du tableur
+de la manière suivante :
+-   pour LibreOffice/OpenOffice Calc, le champ `csvSeparator` vaut ","
+    (virgule, sans les guillements) ;
+-   pour Excel, ce champ vaut ";" (point-virgule, sans les guillements).
 
-Tous les fichiers d'extension **.csv** extraits dépendent du système d'exploitation de la
-manière suivante :
+Tous les fichiers d'extension **.csv** extraits de l'archive dépendent
+du système d'exploitation de la manière suivante :
 -   pour LibreOffice/OpenOffice Calc, le séparateur utilisé est une ","
     (virgule, sans les guillements) ;
 -   pour Excel, c'est ";" (point-virgule, sans les guillements).
 
 Remarque : si vous travaillez avec un tableur configuré pour
 interpréter les nombres décimaux à l'américaine (pi s'écrit "3.14" et
-non "3,14", dans `configuration.txt`, il vous faut changer le champ
-`Separateur utilise par votre tableur pour separer la partie entiere
-et la partie decimale d'un nombre décimal` en "." (point, sans les
-guillemets) à la place de "," (virgule, sans les guillemets).
+non "3,14"), il vous faut changer, dans `configuration.txt`, le champ
+`decimalSeparator` en "." (point, sans les guillemets) à la place de
+"," (virgule, sans les guillemets).
 
 ## Configuration de votre nom dans les documents de synthèse générés par COS<a id="sec-3-2" name="sec-3-2"></a>
 
 -   Éditez le fichier `configuration.txt` en double-cliquant dessus
     avec un explorateur de fichiers.
--   Modifiez le champ `Nom de l'encadrant·e` pour y indiquer le nom sous
-    lequel vous souhaitez apparaître dans les documents générés par
-    *COS* (par exemple, `Jeanne Dupont`).
-
-    # Nom de l'encadrant·e
-    Jeanne Dupont
-
+-   Modifiez le champ `teacherName` pour y indiquer le nom sous lequel
+    vous souhaitez apparaître dans les documents générés par *COS*. Par
+    exemple, `teacherName = Jeanne Dupont` si vous souhaitez que
+    l'encadrante s'appelle *Jeanne Dupont*.
 -   Sauvegardez le fichier.
 
 # Phase 1 (pré-soutenance)<a id="sec-4" name="sec-4"></a>
@@ -403,19 +398,11 @@ soutenance.
 Pour changer la valeur de ce bonus :
 -   Éditez le fichier `configuration.txt` en double-cliquant dessus
     avec un explorateur de fichiers.
--   Modifiez le champ `Bonus sur note etudiant·e si l'etudiant·e juge
-      critere comme l'encadrant` pour y indiquer la valeur de ce bonus
-    (par exemple, `0.1`). NB : écrivez ce nombre décimal en notation
+-   Modifiez le champ `bonusCriteriaOK` pour y indiquer la valeur de ce
+    bonus. Par exemple, mettez `bonusCriteriaOK = 0.1` pour indiquer un
+    bonus de *0.1*. NB : écrivez ce nombre décimal en notation
     américaine (donc, "." (point) pour séparer la partie entière de la
     partie décimale).
-
-    # Bonus sur note etudiant·e si l'etudiant·e juge critere comme l'encadrant
-    # NB : Si ce bonus est decimal, utilisez un point ('.') et non une
-    #      une virgule (',') pour separer la partie entiere et la pa'rtie decimale.
-    #      Par exemple, pour un bonus egal a pi, ecrire (sans les guillemets)
-    #      "3.14" et pas "3,14"
-    0.1
-
 -   Sauvegardez le fichier.
 
 ### Types des critères d'évaluation<a id="sec-4-1-2" name="sec-4-1-2"></a>
@@ -643,14 +630,12 @@ répertoire `Phase_2_sortie` :
             attribuée à chaque critère, pour cette soutenance.
         -   Si vous préférez mettre d'autres valeurs que 0, 1 ou 2, allez
             dans le fichier `configuration.txt` pour changer les champs
-            (NB : actuellement, ces champs doivent être forcément des
-            entiers) :
-            -   `Nombre de points quand encadrant·e estime que critere revele une bonne maitrise` (valeur actuelle : 2)
-            -   `Nombre de points quand encadrant·e estime que critere requiert ameliorations mineures` (valeur actuelle : 1)
-            -   `Nombre de points quand encadrant·e estime que critere requiert ameliorations majeures` (valeur actuelle : 0)
-    -   La note de bonus (qui, rappelons-le, dépend du champ `Bonus sur
-            note etudiant·e si l'etudiant·e juge critere comme l'encadrant`
-            dans le fichier `configuration.txt`)
+            (NB : actuellement, ces champs doivent être des entiers) :
+            -   `pointsCriteriaOK = 2` (valeur actuelle : 2)
+            -   `pointsCriteriaAverage = 1` (valeur actuelle : 1)
+            -   `pointsCriteriaKO = 0` (valeur actuelle : 0)
+    -   La note de bonus (qui, rappelons-le, dépend du champ
+        `bonusCriteriaOK` dans le fichier `configuration.txt`)
     -   La note finale du module (qui est la somme de ces deux notes).
     -   À vous de décider comment exploiter `notesEtudiants.csv`.
 
@@ -672,48 +657,34 @@ modifiant le champ correspondant à ce fichier dans le fichier
 
 Imaginons, par exemple, que vous n'êtes pas satisfait du fait que le
 fichier des retours des étudiants s'appelle `reponsesEtudiants.txt` et
-est stocké dans `Phase_2_entree`. Il faut la partie correspondante de
-`configuration.txt`. Elle vaut actuellement :
-
-    # Nom du fichier contenant la version remplie des fiches nominatives
-    # des etudiant·e·s (cf. outputListeFichesEtudiants.txt)
-    Phase_2_entree/reponsesEtudiants.txt
+est stocké dans `Phase_2_entree`. Il faut alors changer la valeur du
+champ `filledNominativeSheetsFilename`.
 
 Si vous voulez que le fichier s'appelle désormais
 `retoursDesEtudiants.txt` et soit stocké au même niveau que le fichier
-`configuration.txt`, il faut modifier `configuration.txt` de la
-manière suivante :
+`configuration.txt`, il faut modifier `configuration.txt` en écrivant :
 
-    # Nom du fichier contenant la version remplie des fiches nominatives
-    # des etudiant·e·s (cf. outputListeFichesEtudiants.txt)
-    retoursDesEtudiants.txt
+`filledNominativeSheetsFilename = retoursDesEtudiants.txt`
 
 ## Changement des valeurs par défaut<a id="sec-7-2" name="sec-7-2"></a>
 
 Nous avons déjà évoqué comment (et pourquoi) changer dans
 `configuration.txt`:
--   `Bonus sur note etudiant·e si l'etudiant·e juge
-       critere comme l'encadrant`
--   `Nombre de points quand encadrant·e estime que critere revele une bonne maitrise`
--   `Nombre de points quand encadrant·e estime que critere requiert ameliorations mineures`
--   `Nombre de points quand encadrant·e estime que critere requiert ameliorations majeures`
+-   `bonusCriteriaOK`
+-   `pointsCriteriaOK`
+-   `pointsCriteriaAverage`
+-   `pointsCriteriaKO`
 
 `configuration.txt` contient également la configuration des lignes
 générées dans `listeFichesEtudiants.txt` lors de la phase 1 :
-
-    # Delimiteur entre les etudiants dans le fichier avec toutes les fiches nominatives
-    ==================================================
-    
-    # Delimiteur entre les soutenances dans les fichiers avec les fiches (nominatives ou generiques)
-    ---------------------------------------------------------------------------------------
-    
-    # Delimiteur des commentaires positifs dans les fichiers avec les fiches (nominatives ou generiques)
-    # NB : ce delimiteur ne doit pas commencer par le caractere '+' (plus) ou '-' (moins)
-    Commentaire/Justification du +
-    
-    # Delimiteur des commentaires negatifs dans les fichiers avec les fiches (nominatives ou generiques)
-    # NB : ce delimiteur ne doit pas commencer par le caractere '+' (plus) ou '-' (moins)
-    Commentaire/Justification du -
+-   `studentBound` (Délimiteur entre les etudiants dans le fichier avec
+    toutes les fiches nominatives)
+-   `defenseBound` (Délimiteur entre les soutenances dans les fichiers
+    avec les fiches (nominatives ou génériques))
+-   `positiveCommentBound` (Délimiteur des commentaires positifs dans
+    les fichiers avec les fiches (nominatives ou generiques))
+-   `negativeCommentBound` (Délimiteur des commentaires négatifs dans
+    les fichiers avec les fiches (nominatives ou generiques))
 
 # Conclusion<a id="sec-8" name="sec-8"></a>
 
