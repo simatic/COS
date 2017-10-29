@@ -1,4 +1,4 @@
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 """
  This file is part of COS : Collecte d'Opinions lors de Soutenances
