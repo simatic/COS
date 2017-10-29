@@ -2,7 +2,7 @@
 *~
 *.bak
 *.BAK
-manuelUtilisateur.tex
+README.tex
 
 #Byte-compiled / optimized / DLL files
 __pycache__/
