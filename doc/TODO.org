@@ -1,6 +1,7 @@
 #+TITLE: Synthèse de ce qui reste à faire sur le programme Python
 #+AUTHOR: Michel SIMATIC
-#+DATE:   28/10/2017
+#+DATE:   29/10/2017
 
+* TODO Fournir une interface graphique facilitant l'utilisation de /COS/
 * TODO Générer un fichier (en phase 2) qui, pour chaque étudiant, pour chaque projet, rappelle les votes qu'il a fait et met en regard ce qu'a mis le teacher.
 * TODO Prévoir un système permettant que les messages d'erreur soient en anglais ou en français.
