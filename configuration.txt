@@ -104,7 +104,7 @@ decimalSeparator = ,
 # Valeurs possibles :
 #     encoding = utf-8           # Pour Unix et Mac
 #     encoding = windows-1252    # Pour Windows
-encoding = windows-1252
+encoding = utf-8
 
 # Specifie si la date et l'heure doivent etre inserees dans les fichiers
 # generes par COS 

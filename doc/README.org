@@ -303,7 +303,7 @@ Pour changer la liste des types de critères d'évaluation :
   ~Fond~ et ~Forme~, la ligne ~# Nom de chaque type de critère~ étant
   un commentaire.
 #+BEGIN_EXAMPLE
-# Nom de chaque type de critère
+ # Nom de chaque type de critère
 Fond
 Forme
 #+END_EXAMPLE
@@ -337,7 +337,7 @@ Pour changer la liste des types de critères d'évaluation :
   ~Eugénie Grandet~, ~La Touche étoile~ et ~... Et mon tout est un
   homme~, la ligne ~# Nom de chaque soutenance~ étant un commentaire.
 #+BEGIN_EXAMPLE
-# Nom de chaque soutenance
+ # Nom de chaque soutenance
 Eugénie Grandet
 La Touche étoile
 ... Et mon tout est un homme
@@ -556,6 +556,18 @@ générées dans ~listeFichesEtudiants.txt~ lors de la phase 1 :
 - ~negativeCommentBound~ (Délimiteur des commentaires négatifs dans
   les fichiers avec les fiches (nominatives ou generiques))
 * Conclusion
-Avec /COS/, nous vous souhaitons des soutenances encore plus
-intéressantes qu'avant ! N'hésitez pas à nous faire des retours sur
- [[https://github.com/simatic/COS][github]] ou à [[mailto:Michel.Simatic@telecom-sudparis.eu][Michel.Simatic@telecom-sudparis.eu]].
+Nous espérons que /COS/ sera une invitation, pour vos étudiants, à
+changer d'angle de vue pendant les soutenances. Et, nous nous vous
+souhaitons des soutenances encore plus intéressantes qu'avant !
+N'hésitez pas à nous faire des retours sur [[https://github.com/simatic/COS][github]] ou à
+[[mailto:Michel.Simatic@telecom-sudparis.eu][Michel.Simatic@telecom-sudparis.eu]].
+* Remerciements
+/COS/ n'aurait jamais vu le jour sans :
+- Myriam Davidovici-Nora, Maître de Conférences à Télécom-ParisTech,
+  qui est l'auteur des critères listés dans le fichier
+  ~listeCriteres.txt~ fourni avec /COS/, et du barème associé,
+- Racha Hallal, ingénieure pédagogique à Télécom SudParis, dont les
+  remarques judicieuses ont permis et permettent encore d'amilorer
+  /COS/,
+- les étudiants de l'[[http://jin.telecom-sudparis.eu/][option JIN]] qui ont permis de tester l'intérêt de
+  /COS/.
