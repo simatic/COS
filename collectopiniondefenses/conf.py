@@ -34,6 +34,7 @@ floatConfKeys = [
 ]
 
 intConfKeys = [
+    "insertDateInFilename",
     "pointsCriteriaAverage",
     "pointsCriteriaKO",
     "pointsCriteriaOK"

@@ -500,23 +500,32 @@ répertoire ~Phase_2_sortie~ :
   - À vous de décider comment exploiter ~notesEtudiants.csv~.
 * Changement des noms ou des valeurs utilisés par défaut
 ** Changement des noms de fichier
-*** configuration.txt
+*** Ajout automatique de la date dans le nom des fichiers générés
+À chaque fois que vous exécutez /COS/, les fichiers qu'il génère
+écrase les anciens fichiers présents dans ~Phase_1_sortie~ et
+~Phase_1_sortie~. Vous pouvez demander à /COS/ de générer un fichier à
+chaque fois différent. Pour ce faire, dans ~configuration.txt~, mettre
+~insertDateInFilename = 0~. Les fichiers générés incluent désormais la
+date et l'heure d'éxécution de /COS/. Par exemple, au lieu de générer
+le fichier ~listeFichesEtudiants.txt~, /COS/ génère le fichier
+~listeFichesEtudiants_2017-10-29_07:15:21.txt~.
+*** Renommage de configuration.txt
 Si vous souhaitez que le fichier ~configuration.txt~ s'appelle
 autrement, renommez-le et modifiez le nom dans ~cos.sh~ (si vous êtes
 sous Linux/MacOS) et ~cos.bat~ (si vous êtes sous Windows).
-*** Autres fichiers
-Le nom des autres fichiers et leur localisation peut être changé en
-modifiant le champ correspondant à ce fichier dans le fichier
+*** Renommage des fichiers autres que configuration.txt
+Le nom des autres fichiers et leur localisation peuvent être changés
+en modifiant le champ correspondant à ce fichier dans le fichier
 ~configuration.txt~.
 
 Imaginons, par exemple, que vous n'êtes pas satisfait du fait que le
 fichier des retours des étudiants s'appelle ~reponsesEtudiants.txt~ et
 est stocké dans ~Phase_2_entree~. Il faut alors changer la valeur du
-champ ~filledNominativeSheetsFilename~.
-
-Si vous voulez que le fichier s'appelle désormais
+champ ~filledNominativeSheetsFilename~. Par exemple, supposons que
+vous voulez que le fichier s'appelle désormais
 ~retoursDesEtudiants.txt~ et soit stocké au même niveau que le fichier
-~configuration.txt~, il faut modifier ~configuration.txt~ en écrivant :
+~configuration.txt~, il faut modifier ~configuration.txt~ en
+écrivant :
 
 ~filledNominativeSheetsFilename = retoursDesEtudiants.txt~
 ** Changement des valeurs par défaut

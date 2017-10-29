@@ -26,8 +26,9 @@
  Developer(s): Michel Simatic
 """
 
-import sys
+import datetime
 from operator import itemgetter
+import sys
 
 from conf import Conf
 from criteria import Criteria
@@ -164,6 +165,14 @@ def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
                         students[studentIndex].bonus += conf.get("bonusCriteriaOK")  
     f.close()
 
+def key2ouputFileName(key, conf, dateTime):
+    """ Converts a key to a name for an output file """
+    name = conf.get(key)
+    if conf.get("insertDateInFilename") == 1:
+        pos = name.rfind(".")
+        name = name[:pos] + '_' + dateTime.replace(" ","_") + name[pos:]
+    return name
+
 def writeDefenseSheet(conf, f, defense, criteriaTypes, criterias):
     """ For defense defense, writes a criteria sheet in file f """
     f.write("{}\n{}\n{}\n".format(conf.get("defenseBound"), defense.name, conf.get("defenseBound")))
@@ -175,7 +184,7 @@ def writeDefenseSheet(conf, f, defense, criteriaTypes, criterias):
     for opinionType in list_opinions:
         f.write("{}\n\n\n".format(conf.getCommentBound(opinionType)))
 
-def generateModels(conf, defenses, students, criteriaTypes, criterias):
+def generateModels(conf, defenses, students, criteriaTypes, criterias, dateTime):
     """
     Generates models in conf.get("nominativeSheetsFilename"), conf.get("genericSheetFilename") and conf.get("genericTeacherMarksFilename")
 
@@ -191,6 +200,8 @@ def generateModels(conf, defenses, students, criteriaTypes, criterias):
         List of criteria types
     criterias : liste of Criteria
         List of criterias
+    dateTime : str
+        String containing date and time to be used in name of output files
 
     Returns
     -------
@@ -199,7 +210,7 @@ def generateModels(conf, defenses, students, criteriaTypes, criterias):
     #
     # Generate conf.get("nominativeSheetsFilename")
     #
-    f = openWithErrorManagement(conf.get("nominativeSheetsFilename"), "w", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2ouputFileName("nominativeSheetsFilename", conf, dateTime), "w", encoding=conf.get("encoding"))
     for student in students:
         f.write("{}\n{} ({})\n{}\n".format(conf.get("studentBound"), student.name, student.defense.name, conf.get("studentBound")))
         for defense in defenses:
@@ -210,7 +221,7 @@ def generateModels(conf, defenses, students, criteriaTypes, criterias):
     #
     # Generate conf.get("genericSheetFilename")
     #
-    f = openWithErrorManagement(conf.get("genericSheetFilename"), "w", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2ouputFileName("genericSheetFilename", conf, dateTime), "w", encoding=conf.get("encoding"))
     f.write("{}\n\nNOM Prénom :                                       Soutenance :\n\n{}\n\n".format(conf.get("studentBound"), conf.get("studentBound")))
     for defense in defenses:
         writeDefenseSheet(conf, f, defense, criteriaTypes, criterias)
@@ -219,7 +230,7 @@ def generateModels(conf, defenses, students, criteriaTypes, criterias):
     #
     # Generate conf.get("genericTeacherMarksFilename")
     #
-    f = openWithErrorManagement(conf.get("genericTeacherMarksFilename"), "w", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2ouputFileName("genericTeacherMarksFilename", conf, dateTime), "w", encoding=conf.get("encoding"))
     # Generate the title of the columns
     for defense in defenses:
         f.write("{}{}".format(conf.get("csvSeparator"), str2csvStr(defense.name, conf.get("csvSeparator"))))
@@ -384,7 +395,7 @@ def findName(name, searchedList, nbLinesRead, f, nameType):
         sys.exit("""ERREUR: Dans le fichier "{}", à la ligne {}, le nom "{}" n'existe pas dans le fichier des "{}".""".format(f.name, nbLinesRead[0], name, nameType))
     return index
 
-def generateResults(conf, defenses, students, criteriaTypes, criterias):
+def generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime):
     """
     Generates files conf.get("synthesisCommentsFilename") and conf.get("studentsMarksSheetFilename")
 
@@ -402,6 +413,8 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias):
         List of criteria types
     criterias : liste of Criteria
         List of criterias
+    dateTime : str
+        String containing date and time to be used in name of output files
 
     Returns
     -------
@@ -411,7 +424,7 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias):
     #
     # Generate conf.get("synthesisCommentsFilename")
     #
-    f = openWithErrorManagement(conf.get("synthesisCommentsFilename"), "w", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2ouputFileName("synthesisCommentsFilename", conf, dateTime), "w", encoding=conf.get("encoding"))
     for defenseIndex in list(range(len(defenses))):
         # We cound how many '+' and '-' there are for each criteria
         nbPosNeg = [ [], [] ]
@@ -454,7 +467,7 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias):
     #
     # Generate conf.get("studentsMarksSheetFilename")
     #
-    f = openWithErrorManagement(conf.get("studentsMarksSheetFilename"), "w", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2ouputFileName("studentsMarksSheetFilename", conf, dateTime), "w", encoding=conf.get("encoding"))
     f.write("Nom etudiant{}Note donnee par {} a la soutenance{}Bonus opinion{}Note finale module\n".format(
         conf.get("csvSeparator"), conf.get("teacherName"), conf.get("csvSeparator"), conf.get("csvSeparator")))
     for student in students:
@@ -574,14 +587,21 @@ def main():
     f.close()
     
     #
+    # Prepare dateTime string which may be used for names of output files
+    #
+    date = datetime.datetime.now()
+    s = str(date)
+    dateTime = s[:s.find('.')]
+    
+    #
     # Remaining work depends on what the user asks for
     #
     if sys.argv[1][1] == '1':
-        generateModels(conf, defenses, students, criteriaTypes, criterias);
+        generateModels(conf, defenses, students, criteriaTypes, criterias, dateTime);
     else:
         analyzeTeacherData(conf, defenses, criteriaTypes, criterias);
         analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias);
-        generateResults(conf, defenses, students, criteriaTypes, criterias);
+        generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime);
 
     #
     # We display an end of execution message
@@ -589,11 +609,14 @@ def main():
     if sys.argv[1][1] == '1':
         print("""OK, exécution de la phase {} terminée : les fichiers "{}", "{}" et "{}" ont été générés.""".format(
                 sys.argv[1][1],
-                conf.get("nominativeSheetsFilename"), conf.get("genericSheetFilename"), conf.get("genericTeacherMarksFilename")))
+                key2ouputFileName("nominativeSheetsFilename", conf, dateTime),
+                key2ouputFileName("genericSheetFilename", conf, dateTime),
+                key2ouputFileName("genericTeacherMarksFilename", conf, dateTime)))
     else:
         print("""OK, exécution de la phase {} terminée : les fichiers "{}" et "{}" ont été générés.""".format(
                 sys.argv[1][1],
-                conf.get("synthesisCommentsFilename"), conf.get("studentsMarksSheetFilename")))
+                key2ouputFileName("synthesisCommentsFilename", conf, dateTime), 
+                key2ouputFileName("studentsMarksSheetFilename", conf, dateTime)))
     print()
     
     return

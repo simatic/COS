@@ -106,6 +106,13 @@ decimalSeparator = ,
 #   - "windows-1252" pour Windows
 encoding = utf-8
 
+# Specifie si la date et l'heure doivent etre inserees dans les fichiers
+# generes par COS 
+# Valeurs possibles (sans les guillemets) :
+#   - "1" (un) Oui
+#   - "0" (zéro) Non
+insertDateInFilename = 0
+
 # Delimiteur entre les etudiants dans le fichier avec toutes les fiches nominatives
 studentBound = ==================================================
 
