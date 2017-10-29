@@ -75,13 +75,14 @@
 </ul>
 </li>
 <li><a href="#sec-8">8. Conclusion</a></li>
+<li><a href="#sec-9">9. Remerciements</a></li>
 </ul>
 </div>
 </div>
 
 
 
-    # Introduction<a id="sec-1" name="sec-1"></a>
+# Introduction<a id="sec-1" name="sec-1"></a>
 
 Lorsqu'un enseignant fait passer une soutenance à certains étudiants
 d'une classe, souvent, il demande aux autres étudiants de la classe
@@ -415,15 +416,10 @@ exemple, "Fond", "Forme", etc.).
 Pour changer la liste des types de critères d'évaluation :
 -   Éditez le fichier `Phase_1_entree/listeTypesCriteres.txt` en
     double-cliquant dessus avec un explorateur de fichiers.
--   Modifiez la liste des types de critère. L'exemple définit les types
-    `Fond` et `Forme`, la ligne `# Nom de chaque type de critère` étant
-    un commentaire.
-
-    # Nom de chaque type de critère
-    Fond
-    Forme
-
--   Sauvegardez le fichier.
+-   Modifiez la liste des types de critère. L'exemple fourni définit les
+    types `Fond` et `Forme`. Notez que, dans ce fichier, les '#' et tout
+    ce qui est à droite des '#' est ignoré ! la ligne `# Nom
+      de chaque type de critère` est ignorée par *COS*.
 
 ### Critères d'évaluation<a id="sec-4-1-3" name="sec-4-1-3"></a>
 
@@ -453,15 +449,11 @@ par les étudiants et l'enseignant).
 Pour changer la liste des types de critères d'évaluation :
 -   Éditez le fichier `Phase_1_entree/listeSoutenances.txt` en
     double-cliquant dessus avec un explorateur de fichiers.
--   Modifiez la liste des soutenances. L'exemple définit 3 soutenances
-    `Eugénie Grandet`, `La Touche étoile` et `... Et mon tout est un
-      homme`, la ligne `# Nom de chaque soutenance` étant un commentaire.
-
-    # Nom de chaque soutenance
-    Eugénie Grandet
-    La Touche étoile
-    ... Et mon tout est un homme
-
+-   Modifiez la liste des soutenances. L'exemple fourni définit 3
+    soutenances `Eugénie Grandet`, `La Touche étoile` et `... Et mon
+      tout est un homme`. Notez que, dans ce fichier, les '#' et tout ce
+    qui est à droite des '#' est ignoré : la ligne `# Nom de
+      chaque soutenance` est ignorée par *COS*.
 -   Sauvegardez le fichier.
 
 ### Liste des étudiants<a id="sec-4-1-5" name="sec-4-1-5"></a>
@@ -712,6 +704,22 @@ générées dans `listeFichesEtudiants.txt` lors de la phase 1 :
 
 # Conclusion<a id="sec-8" name="sec-8"></a>
 
-Avec *COS*, nous vous souhaitons des soutenances encore plus
-intéressantes qu'avant ! N'hésitez pas à nous faire des retours sur
- [github](https://github.com/simatic/COS) ou à [Michel.Simatic@telecom-sudparis.eu](Michel.Simatic@telecom-sudparis.eu).
+Nous espérons que *COS* sera une invitation, pour vos étudiants, à
+changer d'angle de vue pendant les soutenances. Et, nous nous vous
+souhaitons des soutenances encore plus intéressantes qu'avant !
+N'hésitez pas à nous faire des retours sur [github](https://github.com/simatic/COS) ou à
+[Michel.Simatic@telecom-sudparis.eu](Michel.Simatic@telecom-sudparis.eu).
+
+# Remerciements<a id="sec-9" name="sec-9"></a>
+
+*COS* n'aurait jamais vu le jour sans :
+-   Myriam Davidovici-Nora, Maître de Conférences à Télécom-ParisTech,
+    qui est l'auteur des critères listés dans le fichier
+    `listeCriteres.txt` fourni avec *COS*, et du barème associé,
+-   Racha Hallal, ingénieure pédagogique à Télécom SudParis, dont les
+    remarques judicieuses ont permis et permettent encore d'améliorer
+    *COS*,
+-   les étudiants de l'[option JIN](http://jin.telecom-sudparis.eu/) qui ont permis de tester l'intérêt de
+    *COS*.
+
+Merci à toutes ces personnes.
