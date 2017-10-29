@@ -65,8 +65,10 @@
 <ul>
 <li><a href="#sec-7-1">7.1. Changement des noms de fichier</a>
 <ul>
-<li><a href="#sec-7-1-1">7.1.1. configuration.txt</a></li>
-<li><a href="#sec-7-1-2">7.1.2. Autres fichiers</a></li>
+<li><a href="#sec-7-1-1">7.1.1. Ajout automatique de la date dans le nom des fichiers générés</a></li>
+<li><a href="#sec-7-1-2">7.1.2. Répertoire racine</a></li>
+<li><a href="#sec-7-1-3">7.1.3. Renommage de configuration.txt</a></li>
+<li><a href="#sec-7-1-4">7.1.4. Renommage des fichiers autres que configuration.txt</a></li>
 </ul>
 </li>
 <li><a href="#sec-7-2">7.2. Changement des valeurs par défaut</a></li>
@@ -643,26 +645,48 @@ répertoire `Phase_2_sortie` :
 
 ## Changement des noms de fichier<a id="sec-7-1" name="sec-7-1"></a>
 
-### configuration.txt<a id="sec-7-1-1" name="sec-7-1-1"></a>
+### Ajout automatique de la date dans le nom des fichiers générés<a id="sec-7-1-1" name="sec-7-1-1"></a>
+
+À chaque fois que vous exécutez *COS*, les fichiers qu'il génère
+écrase les anciens fichiers présents dans `Phase_1_sortie` et
+`Phase_1_sortie`. Vous pouvez demander à *COS* de générer un fichier à
+chaque fois différent. Pour ce faire, dans `configuration.txt`, mettre
+`insertDateInFilename = 0`. Les fichiers générés incluent désormais la
+date et l'heure d'éxécution de *COS*. Par exemple, au lieu de générer
+le fichier `listeFichesEtudiants.txt`, *COS* génère le fichier
+`listeFichesEtudiants_2017-10-29_07:15:21.txt`.
+
+### Répertoire racine<a id="sec-7-1-2" name="sec-7-1-2"></a>
+
+Dans `configuration.txt`, le champ `rootDirectory` permet de spécifier
+à partir de quel répertoire *COS* doit chercher les fichiers qu'il lit
+ou écrit. Par exemple, `rootDirectory = Soutenances/Eco/Nov2016` dit à
+*COS* de chercher ses fichiers à partir du répertoire `Nov2016` qui
+est dans le répertoire `Eco` qui est lui-même dans le répertoire
+`Soutenances`. `rootDirectory =` (notez qu'il n'y a rien derrière le
+signe "=") dit à *COS* de chercher ses fichiers à partir du répertoire
+courant.
+
+### Renommage de configuration.txt<a id="sec-7-1-3" name="sec-7-1-3"></a>
 
 Si vous souhaitez que le fichier `configuration.txt` s'appelle
 autrement, renommez-le et modifiez le nom dans `cos.sh` (si vous êtes
 sous Linux/MacOS) et `cos.bat` (si vous êtes sous Windows).
 
-### Autres fichiers<a id="sec-7-1-2" name="sec-7-1-2"></a>
+### Renommage des fichiers autres que configuration.txt<a id="sec-7-1-4" name="sec-7-1-4"></a>
 
-Le nom des autres fichiers et leur localisation peut être changé en
-modifiant le champ correspondant à ce fichier dans le fichier
+Le nom des autres fichiers et leur localisation peuvent être changés
+en modifiant le champ correspondant à ce fichier dans le fichier
 `configuration.txt`.
 
 Imaginons, par exemple, que vous n'êtes pas satisfait du fait que le
 fichier des retours des étudiants s'appelle `reponsesEtudiants.txt` et
 est stocké dans `Phase_2_entree`. Il faut alors changer la valeur du
-champ `filledNominativeSheetsFilename`.
-
-Si vous voulez que le fichier s'appelle désormais
+champ `filledNominativeSheetsFilename`. Par exemple, supposons que
+vous voulez que le fichier s'appelle désormais
 `retoursDesEtudiants.txt` et soit stocké au même niveau que le fichier
-`configuration.txt`, il faut modifier `configuration.txt` en écrivant :
+`configuration.txt`, il faut modifier `configuration.txt` en
+écrivant :
 
 `filledNominativeSheetsFilename = retoursDesEtudiants.txt`
 

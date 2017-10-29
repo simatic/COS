@@ -14,7 +14,7 @@ teacherName = Jeanne Dupont
 
 # Bonus sur note etudiant·e si l'etudiant·e juge critere comme l'encadrant
 # NB : Si ce bonus est decimal, utilisez un point ('.') et non une
-#      une virgule (',') pour separer la partie entiere et la pa'rtie decimale.
+#      une virgule (',') pour separer la partie entiere et la partie decimale.
 #      Par exemple, pour un bonus egal a pi, ecrire (sans les guillemets)
 #      "3.14" et pas "3,14"
 bonusCriteriaOK = 0.1
@@ -88,30 +88,37 @@ studentsMarksSheetFilename = Phase_2_sortie/notesEtudiants.csv
 ######################################################################
 
 # Separateur dans les fichiers CSV
-# Valeurs possibles (sans les guillemets) :
-#   - "," (virgule) si vous utilisez LibreOffice Calc
-#   - ";" (point-virgule) si vous utilisez Excel
+# Valeurs possibles :
+#   csvSeparator = ,    # si utilisation de LibreOffice Calc
+#   csvSeparator = ;    # si utilisation d'Excel
 csvSeparator = ;
 
 # Separateur utilise par votre tableur pour separer la partie entiere et
 # la partie decimale d'un nombre décimal
-# Valeurs possibles (sans les guillemets) :
-#   - "," (virgule) comme, par exemple, dans "3,14"
-#   - "." (point) comme, par exemple, dans "3.14"
+# Valeurs possibles :
+#    decimalSeparator = ,    # Représentation européenne (par exemple, 3,14)
+#    decimalSeparator = .    # Représentation américaine (par exemple, 3.14)
 decimalSeparator = ,
 
 # Encodage des fichiers utilises (lus ou generes)
-# Valeurs possibles (sans les guillemets) :
-#   - "utf-8" pour Unix
-#   - "windows-1252" pour Windows
-encoding = utf-8
+# Valeurs possibles :
+#     encoding = utf-8           # Pour Unix et Mac
+#     encoding = windows-1252    # Pour Windows
+encoding = windows-1252
 
 # Specifie si la date et l'heure doivent etre inserees dans les fichiers
 # generes par COS 
-# Valeurs possibles (sans les guillemets) :
-#   - "1" (un) Oui
-#   - "0" (zéro) Non
+# Valeurs possibles :
+#   insertDateInFilename = 1    # Oui
+#   insertDateInFilename = 0    # Non
 insertDateInFilename = 0
+
+# Specifie le repetoire racine des fichiers lus et generes par COS
+# Exemple de valeurs :
+#   rootDirectory = .       # Répertoire ou est lance COS
+#   rootDirectory =         # Répertoire ou est lance COS
+#   rootDirectory = /tmp    # Répertoire /tmp
+rootDirectory = 
 
 # Delimiteur entre les etudiants dans le fichier avec toutes les fiches nominatives
 studentBound = ==================================================

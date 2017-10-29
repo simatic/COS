@@ -1,4 +1,4 @@
-% Created 2017-10-29 dim. 06:34
+% Created 2017-10-29 dim. 07:56
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -630,25 +630,45 @@ dans le fichier \verb~configuration.txt~ pour changer les champs
 \label{sec-7}
 \subsection{Changement des noms de fichier}
 \label{sec-7-1}
-\subsubsection{configuration.txt}
+\subsubsection{Ajout automatique de la date dans le nom des fichiers générés}
 \label{sec-7-1-1}
+À chaque fois que vous exécutez \emph{COS}, les fichiers qu'il génère
+écrase les anciens fichiers présents dans \verb~Phase_1_sortie~ et
+\verb~Phase_1_sortie~. Vous pouvez demander à \emph{COS} de générer un fichier à
+chaque fois différent. Pour ce faire, dans \verb~configuration.txt~, mettre
+\verb~insertDateInFilename = 0~. Les fichiers générés incluent désormais la
+date et l'heure d'éxécution de \emph{COS}. Par exemple, au lieu de générer
+le fichier \verb~listeFichesEtudiants.txt~, \emph{COS} génère le fichier
+\verb~listeFichesEtudiants_2017-10-29_07:15:21.txt~.
+\subsubsection{Répertoire racine}
+\label{sec-7-1-2}
+Dans \verb~configuration.txt~, le champ \verb~rootDirectory~ permet de spécifier
+à partir de quel répertoire \emph{COS} doit chercher les fichiers qu'il lit
+ou écrit. Par exemple, \verb~rootDirectory = Soutenances/Eco/Nov2016~ dit à
+\emph{COS} de chercher ses fichiers à partir du répertoire \verb~Nov2016~ qui
+est dans le répertoire \verb~Eco~ qui est lui-même dans le répertoire
+\verb~Soutenances~. \verb~rootDirectory =~ (notez qu'il n'y a rien derrière le
+signe "=") dit à \emph{COS} de chercher ses fichiers à partir du répertoire
+courant.
+\subsubsection{Renommage de configuration.txt}
+\label{sec-7-1-3}
 Si vous souhaitez que le fichier \verb~configuration.txt~ s'appelle
 autrement, renommez-le et modifiez le nom dans \verb~cos.sh~ (si vous êtes
 sous Linux/MacOS) et \verb~cos.bat~ (si vous êtes sous Windows).
-\subsubsection{Autres fichiers}
-\label{sec-7-1-2}
-Le nom des autres fichiers et leur localisation peut être changé en
-modifiant le champ correspondant à ce fichier dans le fichier
+\subsubsection{Renommage des fichiers autres que configuration.txt}
+\label{sec-7-1-4}
+Le nom des autres fichiers et leur localisation peuvent être changés
+en modifiant le champ correspondant à ce fichier dans le fichier
 \verb~configuration.txt~.
 
 Imaginons, par exemple, que vous n'êtes pas satisfait du fait que le
 fichier des retours des étudiants s'appelle \verb~reponsesEtudiants.txt~ et
 est stocké dans \verb~Phase_2_entree~. Il faut alors changer la valeur du
-champ \verb~filledNominativeSheetsFilename~.
-
-Si vous voulez que le fichier s'appelle désormais
+champ \verb~filledNominativeSheetsFilename~. Par exemple, supposons que
+vous voulez que le fichier s'appelle désormais
 \verb~retoursDesEtudiants.txt~ et soit stocké au même niveau que le fichier
-\verb~configuration.txt~, il faut modifier \verb~configuration.txt~ en écrivant :
+\verb~configuration.txt~, il faut modifier \verb~configuration.txt~ en
+écrivant :
 
 \verb~filledNominativeSheetsFilename = retoursDesEtudiants.txt~
 \subsection{Changement des valeurs par défaut}

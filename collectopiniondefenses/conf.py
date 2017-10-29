@@ -54,6 +54,7 @@ strConfKeys = [
     "negativeCommentBound",
     "nominativeSheetsFilename",
     "positiveCommentBound",
+    "rootDirectory",
     "studentBound",
     "studentsFilename",
     "studentsMarksSheetFilename",
@@ -93,6 +94,13 @@ class Conf:
 
         f.close()
 
+        # We check that we found all keys in file
+        for key in confKeys:
+            try:
+                self.confData[key]
+            except KeyError:
+                sys.exit("""ERREUR: Il manque la clé "{}" dans le fichier de configuration "{}".""".format(key, filename))          
+        
         # We take care of float data
         for key in floatConfKeys:
             try:
@@ -113,6 +121,12 @@ class Conf:
             
         # Initialize opinionType2CommentBound
         self.opinionType2CommentBound = (self.confData["positiveCommentBound"], self.confData["negativeCommentBound"])
+
+        # If necessary, we add a '/' at the end of self.confData["rootDirectory"]
+        rootDir = self.confData["rootDirectory"]
+        if rootDir != "":
+            if rootDir[len(rootDir)-1] != '/':
+                self.confData["rootDirectory"] += '/'
 
     
     def get(self, key):

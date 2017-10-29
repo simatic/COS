@@ -509,6 +509,15 @@ chaque fois différent. Pour ce faire, dans ~configuration.txt~, mettre
 date et l'heure d'éxécution de /COS/. Par exemple, au lieu de générer
 le fichier ~listeFichesEtudiants.txt~, /COS/ génère le fichier
 ~listeFichesEtudiants_2017-10-29_07:15:21.txt~.
+*** Répertoire racine
+Dans ~configuration.txt~, le champ ~rootDirectory~ permet de spécifier
+à partir de quel répertoire /COS/ doit chercher les fichiers qu'il lit
+ou écrit. Par exemple, ~rootDirectory = Soutenances/Eco/Nov2016~ dit à
+/COS/ de chercher ses fichiers à partir du répertoire ~Nov2016~ qui
+est dans le répertoire ~Eco~ qui est lui-même dans le répertoire
+~Soutenances~. ~rootDirectory =~ (notez qu'il n'y a rien derrière le
+signe "=") dit à /COS/ de chercher ses fichiers à partir du répertoire
+courant.
 *** Renommage de configuration.txt
 Si vous souhaitez que le fichier ~configuration.txt~ s'appelle
 autrement, renommez-le et modifiez le nom dans ~cos.sh~ (si vous êtes

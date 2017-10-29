@@ -66,7 +66,7 @@ def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
     #
     # Analyze the contents of conf.get("filledNominativeSheetsFilename"),
     #
-    f = openWithErrorManagement(conf.get("filledNominativeSheetsFilename"), "r", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2inputFileName("filledNominativeSheetsFilename", conf), "r", encoding=conf.get("encoding"))
     nbLinesRead = [0]
     while readLineWithSpecificContents(f, conf.get("studentBound"), nbLinesRead, True) != "":
         # Determine student index in students
@@ -141,7 +141,7 @@ def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
                     # Student has given a "+" (or a "-") to several criteras ==>
                     # We cannot say for which criteria is this comment ==>
                     # We ignore this comment.
-                    print("""WARNING: Pour la soutenance "{}", l'étudiant "{}" a mis le commentaire ({})\n"{}"\nMais, il a mis le signe "{}" sur plusieurs critères\n==> COS ne peut donc pas prendre en compte ce commentaire\n==> Regardez si vous pouvez ne garder qu'un "{}" dans "{}" qui correspondrait à ce commentaire.\n""".format(
+                    print("""ATTENTION: Pour la soutenance "{}", l'étudiant "{}" a mis le commentaire ({})\n"{}"\nMais, il a mis le signe "{}" sur plusieurs critères\n==> COS ne peut donc pas prendre en compte ce commentaire\n==> Regardez si vous pouvez ne garder qu'un "{}" dans "{}" qui correspondrait à ce commentaire.\n""".format(
                                 defenses[defenseIndex].name, studentLine, opinionType2str[opinionType], 
                                 students[studentIndex].opinionsPerDefense[defenseIndex][opinionType].comment,
                                 opinionType2sign[opinionType], opinionType2sign[opinionType], f.name))
@@ -149,7 +149,7 @@ def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
                 if students[studentIndex].opinionsPerDefense[defenseIndex][opinionType].comment != "":
                     criteriaIndex = students[studentIndex].opinionsPerDefense[defenseIndex][opinionType].criteriaIndex
                     if criteriaIndex < 0:
-                        print("""WARNING: Pour la soutenance "{}", l'étudiant "{}" a mis un commentaire {} sans sélectionner de critère {}\n==> Regardez si vous pouvez mettre un "{}" dans "{}" qui correspondrait à ce commentaire.\n""".format(
+                        print("""ATTENTION: Pour la soutenance "{}", l'étudiant "{}" a mis un commentaire {} sans sélectionner de critère {}\n==> Regardez si vous pouvez mettre un "{}" dans "{}" qui correspondrait à ce commentaire.\n""".format(
                                 defenses[defenseIndex].name, studentLine, opinionType2str[opinionType], opinionType2str[opinionType],
                                 opinionType2sign[opinionType], f.name))
                         students[studentIndex].opinionsPerDefense[defenseIndex][opinionType].comment = ""
@@ -165,9 +165,13 @@ def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
                         students[studentIndex].bonus += conf.get("bonusCriteriaOK")  
     f.close()
 
+def key2inputFileName(key, conf):
+    """ Converts a key to a name for an output file """
+    return conf.get("rootDirectory") + conf.get(key)
+
 def key2ouputFileName(key, conf, dateTime):
     """ Converts a key to a name for an output file """
-    name = conf.get(key)
+    name = conf.get("rootDirectory") + conf.get(key)
     if conf.get("insertDateInFilename") == 1:
         pos = name.rfind(".")
         name = name[:pos] + '_' + dateTime.replace(" ","_") + name[pos:]
@@ -284,7 +288,7 @@ def analyzeTeacherData(conf, defenses, criteriaTypes, criterias):
     #
     # Analyze the contents of conf.get("teacherMarksFilename"),
     #
-    f = openWithErrorManagement(conf.get("teacherMarksFilename"), "r", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2inputFileName("teacherMarksFilename", conf), "r", encoding=conf.get("encoding"))
     nbLinesRead = [0]
 
     lookForNonBlankLine(f, nbLinesRead, False, "Ligne de titre des colonnesNom soutenance")  # We ignore the line giving the title of the columns
@@ -518,7 +522,7 @@ def main():
     # Read the list of defenses
     #
     defenses = []
-    f = openWithErrorManagement(conf.get("defensesFilename"), "r", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2inputFileName("defensesFilename", conf), "r", encoding=conf.get("encoding"))
     nbLinesRead = [0]
     name = lookForNonBlankLine(f, nbLinesRead, True, "Nom soutenance")
     while name != "":
@@ -530,7 +534,7 @@ def main():
     # Read the list of students and the title of their defense
     #
     students = []
-    f = openWithErrorManagement(conf.get("studentsFilename"), "r", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2inputFileName("studentsFilename", conf), "r", encoding=conf.get("encoding"))
     nbLinesRead = [0]
     
     lookForNonBlankLine(f, nbLinesRead, True, "Nom soutenance") # We ignore the line giving the title of the columns
@@ -554,7 +558,7 @@ def main():
     # Read the list of criteria types
     #
     criteriaTypes = []
-    f = openWithErrorManagement(conf.get("criteriaTypesFilename"), "r", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2inputFileName("criteriaTypesFilename", conf), "r", encoding=conf.get("encoding"))
     nbLinesRead = [0]
     criteriaType = lookForNonBlankLine(f, nbLinesRead, True, "Type de critère")
     while criteriaType != "":
@@ -566,7 +570,7 @@ def main():
     # Read the list of criterias
     #
     criterias = []
-    f = openWithErrorManagement(conf.get("criteriasFilename"), "r", encoding=conf.get("encoding"))
+    f = openWithErrorManagement(key2inputFileName("criteriasFilename", conf), "r", encoding=conf.get("encoding"))
     nbLinesRead = [0]
     
     lookForNonBlankLine(f, nbLinesRead, True, "Nom soutenance") # We ignore the line giving the title of the columns
