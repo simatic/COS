@@ -35,10 +35,10 @@ class Defense:
         self.generalComment = ""
         self.name = name
         self.nameWithoutSpace = self.name.replace(" ", "")
-        self.teacherBestMark = -sys.maxsize
         self.teacherFinalMark = 0
         self.teacherOpinionsPerCriteria = []
-        self.teacherWorstMark = sys.maxsize
+        self.teacherWorstOpinionType = sys.maxsize
+        self.teacherBestOpinionType  = -sys.maxsize
     
     def addMarkComment(self, teacherOpinion):
         self.teacherOpinionsPerCriteria.append(teacherOpinion)
@@ -47,6 +47,6 @@ class Defense:
         """ Updates teacherFinalMark, bestMark and worstmark """
         for opinion in self.teacherOpinionsPerCriteria:
             self.teacherFinalMark += opinion.mark
-            self.teacherWorstMark = min(self.teacherWorstMark, opinion.mark)
-            self.teacherBestMark = max(self.teacherBestMark, opinion.mark)
+            self.teacherWorstOpinionType = min(self.teacherWorstOpinionType, opinion.opinionType)
+            self.teacherBestOpinionType  = max(self.teacherBestOpinionType,  opinion.opinionType)
         

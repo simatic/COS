@@ -12,21 +12,41 @@
 # Nom de l'encadrant·e
 teacherName = Jeanne Dupont
 
+# Nombre total de points affectes aux differents criteres
+# NB : Si ce bonus est decimal, utilisez un point ('.') et non une
+#      une virgule (',') pour separer la partie entiere et la partie decimale.
+#      Par exemple, pour un total egal a pi, ecrire (sans les guillemets)
+#      "3.14" et pas "3,14"
+totalPointsCriteria = 20.0
+
+# Ratio pour nombre de points signifiant qu'encadrant·e estime que tout critere
+# requiert des ameliorations majeures
+# Exemple : Supposons que l'encadrant·e a considere que la note maximale
+#           sur un critere donne est de 4 points.
+#           En mettant ratioCriteriaKO à "0.25" (sans les guillemets),
+#           l'encadrant·e considere que s'il·elle donne une note dans
+#           l'intervalle [0*4, 0.25*4], c'est-à-dire [0, 1], il·elle
+#           signifiera qu'il·elle estime que ce critere requiert des
+#           ameliorations majeures
+ratioCriteriaKO = 0.25
+
+# Ratio pour nombre de points signifiant qu'encadrant·e estime que tout critere
+# revele une bonne maitrise
+# Exemple : Supposons que l'encadrant·e a considere que la note maximale
+#           sur un critere donne est de 4 points.
+#           En mettant ratioCriteriaOK à "0.75" (sans les guillemets),
+#           l'encadrant·e considere que s'il·elle donne une note dans
+#           l'intervalle [0.75*4, 1*4], c'est-à-dire [3, 4], il·elle
+#           signifiera qu'il·elle estime que ce critere revele une bonne
+#           maitrise
+ratioCriteriaOK = .75
+
 # Bonus sur note etudiant·e si l'etudiant·e juge critere comme l'encadrant
 # NB : Si ce bonus est decimal, utilisez un point ('.') et non une
 #      une virgule (',') pour separer la partie entiere et la partie decimale.
 #      Par exemple, pour un bonus egal a pi, ecrire (sans les guillemets)
 #      "3.14" et pas "3,14"
 bonusCriteriaOK = 0.1
-
-# Nombre de points quand encadrant·e estime que critere revele une bonne maitrise
-pointsCriteriaOK = 2
-
-# Nombre de points quand encadrant·e estime que critere requiert ameliorations mineures
-pointsCriteriaAverage = 1
-
-# Nombre de points quand encadrant·e estime que critere requiert ameliorations majeures
-pointsCriteriaKO = 0
 
 
 ######################################################################

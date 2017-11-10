@@ -28,8 +28,10 @@
 
 from studentOpinion import StudentOpinion
 
-POSITIVE_OPINION = 0
-NEGATIVE_OPINION = 1
+NEGATIVE_OPINION = 0
+AVERAGE_OPINION  = 1
+POSITIVE_OPINION = 2
+# Array list_opinions lists only opinions which can be given by the student
 list_opinions = (POSITIVE_OPINION, NEGATIVE_OPINION)
 
 class Student:
@@ -43,5 +45,6 @@ class Student:
         self.nameWithoutSpace = self.name.replace(" ", "")
         self.opinionsPerDefense = []
         for defense in defenses:
-            self.opinionsPerDefense.append([StudentOpinion(), StudentOpinion()])
+            self.opinionsPerDefense.append([StudentOpinion(), None, StudentOpinion()]) # None value is because student
+                                                                                       # cannot give an average opinion
 

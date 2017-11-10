@@ -25,13 +25,22 @@
 
  Developer(s): Michel Simatic
 """
+from criteria import Criteria
+from student import POSITIVE_OPINION, AVERAGE_OPINION, NEGATIVE_OPINION
 
 class TeacherOpinion:
     """ Class holding all data concerning opinion of a teacher on a given criteria """
 
-    def __init__(self, mark, comment):
+    def __init__(self, mark, comment, criteria):
         self.mark= mark
         self.comment= comment
+        # We initialize self.opinionType
+        if mark <= criteria.maxCriteriaKO:
+            self.opinionType = NEGATIVE_OPINION
+        elif mark >= criteria.minCriteriaOK:
+            self.opinionType = POSITIVE_OPINION
+        else:
+            self.opinionType = AVERAGE_OPINION        
 
     def __str__(self):
         return "TeacherOpinion({}, {})".format(self.mark, self.comment)

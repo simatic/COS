@@ -29,8 +29,14 @@
 class Criteria:
     """ Class holding all criteria data """
 
-    def __init__(self, criteriaType, name):
+    def __init__(self, criteriaType, name, maxPoints, ratioCriteriaKO, ratioCriteriaOK):
         self.criteriaType = criteriaType
         self.name = name
         self.nameWithoutSpace = self.name.replace(" ", "")
+        # We set the different important mark values, knowing that,
+        # implicetely, the minimum number of points is 0 (zero)
+        self.maxCriteriaKO = maxPoints * ratioCriteriaKO
+        self.minCriteriaOK = maxPoints * ratioCriteriaOK
+        self.maxPoints = maxPoints
+        
 

@@ -30,7 +30,7 @@ import sys
 
 def float2str(f, conf):
     ### Converts float f to a string with 1 decimal digit taking into account decimal separator to be used###
-    s = "{:.1f}".format(f)
+    s = "{:.2f}".format(f)
     if '.' in s and conf.get("decimalSeparator") != '.':
         s = str2csvStr(s.replace('.', conf.get("decimalSeparator")), conf.get("csvSeparator"))
     return s

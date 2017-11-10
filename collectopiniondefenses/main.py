@@ -33,12 +33,12 @@ import sys
 from conf import Conf
 from criteria import Criteria
 from defense import Defense
-from student import Student, list_opinions, POSITIVE_OPINION, NEGATIVE_OPINION
+from student import Student, list_opinions, POSITIVE_OPINION, AVERAGE_OPINION, NEGATIVE_OPINION
 from teacherOpinion import TeacherOpinion
 from myutil import float2str, lookForNonBlankLine, openWithErrorManagement, removeComment, splitCsvLine, str2csvStr
 
-opinionType2str = ("positif", "négatif")
-opinionType2sign = ("+", "-")
+opinionType2str = ("négatif", "Erreur (Valeur non utilisée dans opinionType2str)", "positif")
+opinionType2sign = ("-", "Erreur (Valeur non utilisée dans opinionType2sign)", "+")
 
 def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
     """
@@ -113,7 +113,6 @@ def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
                             students[studentIndex].opinionsPerDefense[defenseIndex][NEGATIVE_OPINION].criteriaIndex = criteriaIndex
                             students[studentIndex].opinionsPerDefense[defenseIndex][NEGATIVE_OPINION].nbCriteriaIndex += 1
             # We now take care of opinion comments
-            opinionType2pointsCriteria = (conf.get("pointsCriteriaOK"), conf.get("pointsCriteriaKO"))
             for opinionType in list_opinions:
                 # Skip line introducing comment
                 readLineWithSpecificContents(f, conf.getCommentBound(opinionType), nbLinesRead, False)
@@ -153,14 +152,14 @@ def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
                                 defenses[defenseIndex].name, studentLine, opinionType2str[opinionType], opinionType2str[opinionType],
                                 opinionType2sign[opinionType], f.name))
                         students[studentIndex].opinionsPerDefense[defenseIndex][opinionType].comment = ""
-                    elif defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].mark == opinionType2pointsCriteria[opinionType]:
+                    elif defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].opinionType == opinionType:
                         # Student gave the same mak as the teacher ==> bonus
                         students[studentIndex].bonus += conf.get("bonusCriteriaOK")
-                    elif (((opinionType == POSITIVE_OPINION and defenses[defenseIndex].teacherBestMark == conf.get("pointsCriteriaAverage")) or
-                           (opinionType == NEGATIVE_OPINION and defenses[defenseIndex].teacherWorstMark == conf.get("pointsCriteriaAverage"))) and
-                            defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].mark == conf.get("pointsCriteriaAverage")):
-                        # The teacher found no criteria with opinionType2pointsCriteria[opinionType] and gave a mark with
-                        # average value to criteria which index is criteriaInde. As the student cannot give an average opinion,
+                    elif (((opinionType == POSITIVE_OPINION and defenses[defenseIndex].teacherBestOpinionType == AVERAGE_OPINION) or
+                           (opinionType == NEGATIVE_OPINION and defenses[defenseIndex].teacherWorstOpinionType == AVERAGE_OPINION)) and
+                            defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].opinionType == AVERAGE_OPINION):
+                        # The teacher found no criteria with opinionType and, for this criteria which index is criteriaIndex,
+                        # the teacher gave a mark signifying AVERAGE_OPINION. As the student cannot give an average opinion,
                         # we consider that this is a good answer.
                         students[studentIndex].bonus += conf.get("bonusCriteriaOK")  
     f.close()
@@ -236,20 +235,25 @@ def generateModels(conf, defenses, students, criteriaTypes, criterias, dateTime)
     #
     f = openWithErrorManagement(key2ouputFileName("genericTeacherMarksFilename", conf, dateTime), "w", encoding=conf.get("encoding"))
     # Generate the title of the columns
+    f.write("{}Note max critere KO{}Note min critere OK".format(conf.get("csvSeparator"), conf.get("csvSeparator")))
     for defense in defenses:
         f.write("{}{}".format(conf.get("csvSeparator"), str2csvStr(defense.name, conf.get("csvSeparator"))))
     f.write("\n")
     # For each criteria, generate a line for the mark and a line for the comment
     for criteria in criterias:
-        s = str2csvStr("Note ({}, {} ou {} points) pour {} / {}".format(
-                conf.get("pointsCriteriaKO"), conf.get("pointsCriteriaAverage"), conf.get("pointsCriteriaOK"),
-                criteria.criteriaType, criteria.name), conf.get("csvSeparator"))
+        s = str2csvStr("{} / {} ({} points)".format(criteria.criteriaType, criteria.name, criteria.maxPoints),
+                       conf.get("csvSeparator")
+                      )
         f.write(s)
+        f.write(conf.get("csvSeparator"))
+        f.write(float2str(criteria.maxCriteriaKO, conf))
+        f.write(conf.get("csvSeparator"))
+        f.write(float2str(criteria.minCriteriaOK, conf))
         f.write(conf.get("csvSeparator") * len(defenses))
         f.write("\n");
 
-        s = str2csvStr("Commentaire  de {} / {}".format(criteria.criteriaType, criteria.name), conf.get("csvSeparator"))
-        f.write(s)
+        f.write("Commentaire de ce critère")
+        f.write(conf.get("csvSeparator") * 2) # For the 2 columns corresponding to criteria.maxCriteriaKO and criteria.minCriteriaOK
         f.write(conf.get("csvSeparator") * len(defenses))
         f.write("\n")
         
@@ -301,19 +305,20 @@ def analyzeTeacherData(conf, defenses, criteriaTypes, criterias):
         lineComments = lookForNonBlankLine(f, nbLinesRead, False, "Ligne contenant les commentaires pour un critère donné")
         comments = splitCsvLine(lineComments, conf.get("csvSeparator"))
         # Add (mark, comment) to each defense
-        column = 1 #We set column to 1 in order to skip column 0 which contains title of the line
+        column = 3 # We set column to 3 in order to skip :
+                   #   - column 0 which contains title of the line,
+                   #   - column 1 which contains value for maxCriteriaKO
+                   #   - column 2 which contains value for minCriteriaOK
         for defense in defenses:
             try:
-                mark = int(marks[column])
+                mark = float(marks[column])
             except ValueError:
-                sys.exit("""Dans le fichier "{}", la soutenance "{}" a son critère "{}" qui a reçu la note "{}" qui n'est ni {}, ni {} ou {}.""".format(
-                         f.name, defense.name, criteria.name, marks[column],
-                         conf.get("pointsCriteriaKO"), conf.get("pointsCriteriaAverage"), conf.get("pointsCriteriaOK")))                
-            if (mark < conf.get("pointsCriteriaKO") or mark > conf.get("pointsCriteriaOK")):
-                sys.exit("""Dans le fichier "{}", la soutenance "{}" a son critère "{}" qui a reçu la note de {} qui n'est ni {}, ni {} ou {}.""".format(
-                         f.name, defense.name, criteria.name, mark,
-                         conf.get("pointsCriteriaKO"), conf.get("pointsCriteriaAverage"), conf.get("pointsCriteriaOK")))
-            defense.addMarkComment(TeacherOpinion(mark, comments[column]))
+                sys.exit("""Dans le fichier "{}", la soutenance "{}" a son critère "{}" qui a reçu la note "{}" qui n'est n'est pas un flottant compris entre 0 et {}.""".format(
+                         f.name, defense.name, criteria.name, marks[column], criteria.maxPoints))                
+            if (mark < 0 or mark > criteria.maxPoints):
+                sys.exit("""Dans le fichier "{}", la soutenance "{}" a son critère "{}" qui a reçu la note de {} qui n'est pas comprise entre 0 et {}.""".format(
+                         f.name, defense.name, criteria.name, mark, criteria.maxPoints))
+            defense.addMarkComment(TeacherOpinion(mark, comments[column], criteria))
             column += 1
 
     lookForNonBlankLine(f, nbLinesRead, False, "Ligne de titre des colonnesNom soutenance")  # We ignore the line left intentionally blank
@@ -431,7 +436,7 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime
     f = openWithErrorManagement(key2ouputFileName("synthesisCommentsFilename", conf, dateTime), "w", encoding=conf.get("encoding"))
     for defenseIndex in list(range(len(defenses))):
         # We cound how many '+' and '-' there are for each criteria
-        nbPosNeg = [ [], [] ]
+        nbPosNeg = [ [], [], [] ]
         for criteriaIndex in list(range(len(criterias))):
             for opinionType in list_opinions:
                 nbPosNeg[opinionType].append([0, criteriaIndex])
@@ -440,7 +445,10 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime
                 if student.opinionsPerDefense[defenseIndex][opinionType].criteriaIndex >= 0:
                     nbPosNeg[opinionType][student.opinionsPerDefense[defenseIndex][opinionType].criteriaIndex][0] += 1
         # We get a sorted version of nbPositive and nbNegative
-        sortedNbPosNeg = [sorted(nbPosNeg[POSITIVE_OPINION], key=itemgetter(0)), sorted(nbPosNeg[NEGATIVE_OPINION], key=itemgetter(0)) ]
+        sortedNbPosNeg = [sorted(nbPosNeg[NEGATIVE_OPINION], key=itemgetter(0)),
+                          sorted(nbPosNeg[AVERAGE_OPINION],  key=itemgetter(0)),
+                          sorted(nbPosNeg[POSITIVE_OPINION], key=itemgetter(0))
+                          ]
         # We display the project name and the general comment on the defense
         f.write("{}\n{}\n{}\n".format(conf.get("defenseBound"), defenses[defenseIndex].name, conf.get("defenseBound")))
         if defenses[defenseIndex].generalComment == "":
@@ -457,7 +465,7 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime
                        criterias[criteriaIndex].name,
                        conf.get("teacherName"),
                        defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].mark,
-                       conf.get("pointsCriteriaOK")))
+                       criterias[criteriaIndex].maxPoints))
                 if defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].comment != "":
                     f.write(", " + defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].comment)
                 f.write("\n")
@@ -477,7 +485,7 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime
     for student in students:
         f.write("{}{}{}{}{}{}{}\n".format(
             str2csvStr(student.name, conf.get("csvSeparator")), conf.get("csvSeparator"),
-            student.defense.teacherFinalMark, conf.get("csvSeparator"),
+            float2str(student.defense.teacherFinalMark, conf), conf.get("csvSeparator"),
             float2str(student.bonus, conf), conf.get("csvSeparator"),
             float2str(student.defense.teacherFinalMark + student.bonus, conf)))
     f.close()
@@ -573,8 +581,8 @@ def main():
     f = openWithErrorManagement(key2inputFileName("criteriasFilename", conf), "r", encoding=conf.get("encoding"))
     nbLinesRead = [0]
     
-    lookForNonBlankLine(f, nbLinesRead, True, "Nom soutenance") # We ignore the line giving the title of the columns
-    criteriaLine = lookForNonBlankLine(f, nbLinesRead, True, "Nom soutenance")
+    lookForNonBlankLine(f, nbLinesRead, True, "Nom critère") # We ignore the line giving the title of the columns
+    criteriaLine = lookForNonBlankLine(f, nbLinesRead, True, "Nom critère")
     while criteriaLine != "":
         info = splitCsvLine(criteriaLine, conf.get("csvSeparator"))
         # We look for info[0] in the list of criteria types
@@ -584,10 +592,16 @@ def main():
                 found = True
                 break
         if not found:
-            sys.exit("""ERREUR: Dans fichier "{}", la ligne {} ("{}") fait référence à un type de critère intitulée "{}" qui n'apparaît pas dans le fichier "{}".""".format(conf.get("criteriasFilename"), nbLinesRead[0], criteriaLine, info[0], conf.get("criteriaTypesFilename")))
+            sys.exit("""ERREUR: Dans fichier "{}", la ligne {} ("{}") fait référence à un type de critère intitulée "{}" qui n'apparaît pas dans le fichier "{}".""".format(
+                    f.name, nbLinesRead[0], criteriaLine, info[0], conf.get("criteriaTypesFilename")))
         # OK, this citeriaType is known
-        criterias.append(Criteria(info[0], info[1]))
-        criteriaLine = lookForNonBlankLine(f, nbLinesRead, True, "Nom soutenance")
+        try:
+            floatValue = float(info[2])
+        except ValueError:
+            sys.exit("""ERREUR: Dans fichier "{}", la ligne {} ("{}") a son 3ème champ ("{}") qui n'est pas un flottant.""".format(
+                    f.name, nbLinesRead[0], criteriaLine, info[2]))
+        criterias.append(Criteria(info[0], info[1], floatValue, conf.get("ratioCriteriaKO"), conf.get("ratioCriteriaOK")))
+        criteriaLine = lookForNonBlankLine(f, nbLinesRead, True, "Nom critère")
     f.close()
     
     #

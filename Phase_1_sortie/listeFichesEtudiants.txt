@@ -16,10 +16,10 @@ Forme
     Clarté
     Dynamisme
     Originalité et beauté
-Commentaire/Justification du +
-
-
 Commentaire/Justification du -
+
+
+Commentaire/Justification du +
 
 
 ---------------------------------------------------------------------------------------
@@ -37,10 +37,10 @@ Forme
     Clarté
     Dynamisme
     Originalité et beauté
-Commentaire/Justification du +
-
-
 Commentaire/Justification du -
+
+
+Commentaire/Justification du +
 
 
 ==================================================
@@ -61,10 +61,10 @@ Forme
     Clarté
     Dynamisme
     Originalité et beauté
-Commentaire/Justification du +
-
-
 Commentaire/Justification du -
+
+
+Commentaire/Justification du +
 
 
 ---------------------------------------------------------------------------------------
@@ -82,10 +82,10 @@ Forme
     Clarté
     Dynamisme
     Originalité et beauté
-Commentaire/Justification du +
-
-
 Commentaire/Justification du -
+
+
+Commentaire/Justification du +
 
 
 ==================================================
@@ -106,10 +106,10 @@ Forme
     Clarté
     Dynamisme
     Originalité et beauté
-Commentaire/Justification du +
-
-
 Commentaire/Justification du -
+
+
+Commentaire/Justification du +
 
 
 ---------------------------------------------------------------------------------------
@@ -127,10 +127,10 @@ Forme
     Clarté
     Dynamisme
     Originalité et beauté
-Commentaire/Justification du +
-
-
 Commentaire/Justification du -
+
+
+Commentaire/Justification du +
 
 
 ==================================================
@@ -151,10 +151,10 @@ Forme
     Clarté
     Dynamisme
     Originalité et beauté
-Commentaire/Justification du +
-
-
 Commentaire/Justification du -
+
+
+Commentaire/Justification du +
 
 
 ---------------------------------------------------------------------------------------
@@ -172,9 +172,9 @@ Forme
     Clarté
     Dynamisme
     Originalité et beauté
-Commentaire/Justification du +
-
-
 Commentaire/Justification du -
+
+
+Commentaire/Justification du +
 
 

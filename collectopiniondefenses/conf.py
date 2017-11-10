@@ -30,14 +30,14 @@ import sys
 from myutil import lookForNonBlankLine, openWithErrorManagement
 
 floatConfKeys = [
-    "bonusCriteriaOK"
+    "bonusCriteriaOK",
+    "ratioCriteriaKO",
+    "ratioCriteriaOK",
+    "totalPointsCriteria"
 ]
 
 intConfKeys = [
-    "insertDateInFilename",
-    "pointsCriteriaAverage",
-    "pointsCriteriaKO",
-    "pointsCriteriaOK"
+    "insertDateInFilename"
 ]
 
 strConfKeys = [
@@ -120,7 +120,9 @@ class Conf:
             self.confData[key] = result
             
         # Initialize opinionType2CommentBound
-        self.opinionType2CommentBound = (self.confData["positiveCommentBound"], self.confData["negativeCommentBound"])
+        self.opinionType2CommentBound = (self.confData["negativeCommentBound"], 
+                                         "Erreur (Valeur non utilisée dans self.opinionType2CommentBound)",
+                                         self.confData["positiveCommentBound"])
 
         # If necessary, we add a '/' at the end of self.confData["rootDirectory"]
         rootDir = self.confData["rootDirectory"]
