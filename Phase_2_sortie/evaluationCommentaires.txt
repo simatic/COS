@@ -1,0 +1,71 @@
+==================================================
+M. AYRAUD Pierre (dit Thomas Narcejac) (... Et mon tout est un homme)
+==================================================
+---------------------------------------------------------------------------------------
+Eugénie Grandet
+---------------------------------------------------------------------------------------
++ Profondeur d'analyse (càd pas seulement descriptif, mais aussi capacité analytique)
+  Evaluation de Jeanne Dupont = 1.0/2.0 (correspondant à "+/-")
+- Dynamisme
+  Evaluation de Jeanne Dupont = 2.0/2.0 (correspondant à "+")
+---------------------------------------------------------------------------------------
+La Touche étoile
+---------------------------------------------------------------------------------------
++ Résultats et recul
+  Evaluation de Jeanne Dupont = 2.0/2.0 (correspondant à "+")
+- Prise de parole équilibrée et passage de la parole entre les membres
+  Evaluation de Jeanne Dupont = 2.0/2.0 (correspondant à "+")
+
+==================================================
+M. BOILEAU Pierre Louis (... Et mon tout est un homme)
+==================================================
+---------------------------------------------------------------------------------------
+Eugénie Grandet
+---------------------------------------------------------------------------------------
++ Profondeur d'analyse (càd pas seulement descriptif, mais aussi capacité analytique)
+  Evaluation de Jeanne Dupont = 1.0/2.0 (correspondant à "+/-")
+- Respect temps
+  Evaluation de Jeanne Dupont = 1.0/2.0 (correspondant à "+/-")
+---------------------------------------------------------------------------------------
+La Touche étoile
+---------------------------------------------------------------------------------------
++ Initiatives
+  Evaluation de Jeanne Dupont = 1.0/2.0 (correspondant à "+/-")
+- Clarté
+  Evaluation de Jeanne Dupont = 2.0/2.0 (correspondant à "+")
+
+==================================================
+M. DE BALZAC Honoré (Eugénie Grandet)
+==================================================
+---------------------------------------------------------------------------------------
+La Touche étoile
+---------------------------------------------------------------------------------------
++ Résultats et recul
+  Evaluation de Jeanne Dupont = 2.0/2.0 (correspondant à "+")
+- Originalité et beauté
+  Evaluation de Jeanne Dupont = 1.0/2.0 (correspondant à "+/-")
+---------------------------------------------------------------------------------------
+... Et mon tout est un homme
+---------------------------------------------------------------------------------------
++ Profondeur d'analyse (càd pas seulement descriptif, mais aussi capacité analytique)
+  Evaluation de Jeanne Dupont = 0.0/2.0 (correspondant à "-")
+- non évalué, car non fourni (ou alors manque de commentaire)
+
+==================================================
+Mme GROULT Benoîte (La Touche étoile)
+==================================================
+---------------------------------------------------------------------------------------
+Eugénie Grandet
+---------------------------------------------------------------------------------------
++ Clarté
+  Evaluation de Jeanne Dupont = 2.0/2.0 (correspondant à "+")
+- Résultats et recul
+  Evaluation de Jeanne Dupont = 2.0/2.0 (correspondant à "+")
+---------------------------------------------------------------------------------------
+... Et mon tout est un homme
+---------------------------------------------------------------------------------------
++ Dynamisme
+  Evaluation de Jeanne Dupont = 2.0/2.0 (correspondant à "+")
+- Présentation du projet (si possible visuellement) et présentation de la problématique
+  Evaluation de Jeanne Dupont = 2.0/2.0 (correspondant à "+")
+

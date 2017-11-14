@@ -38,7 +38,7 @@ from teacherOpinion import TeacherOpinion
 from myutil import float2str, lookForNonBlankLine, openWithErrorManagement, removeComment, splitCsvLine, str2csvStr
 
 opinionType2str = ("négatif", "Erreur (Valeur non utilisée dans opinionType2str)", "positif")
-opinionType2sign = ("-", "Erreur (Valeur non utilisée dans opinionType2sign)", "+")
+opinionType2sign = ("-", "+/-", "+")
 
 def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
     """
@@ -473,6 +473,31 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime
                     if (student.opinionsPerDefense[defenseIndex][opinionType].criteriaIndex == criteriaIndex and
                         student.opinionsPerDefense[defenseIndex][opinionType].comment != ""):
                         f.write("\t* {}\n".format(student.opinionsPerDefense[defenseIndex][opinionType].comment))
+        f.write("\n")
+    f.close()
+    
+    #
+    # Generate conf.get("evaluationCommentsFilename")
+    #
+    f = openWithErrorManagement(key2ouputFileName("evaluationCommentsFilename", conf, dateTime), "w", encoding=conf.get("encoding"))
+    for student in students:
+        f.write("{}\n{} ({})\n{}\n".format(conf.get("studentBound"), student.name, student.defense.name, conf.get("studentBound")))
+        for defenseIndex in list(range(len(defenses))):
+            defense = defenses[defenseIndex]
+            if defense != student.defense:
+                f.write("{}\n{}\n{}\n".format(conf.get("defenseBound"), defense.name, conf.get("defenseBound")))
+                for opinionType in list_opinions:
+                    criteriaIndex = student.opinionsPerDefense[defenseIndex][opinionType].criteriaIndex;
+                    if criteriaIndex >= 0:
+                        f.write("{} {}\n".format(opinionType2sign[opinionType], criterias[criteriaIndex].name))
+                        teacherOpinion = defense.teacherOpinionsPerCriteria[criteriaIndex]
+                        f.write("""  Evaluation de {} = {}/{} (correspondant à "{}")\n""".format(
+                                conf.get("teacherName"),
+                                teacherOpinion.mark,
+                                criterias[criteriaIndex].maxPoints,
+                                opinionType2sign[teacherOpinion.opinionType]))
+                    else:
+                        f.write("{} non évalué, car non fourni (ou alors manque de commentaire)\n".format(opinionType2sign[opinionType]))
         f.write("\n")
     f.close()
     

@@ -48,6 +48,7 @@ strConfKeys = [
     "defenseBound",
     "defensesFilename",
     "encoding",
+    "evaluationCommentsFilename",
     "filledNominativeSheetsFilename",
     "genericSheetFilename",
     "genericTeacherMarksFilename",
