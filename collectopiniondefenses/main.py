@@ -559,7 +559,7 @@ def main():
     # We display cos version before starting the processing
     #
     print()
-    print("cos version 1.0.0")
+    print("cos version 2.0.0")
     print()
 
     #
