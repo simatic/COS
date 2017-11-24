@@ -411,7 +411,8 @@ def findName(name, searchedList, nbLinesRead, f, nameType):
 
 def generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime):
     """
-    Generates files conf.get("synthesisCommentsFilename") and conf.get("studentsMarksSheetFilename")
+    Generates files conf.get("synthesisCommentsFilename"), conf.get("evaluationCommentsFilename")
+    and conf.get("studentsMarksSheetFilename")
 
     Parameters
     ----------
@@ -670,9 +671,10 @@ def main():
                 key2ouputFileName("genericSheetFilename", conf, dateTime),
                 key2ouputFileName("genericTeacherMarksFilename", conf, dateTime)))
     else:
-        print("""OK, exécution de la phase {} terminée : les fichiers "{}" et "{}" ont été générés.""".format(
+        print("""OK, exécution de la phase {} terminée : les fichiers "{}", "{}" et "{}" ont été générés.""".format(
                 sys.argv[1][1],
                 key2ouputFileName("synthesisCommentsFilename", conf, dateTime), 
+                key2ouputFileName("evaluationCommentsFilename", conf, dateTime), 
                 key2ouputFileName("studentsMarksSheetFilename", conf, dateTime)))
     print()
     
