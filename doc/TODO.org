@@ -1,7 +1,11 @@
 #+TITLE: Synthèse de ce qui reste à faire sur le programme Python
 #+AUTHOR: Michel SIMATIC
-#+DATE:   29/10/2017
+#+DATE:   24/11/2017
 
+* TODO Être capable de lire des fichiers CSV qui contiennent des cellules comprenant plusieurs lignes (actuellement, la cellule doit être mono-ligne, avec "\n" qui permet de signaler qu'il y a des sauts à la ligne).
+* TODO Être capable de lire des commentaires positifs ou négatifs d'étudiants sur plusieurs lignes.
+* TODO Mieux résister aux plantages si on lit un fichier Windows et que la donnée de configuration "encoding" spécifie "utf-8"
+* TODO Générer une erreur, si la somme des note des critères, ne vaut pas la donnée de configuration "totalPointsCriteria" dans configuration.txt
+* TODO Générer une erreur si un critère contient un "+" ou un "-" en premier ou en dernier caractère
 * TODO Fournir une interface graphique facilitant l'utilisation de /COS/
-* TODO Générer un fichier (en phase 2) qui, pour chaque étudiant, pour chaque projet, rappelle les votes qu'il a fait et met en regard ce qu'a mis le teacher.
 * TODO Prévoir un système permettant que les messages d'erreur soient en anglais ou en français.
