@@ -468,13 +468,15 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime
         for opinionType in list_opinions:
             for index in list(range(len(criterias)-1, -1, -1)):
                 criteriaIndex = sortedNbPosNeg[opinionType][index][1]
-                f.write("({}) Cite {:2} fois par les étudiants : {} - Note {} = {}/{}".format(
+                teacherOpinion = defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex]
+                f.write("""({}) Cite {:2} fois par les étudiants : {} - Note {} = {}/{} (correspondant à "{}")""".format(
                        opinionType2sign[opinionType],
                        sortedNbPosNeg[opinionType][index][0],
                        criterias[criteriaIndex].name,
                        conf.get("teacherName"),
-                       defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].mark,
-                       criterias[criteriaIndex].maxPoints))
+                       teacherOpinion.mark,
+                       criterias[criteriaIndex].maxPoints,
+                       opinionType2sign[teacherOpinion.opinionType]))
                 if defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].comment != "":
                     f.write(", " + defenses[defenseIndex].teacherOpinionsPerCriteria[criteriaIndex].comment)
                 f.write("\n")
