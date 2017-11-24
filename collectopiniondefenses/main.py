@@ -104,12 +104,15 @@ def analyzeStudentsData(conf, defenses, students, criteriaTypes, criterias):
                         if criteriaLine[0] in "+-":
                             # We skip '+' or '-' sign which is at the beginning of the line
                             criteriaIndex = findName(criteriaLine[1:].strip(" \t"), criterias, nbLinesRead, f, conf.get("criteriasFilename"))
+                        elif criteriaLine[-1] in "+-":
+                            # We skip '+' or '-' sign which is at the end of the line
+                            criteriaIndex = findName(criteriaLine[:-1].strip(" \t"), criterias, nbLinesRead, f, conf.get("criteriasFilename"))
                         else:
                             criteriaIndex = findName(criteriaLine, criterias, nbLinesRead, f, conf.get("criteriasFilename"))
-                        if criteriaLine[0] == '+':
+                        if criteriaLine[0] == '+' or criteriaLine[-1] == '+':
                             students[studentIndex].opinionsPerDefense[defenseIndex][POSITIVE_OPINION].criteriaIndex = criteriaIndex
                             students[studentIndex].opinionsPerDefense[defenseIndex][POSITIVE_OPINION].nbCriteriaIndex += 1
-                        elif criteriaLine[0] == '-':
+                        elif criteriaLine[0] == '-' or criteriaLine[-1] == '-':
                             students[studentIndex].opinionsPerDefense[defenseIndex][NEGATIVE_OPINION].criteriaIndex = criteriaIndex
                             students[studentIndex].opinionsPerDefense[defenseIndex][NEGATIVE_OPINION].nbCriteriaIndex += 1
             # We now take care of opinion comments
