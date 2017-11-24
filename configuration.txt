@@ -84,27 +84,27 @@ genericSheetFilename = Phase_1_sortie/ficheGeneriqueEtudiant.txt
 genericTeacherMarksFilename = Phase_1_sortie/canevasNotesEncadrant.csv
 
 ######################################################################
-# Fichiers quand la phase de travail est la phase 2 (option '-2')
+# Fichiers quand la phase de travail est la phase 3 (option '-3')
 ######################################################################
 
 # Nom du fichier contenant la version remplie des fiches nominatives
 # des etudiant·e·s (cf. outputListeFichesEtudiants.txt)
-filledNominativeSheetsFilename = Phase_2_entree/reponsesEtudiants.txt
+filledNominativeSheetsFilename = Phase_3_entree/reponsesEtudiants.txt
 
 # Nom du fichier contenant les notes de l'encadrant·e et ses commentaires
 # pour chaque critere
-teacherMarksFilename = Phase_2_entree/notesEncadrant.csv
+teacherMarksFilename = Phase_3_entree/notesEncadrant.csv
 
 # Nom du fichier contenant la synthese des commentaires trouves dans le
 # fichier reponsesEtudiants.txt
-synthesisCommentsFilename = Phase_2_sortie/syntheseCommentaires.txt
+synthesisCommentsFilename = Phase_3_sortie/syntheseCommentaires.txt
 
 # Nom du fichier contenant l'evaluation des commentaires que chaque 
 # etudiant·e avait ecrit dans le fichier reponsesEtudiants.txt
-evaluationCommentsFilename = Phase_2_sortie/evaluationCommentaires.txt
+evaluationCommentsFilename = Phase_3_sortie/evaluationCommentaires.txt
 
 # Nom du fichier contenant les notes des etudiant·e·s
-studentsMarksSheetFilename = Phase_2_sortie/notesEtudiants.csv
+studentsMarksSheetFilename = Phase_3_sortie/notesEtudiants.csv
 
 
 ######################################################################

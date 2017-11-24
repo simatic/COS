@@ -1,3 +1,3 @@
 echo off
-cos.bat 2
+cos.bat 3
 

@@ -550,8 +550,8 @@ def main():
         usage()
         return
 
-    if len(sys.argv[1]) == 1 or sys.argv[1][1] not in "12":
-        print("""ERREUR: Le premier parametre devrait etre "-1" ou "-2" (sans les guillemets)""")
+    if len(sys.argv[1]) == 1 or sys.argv[1][1] not in "13":
+        print("""ERREUR: Le premier parametre devrait etre "-1" ou "-3" (sans les guillemets)""")
         usage()
         return
     

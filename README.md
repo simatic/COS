@@ -27,15 +27,16 @@
 <li><a href="#sec-3-2">3.2. Configuration de votre nom dans les documents de synthèse générés par COS</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4. Phase 1 (pré-soutenance)</a>
+<li><a href="#sec-4">4. Phase 1 : Pré-soutenance</a>
 <ul>
 <li><a href="#sec-4-1">4.1. Configuration de COS</a>
 <ul>
 <li><a href="#sec-4-1-1">4.1.1. Bonus accordé aux étudiants</a></li>
-<li><a href="#sec-4-1-2">4.1.2. Types des critères d'évaluation</a></li>
-<li><a href="#sec-4-1-3">4.1.3. Critères d'évaluation</a></li>
-<li><a href="#sec-4-1-4">4.1.4. Titres des soutenances</a></li>
-<li><a href="#sec-4-1-5">4.1.5. Liste des étudiants</a></li>
+<li><a href="#sec-4-1-2">4.1.2. Configuration de votre mode de notation</a></li>
+<li><a href="#sec-4-1-3">4.1.3. Types des critères d'évaluation</a></li>
+<li><a href="#sec-4-1-4">4.1.4. Critères d'évaluation</a></li>
+<li><a href="#sec-4-1-5">4.1.5. Titres des soutenances</a></li>
+<li><a href="#sec-4-1-6">4.1.6. Liste des étudiants</a></li>
 </ul>
 </li>
 <li><a href="#sec-4-2">4.2. Exécution de la phase 1 de COS</a>
@@ -53,12 +54,12 @@
 </li>
 </ul>
 </li>
-<li><a href="#sec-5">5. Phase de soutenance</a></li>
-<li><a href="#sec-6">6. Phase 2 (post-soutenance) :</a>
+<li><a href="#sec-5">5. Phase 2 : Soutenance</a></li>
+<li><a href="#sec-6">6. Phase 3 : Post-soutenance</a>
 <ul>
 <li><a href="#sec-6-1">6.1. Configuration de COS</a></li>
-<li><a href="#sec-6-2">6.2. Exécution de la phase 2 de COS</a></li>
-<li><a href="#sec-6-3">6.3. Exploitation des fichiers générés par COS (en phase 2)</a></li>
+<li><a href="#sec-6-2">6.2. Exécution de la phase 3 de COS</a></li>
+<li><a href="#sec-6-3">6.3. Exploitation des fichiers générés par COS (en phase 3)</a></li>
 </ul>
 </li>
 <li><a href="#sec-7">7. Changement des noms ou des valeurs utilisés par défaut</a>
@@ -108,7 +109,7 @@ LibreOffice/OpenOffice Calc et Excel.
 
 *COS* s'inscrit dans la procédure suivante qui sera détaillée dans la
 suite de ce document:
--   Phase 0 (configuration initiale) : l'enseignant configure *COS* en
+-   Phase 0 : Configuration initiale. L'enseignant configure *COS* en
     indiquant :
     -   sur quel système d'exploitation il travaille (Linux, MacOS, Windows),
     -   quel tableur il envisage d'utiliser (*Excel* ou *LibreOffice
@@ -117,10 +118,10 @@ suite de ce document:
         certaines informations ;
     -   sous quel nom il veut apparaître dans les documents de synthèse qui
         seront fournis aux étudiants,
--   Phase 1 (pré-soutenance) :
+-   Phase 1 : Pré-soutenance
     -   l'enseignant spécifie les données concernant une soutenance :
         -   Le bonus qui sera accordé à la note de soutenance des étudiants
-            qui ont fait la même évaluation de certains critères que le
+            qui ont fait la même évaluation de certains critères que
             l'enseignant ;
         -   Type des critères d'évaluation (par exemple, "Fond", "Forme", etc.),
         -   Liste des critères d'évaluation (par exemple, "Résultats et
@@ -141,7 +142,7 @@ suite de ce document:
             les soutenances ;
         -   il enrichit le canevas de fichier pour que la saisie de notes
             et de commentaires lui soit plus facile.
--   Phase Soutenance. Pendant la soutenance :
+-   Phase 2 : Soutenance. Pendant la soutenance :
     -   l'enseignant explique comment seront exploitées les informations
         fournies par les étudiants. En particulier, il évoque le bonus
         dont profiteront les étudiants qui "joueront le jeu" de remplir
@@ -149,15 +150,17 @@ suite de ce document:
     -   les étudiants utilisent l'éditeur de texte collaboratif ou bien
         remplisse une fiche d'évaluation générique ;
     -   l'enseignant saisit des notes et des commentaires.
--   Phase 2 (post-soutenance) :
+-   Phase 3 : Post-soutenance
     -   l'enseignant récupère le contenu du fichier qui a été rempli avec
         l'éditeur de texte collaboratif ;
     -   l'enseignant retranscrit les notes prises manuellement sur les
         fiches d'information génériques dans ce fichier.
     -   l'enseignant finit de saisir ses notes et commentaires ;
     -   l'enseignant exécute *COS* pour générer :
-        -   Une synthèse des comentaires faits par les étudiants durant la
-            soutenance,
+        -   Une synthèse, par soutenance, des commentaires faits par les
+            étudiants durant la soutenance,
+        -   Une synthèse, par étudiant, des commentaires faits par les
+            étudiants durant la soutenance,
         -   Un fichier donnant le détail des notes de chaqsue étudiant (note
             de soutenance attribuée par l'enseignant, bonus pour bonne
             évaluation de soutenance de collègues, note finale).
@@ -384,19 +387,19 @@ non "3,14"), il vous faut changer, dans `configuration.txt`, le champ
     l'encadrante s'appelle *Jeanne Dupont*.
 -   Sauvegardez le fichier.
 
-# Phase 1 (pré-soutenance)<a id="sec-4" name="sec-4"></a>
+# Phase 1 : Pré-soutenance<a id="sec-4" name="sec-4"></a>
 
 ## Configuration de COS<a id="sec-4-1" name="sec-4-1"></a>
 
 ### Bonus accordé aux étudiants<a id="sec-4-1-1" name="sec-4-1-1"></a>
 
-Lors de la phase 2, quand *COS* comparera les évaluations des
+Lors de la phase 3, quand *COS* comparera les évaluations des
 étudiants et les évaluations de l'enseignant, il attribuera à chaque
 étudiant un bonus par évaluation d'étudiant correspondant à
-l'évaluation enseignant. Même si ce bonus ne servira qu'en phase 2,
+l'évaluation enseignant. Même si ce bonus ne servira qu'en phase 3,
 nous vous proposons de réfléchir à la valeur de ce bonus, **dès la
-phase 1**, pour pouvoir l'indiquer aux étudiants lors de la phase de
-soutenance.
+phase 1**, pour pouvoir l'indiquer aux étudiants lors de la phase 2
+(soutenances).
 
 Pour changer la valeur de ce bonus :
 -   Éditez le fichier `configuration.txt` en double-cliquant dessus
@@ -408,7 +411,55 @@ Pour changer la valeur de ce bonus :
     partie décimale).
 -   Sauvegardez le fichier.
 
-### Types des critères d'évaluation<a id="sec-4-1-2" name="sec-4-1-2"></a>
+### Configuration de votre mode de notation<a id="sec-4-1-2" name="sec-4-1-2"></a>
+
+Lors de la phase 3, quand *COS* comparera les évaluations des
+étudiants et les évaluations de l'enseignant, il attribuera à chaque
+étudiant un bonus par évaluation d'étudiant correspondant à
+l'évaluation enseignant. *COS* vous permet de configurer :
+-   le nombre total de points accordés aux différents critères évalués,
+-   le nombre de points en dessous duquel une note de critère signifie
+    que ce critère nécessite des améliorations majeures,
+-   le nombre de points au dessus duquel une note de critère signifie
+    que ce critère vous semble acquis.
+
+Même si ces données ne serviront qu'en phase 3, nous vous proposons de
+réfléchir à leur valeur, **dès la phase 1**, pour pouvoir l'indiquer aux
+étudiants lors de la phase 2 (soutenances).
+
+Pour changer ces données :
+-   Éditez le fichier `configuration.txt` en double-cliquant dessus
+    avec un explorateur de fichiers.
+-   Modifiez le champ `totalPointsCriteria` pour indiquer le nombre
+    total de points que vous souhaitez affecter aux différents
+    critères. Par exemple, `totalPointsCriteria = 20.0` (notez le point
+    qui est utilisé ici comme séparateur décimal) si vous souhaitez que
+    ce nombre soit de 20.
+-   Modifiez ensuite le champ `ratioCriteriaKO` pour spécifier le nombre
+    de points signifiant que vous estimez qu'un critère requiert des
+    améliorations majeures. Ce nombre est un ratio qui s'exprime sous la
+    forme d'un coefficient multiplicateur dans l'intervalle [0, 1]. Par
+    exemple, supposons que la note maximale sur un critère est de 4, en
+    mettant `ratioCriteriaKO = 0.25` (NB : écrivez ce nombre décimal en
+    notation américaine, soit "." (point) pour séparer la partie entière
+    de la partie décimale), vous dites à *COS* que, si vous donnez une note
+    dans l'intervalle [0x4, 0.25x4], c'est-à-dire [0, 1], *COS* devra
+    estimer que vous considérez que ce critère requiert des
+    améliorations majeures.
+-   Modifiez ensuite le champ `ratioCriteriaOK` pour spécifier le nombre
+    de points signifiant que vous estimez qu'un critère révèle une bonne
+    maîtrise. Ce nombre est un ratio qui s'exprime sous la forme d'un
+    coefficient multiplicateur dans l'intervalle [0, 1]. Par exemple,
+    supposons que la note maximale sur un critère est de 4, en mettant
+    `ratioCriteriaOK = 0.75` (NB : écrivez ce nombre décimal en notation
+    américaine, soit "." (point) pour séparer la partie entière de la
+    partie décimale), vous dites à *COS* que, si vous donnez une note
+    dans l'intervalle [0.75x4, 1x4], c'est-à-dire [3, 4], *COS* devra
+    estimer que vous considérez que ce critère révèle une bonne
+    maîtrise.
+-   Sauvegardez le fichier.
+
+### Types des critères d'évaluation<a id="sec-4-1-3" name="sec-4-1-3"></a>
 
 *COS* impose de catégoriser les différents critères d'évaluation. (par
 exemple, "Fond", "Forme", etc.).
@@ -418,16 +469,16 @@ Pour changer la liste des types de critères d'évaluation :
     double-cliquant dessus avec un explorateur de fichiers.
 -   Modifiez la liste des types de critère. L'exemple fourni définit les
     types `Fond` et `Forme`. Notez que, dans ce fichier, les '#' et tout
-    ce qui est à droite des '#' est ignoré ! la ligne `# Nom
-      de chaque type de critère` est ignorée par *COS*.
+    ce qui est à droite des '#' est ignoré : la ligne `# Nom de chaque
+      type de critère` est ignorée par *COS*.
 
-### Critères d'évaluation<a id="sec-4-1-3" name="sec-4-1-3"></a>
+### Critères d'évaluation<a id="sec-4-1-4" name="sec-4-1-4"></a>
 
 *COS* vous permet de personnaliser les critères d'évaluation de vos
 soutenances.
 
 Pour changer la liste des critères d'évaluation :
-1.  Éditez le fichier `Phase_1_entree/listeCriteres.txt` en
+1.  Éditez le fichier `Phase_1_entree/listeCriteres.csv` en
     double-cliquant dessus avec un explorateur de fichiers. Cela ouvre
     votre tableur.
     -   NB (lié à LibreOffice/OpenOffice Calc) : Dans le cas de
@@ -435,11 +486,13 @@ Pour changer la liste des critères d'évaluation :
         un premier temps. Veillez à ce que, dans la zone `Options de
              séparateur`, 1) `Séparé par` soit sélectionné, 2) seul `Virgule`
         soit coché.
-2.  Modifiez la liste des critères. L'exemple définit 10 critères (5 de
-    `Fond` et 5 de `Forme`).
+2.  Modifiez la liste des critères et le nombre maximum de points que
+    vous souhaitez donner à ce critère. L'exemple fourni avec *COS*
+    définit 10 critères (5 de `Fond` et 5 de `Forme`), chacun pouvant
+    recevoir une note comprise entre 0 et un maximum de 2 points.
 3.  Sauvegardez le fichier (au format **CSV**).
 
-### Titres des soutenances<a id="sec-4-1-4" name="sec-4-1-4"></a>
+### Titres des soutenances<a id="sec-4-1-5" name="sec-4-1-5"></a>
 
 *COS* impose de lui fournir la liste des titres des soutenances qui
 vont avoir lieu. Nous vous recommandons de les lui fournir dans
@@ -456,7 +509,7 @@ Pour changer la liste des types de critères d'évaluation :
       chaque soutenance` est ignorée par *COS*.
 -   Sauvegardez le fichier.
 
-### Liste des étudiants<a id="sec-4-1-5" name="sec-4-1-5"></a>
+### Liste des étudiants<a id="sec-4-1-6" name="sec-4-1-6"></a>
 
 *COS* impose de lui fournir la liste des étudiants qui vont soutenir
 et, sur quelle soutenance, ils vont soutenir. Notez que :
@@ -513,6 +566,14 @@ appuyez sur une touche pour fermer la fenêtre.
 -   Dans le répertoire `Phase_1_sortie`, double-cliquez sur le fichier
     `listeFichesEtudiants.txt`
 -   Recopiez son contenu dans le *pad* créé.
+-   NB lié à Framapad : des tests ont montré que si votre fichier
+    `Phase_1_sortie/listeFichesEtudiants.txt` fait plus de 2500 lignes,
+    framapad a du mal à travailler avec. De ce fait, si votre fichier
+    fait plus de 2500 lignes :
+    -   Soit créez plusieurs framapad pour découper ce fichier en blocs de
+        2500 lignes.
+    -   Soit créez un googledoc partagé pour stocker le contenu
+        de votre fichier.
 
 ### Impression des fiches d'évaluation génériques<a id="sec-4-3-2" name="sec-4-3-2"></a>
 
@@ -534,11 +595,11 @@ appuyez sur une touche pour fermer la fenêtre.
     -   en mettant dans les autres colonnes de cette ligne, une formule de
         calcul de somme des éléments de cette colonne
     -   etc.
--   Sauvegardez le tableau obtenu dans le répertoire `Phase_2_entree` au
+-   Sauvegardez le tableau obtenu dans le répertoire `Phase_3_entree` au
     format standard de votre tableur (`.odt` pour LibreOffice/OpenOffice
     et `.xlsx` pour Excel).
 
-# Phase de soutenance<a id="sec-5" name="sec-5"></a>
+# Phase 2 : Soutenance<a id="sec-5" name="sec-5"></a>
 
 1.  Indiquez aux étudiants comment ils peuvent fournir les
     informations. En particulier, fournissez l'adresse du *pad*, voire
@@ -551,6 +612,9 @@ appuyez sur une touche pour fermer la fenêtre.
         -   Mettre un "+" au début de la ligne d'un critère dont il pense
             que l'enseignant estimera que le critère ne nécessite aucune
             amélioration (voire qu'il est impeccable).
+            -   NB : L'étudiant peut aussi mettre le "+" à la fin de la
+                ligne. Mais, le mettre en début de ligne est plus lisible
+                pour lui.
         -   Mettre un commentaire au niveau du champ
             `Commentaire/Justification du +`.
         -   S'il estime que l'enseignant considérera qu'il n'y aucun
@@ -582,52 +646,49 @@ appuyez sur une touche pour fermer la fenêtre.
 3.  Faites passer les soutenances.
 4.  Remplissez votre fichier de notes/commentaires
 
-# Phase 2 (post-soutenance) :<a id="sec-6" name="sec-6"></a>
+# Phase 3 : Post-soutenance<a id="sec-6" name="sec-6"></a>
 
 ## Configuration de COS<a id="sec-6-1" name="sec-6-1"></a>
 
 -   Complétez le *pad* avec les réponses récupérées au format papier.
 -   Recopiez le contenu de votre *pad* dans le fichier
-    `reponsesEtudiants.txt` du répertoire `Phase_2_entree`
--   Sauvegardez dans le répertoire `Phase_2_entree` votre fichier de
+    `reponsesEtudiants.txt` du répertoire `Phase_3_entree`
+-   Sauvegardez dans le répertoire `Phase_3_entree` votre fichier de
     notes/commentaires au format **CSV** et sous le nom
     `notesEncadrant.csv`
 -   NB : si vous le souhaitez, vous pouvez changer le bonus accordé aux
     étudiants. En effet, c'est seulement maintenant que sa valeur va
     vraiment être exploitée.
 
-## Exécution de la phase 2 de COS<a id="sec-6-2" name="sec-6-2"></a>
+## Exécution de la phase 3 de COS<a id="sec-6-2" name="sec-6-2"></a>
 
-De même que pour la phase 1, la phase 2 de *COS* dépend de votre
+De même que pour la phase 1, la phase 3 de *COS* dépend de votre
 système d'exploitation :
--   Linux/MacOS : exécutez `cos_phase_2.sh` au lieu de `cos_phase_1.sh`
+-   Linux/MacOS : exécutez `cos_phase_3.sh` au lieu de `cos_phase_1.sh`
       précédemment.
--   Windows : exécutez `cos_phase_2.bat` au lieu de `cos_phase_1.bat`
+-   Windows : exécutez `cos_phase_3.bat` au lieu de `cos_phase_1.bat`
       précédemment.
 
 En cas d'exécution correcte, vous aurez l'affichage suivant :
 
     cos version 1.0.0
     
-    OK, exécution de la phase 2 terminée : les fichiers...
+    OK, exécution de la phase 3 terminée : les fichiers...
 
-## Exploitation des fichiers générés par COS (en phase 2)<a id="sec-6-3" name="sec-6-3"></a>
+## Exploitation des fichiers générés par COS (en phase 3)<a id="sec-6-3" name="sec-6-3"></a>
 
 Les deux fichiers générés par *COS* sont disponibles dans le
-répertoire `Phase_2_sortie` :
--   `syntheseCommentaires.txt` contient la synthèse des commentaires
-    faits par les étudiants et vous durant la soutenance. À vous de
-    décider comment l'exploiter.
+répertoire `Phase_3_sortie` :
+-   `syntheseCommentaires.txt` contient la synthèse, par projet, des
+    commentaires faits par les étudiants et vous durant la soutenance. À
+    vous de décider comment l'exploiter.
+-   `evaluationCommentaires.txt` contient la synthèse, par étudiant, des
+    évaluations qu'il a faite pour chacune des soutenances, et votre
+    propre évaluation. À vous de décider comment l'exploiter.
 -   `notesEtudiants.csv` contient le calcul des différentes notes.
-    -   La note de soutenance
-        -   Elle est calculée en faisant la somme des notes que vous avez
-            attribuée à chaque critère, pour cette soutenance.
-        -   Si vous préférez mettre d'autres valeurs que 0, 1 ou 2, allez
-            dans le fichier `configuration.txt` pour changer les champs
-            (NB : actuellement, ces champs doivent être des entiers) :
-            -   `pointsCriteriaOK = 2` (valeur actuelle : 2)
-            -   `pointsCriteriaAverage = 1` (valeur actuelle : 1)
-            -   `pointsCriteriaKO = 0` (valeur actuelle : 0)
+    -   La note de soutenance. Elle est calculée en faisant la somme des
+        notes que vous avez attribuée à chaque critère, pour cette
+        soutenance.
     -   La note de bonus (qui, rappelons-le, dépend du champ
         `bonusCriteriaOK` dans le fichier `configuration.txt`)
     -   La note finale du module (qui est la somme de ces deux notes).
@@ -673,7 +734,7 @@ en modifiant le champ correspondant à ce fichier dans le fichier
 
 Imaginons, par exemple, que vous n'êtes pas satisfait du fait que le
 fichier des retours des étudiants s'appelle `reponsesEtudiants.txt` et
-est stocké dans `Phase_2_entree`. Il faut alors changer la valeur du
+est stocké dans `Phase_3_entree`. Il faut alors changer la valeur du
 champ `filledNominativeSheetsFilename`. Par exemple, supposons que
 vous voulez que le fichier s'appelle désormais
 `retoursDesEtudiants.txt` et soit stocké au même niveau que le fichier
@@ -687,9 +748,6 @@ vous voulez que le fichier s'appelle désormais
 Nous avons déjà évoqué comment (et pourquoi) changer dans
 `configuration.txt`:
 -   `bonusCriteriaOK`
--   `pointsCriteriaOK`
--   `pointsCriteriaAverage`
--   `pointsCriteriaKO`
 
 `configuration.txt` contient également la configuration des lignes
 générées dans `listeFichesEtudiants.txt` lors de la phase 1 :
@@ -705,7 +763,7 @@ générées dans `listeFichesEtudiants.txt` lors de la phase 1 :
 # Conclusion<a id="sec-8" name="sec-8"></a>
 
 Nous espérons que *COS* sera une invitation, pour vos étudiants, à
-changer d'angle de vue pendant les soutenances. Et, nous nous vous
+changer d'angle de vue pendant les soutenances. Et, nous vous
 souhaitons des soutenances encore plus intéressantes qu'avant !
 N'hésitez pas à nous faire des retours sur [github](https://github.com/simatic/COS) ou à
 [Michel.Simatic@telecom-sudparis.eu](Michel.Simatic@telecom-sudparis.eu).
@@ -715,7 +773,7 @@ N'hésitez pas à nous faire des retours sur [github](https://github.com/simatic
 *COS* n'aurait jamais vu le jour sans :
 -   Myriam Davidovici-Nora, Maître de Conférences à Télécom-ParisTech,
     qui est l'auteur des critères listés dans le fichier
-    `listeCriteres.txt` fourni avec *COS*, et du barème associé,
+    `listeCriteres.csv` fourni avec *COS*, et du barème associé,
 -   Racha Hallal, ingénieure pédagogique à Télécom SudParis, dont les
     remarques judicieuses ont permis et permettent encore d'améliorer
     *COS*,

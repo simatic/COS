@@ -1,5 +1,5 @@
 #!/bin/sh
 
-./cos.sh 2
+./cos.sh 3
 
 
