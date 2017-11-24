@@ -313,6 +313,7 @@ def analyzeTeacherData(conf, defenses, criteriaTypes, criterias):
                    #   - column 1 which contains value for maxCriteriaKO
                    #   - column 2 which contains value for minCriteriaOK
         for defense in defenses:
+            marks[column] = marks[column].replace(conf.get("decimalSeparator"), '.')
             try:
                 mark = float(marks[column])
             except ValueError:
