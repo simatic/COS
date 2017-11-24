@@ -328,7 +328,9 @@ def analyzeTeacherData(conf, defenses, criteriaTypes, criterias):
 
     lineGeneralComments = lookForNonBlankLine(f, nbLinesRead, False, "Ligne contenant les commentaires généraux de chaque projet")
     generalComments = splitCsvLine(lineGeneralComments, conf.get("csvSeparator"))
-    column = 1 #We set column to 1 in order to skip column 0 which contains title of the line
+    column = 3 # We set column to 3 in order to skip column 0 which contains title of the line,
+               # column 1 which contains Note max critere KO, and column 2 which contains 
+               # Note min critere OK
     for defense in defenses:
         defense.generalComment = generalComments[column]
         column += 1
@@ -457,7 +459,11 @@ def generateResults(conf, defenses, students, criteriaTypes, criterias, dateTime
         if defenses[defenseIndex].generalComment == "":
             f.write("Pas de commentaire général de {}\n\n".format(conf.get("teacherName")))
         else:
-            f.write("Commentaire général de {} : {}\n\n".format(conf.get("teacherName"), defenses[defenseIndex].generalComment))
+            f.write("Commentaire général de {} :\n".format(conf.get("teacherName")))
+            for lineComment in defenses[defenseIndex].generalComment.split("\\n"):
+                f.write(lineComment)
+                f.write("\n")
+            f.write("\n")
         # We display the results for positive criteria and negative criteria            
         for opinionType in list_opinions:
             for index in list(range(len(criterias)-1, -1, -1)):
