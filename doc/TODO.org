@@ -7,5 +7,6 @@
 * TODO Mieux résister aux plantages si on lit un fichier Windows et que la donnée de configuration "encoding" spécifie "utf-8"
 * TODO Générer une erreur, si la somme des note des critères, ne vaut pas la donnée de configuration "totalPointsCriteria" dans configuration.txt
 * TODO Générer une erreur si un critère contient un "+" ou un "-" en premier ou en dernier caractère
+* TODO Faire une installation de COS basé sur Python setuptools (https://pypi.python.org/pypi/setuptools)
 * TODO Fournir une interface graphique facilitant l'utilisation de /COS/
 * TODO Prévoir un système permettant que les messages d'erreur soient en anglais ou en français.
