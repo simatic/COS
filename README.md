@@ -212,33 +212,31 @@ Sinon, téléchargez *Python 3* sur le [site officiel](https://www.python.org/do
 ## Windows<a id="sec-2-4" name="sec-2-4"></a>
 
 -   Appuyez sur la touche `Windows`, puis sur la touche `R` (sans
-    appuyer sur la touche `Majuscule` : une fenêtre `Exécuter` apparaît.
--   Dans cette fenêtre, dans le champ `Ouvrir:`, tapez `cmd`. Puis,
-    cliquez sur `OK` : uène fenêtre `C:\WINDOWS\system32\cmd.exe`
-    apparaît.
--   Dans cette fenêtre, tapez `python`, puis appuyez sur la touche
-    `Entrée`. 3 cas sont possibles :
+    appuyer sur la touche `Majuscule`) : une fenêtre `Exécuter` apparaît.
+-   Dans cette fenêtre, dans le champ `Ouvrir:`, tapez `python`. Puis,
+    cliquez sur `OK`. 3 cas sont possibles :
 
 ### 1er cas<a id="sec-2-4-1" name="sec-2-4-1"></a>
 
-Vous obtenez l'affichage :
+Une fenêtre s'ouvre avec un affichage qui ressemble à :
 
     Python 3.6.3 (v3.6.3:2c5fed8, Oct  3 2017, 17:26:49) [MSC v.1900 32 bit (Intel)] on win32
     Type "help", "copyright", "credits" or "license" for more information.
     >>>
 
-Vu qu'il y a écrit `Python 3.` au début de la première ligne, cela
-signifie que *Python 3* est déjà installé sur votre machine : vous
-n'avez rien à faire (hormis fermer cette fenêtre).
+Vu qu'il y a écrit `Python 3.` au début de la première ligne de cet
+affichage, cela signifie que *Python 3* est déjà installé sur votre
+machine : vous n'avez rien à faire (hormis fermer cette fenêtre).
 
 ### 2e cas<a id="sec-2-4-2" name="sec-2-4-2"></a>
 
-Vous obtenez l'affichage :
+Une fenêtre s'ouvre et vous indique que :
 
-    'python' n’est pas reconnu en tant que commande interne
-    ou externe, un programme exécutable ou un fichier de commandes.
+    Windows ne trouve pas 'python'. Vérifiez que vous avez entré le nom
+    correct, puis réessayez.
 
 Cela signifie que *Python 3* n'est pas installé sur votre machine :
+-   Cliquez sur *OK* pour fermer cette fenêtre.
 -   Téléchargez *Python 3* sur le [site officiel](https://www.python.org/downloads/)
 -   Lancez l'installation sur votre ordinateur : une fenêtre `Python 3
       (32-bit) Setup` apparaît.
@@ -252,7 +250,7 @@ Cela signifie que *Python 3* n'est pas installé sur votre machine :
 
 ### 3e cas<a id="sec-2-4-3" name="sec-2-4-3"></a>
 
-Vous obtenez l'affichage :
+Une fenêtre s'ouvre avec un affichage qui ressemble à :
 
     Python 2.7.3 (default, Apr 10 2012, 23:24:47) [MSC v.1500 64 bit (AMD64)] on win32
     Type "help", "copyright", "credits" or "license" for more information.
@@ -262,7 +260,7 @@ Vu qu'il y a écrit `Python 2.` au début de la première ligne, cela
 signifie que c'est *Python 2* qui est installé sur votre machine et
 non *Python 3*. Il faut installer *Python 3*, mais sans déranger
 l'installation de *Python 2*. Pour ce faire :
-
+-   Fermez cette fenêtre en cliquant sur sa croix rouge.
 -   Téléchargez *Python 3* sur le [site officiel](https://www.python.org/downloads/)
 -   Lancez l'installation sur votre ordinateur : une fenêtre `Python 3
       (32-bit) Setup` apparaît.
