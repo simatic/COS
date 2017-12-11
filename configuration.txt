@@ -9,8 +9,15 @@
 # Informations generales
 ######################################################################
 
-# Nom de l'encadrant·e
+# Nom de l'encadrant
 teacherName = Jeanne Dupont
+
+# Bonus sur note etudiant si l'etudiant juge un critere comme l'encadrant
+# NB : Si ce bonus est decimal, utilisez un point ('.') et non une
+#      une virgule (',') pour separer la partie entiere et la partie decimale.
+#      Par exemple, pour un bonus egal a pi, ecrire (sans les guillemets)
+#      "3.14" et pas "3,14"
+bonusCriteriaOK = 0.1
 
 # Nombre total de points affectes aux differents criteres
 # NB : Si ce bonus est decimal, utilisez un point ('.') et non une
@@ -19,34 +26,27 @@ teacherName = Jeanne Dupont
 #      "3.14" et pas "3,14"
 totalPointsCriteria = 20.0
 
-# Ratio pour nombre de points signifiant qu'encadrant·e estime que tout critere
+# Ratio pour nombre de points signifiant qu'encadrant estime que tout critere
 # requiert des ameliorations majeures
-# Exemple : Supposons que l'encadrant·e a considere que la note maximale
+# Exemple : Supposons que l'encadrant a considere que la note maximale
 #           sur un critere donne est de 4 points.
 #           En mettant ratioCriteriaKO à "0.25" (sans les guillemets),
-#           l'encadrant·e considere que s'il·elle donne une note dans
-#           l'intervalle [0*4, 0.25*4], c'est-à-dire [0, 1], il·elle
-#           signifiera qu'il·elle estime que ce critere requiert des
+#           l'encadrant considere que s'il donne une note dans
+#           l'intervalle [0*4, 0.25*4], c'est-à-dire [0, 1], il
+#           signifiera qu'il estime que ce critere requiert des
 #           ameliorations majeures
 ratioCriteriaKO = 0.25
 
-# Ratio pour nombre de points signifiant qu'encadrant·e estime que tout critere
+# Ratio pour nombre de points signifiant qu'encadrant estime que tout critere
 # revele une bonne maitrise
-# Exemple : Supposons que l'encadrant·e a considere que la note maximale
+# Exemple : Supposons que l'encadrant a considere que la note maximale
 #           sur un critere donne est de 4 points.
 #           En mettant ratioCriteriaOK à "0.75" (sans les guillemets),
-#           l'encadrant·e considere que s'il·elle donne une note dans
-#           l'intervalle [0.75*4, 1*4], c'est-à-dire [3, 4], il·elle
-#           signifiera qu'il·elle estime que ce critere revele une bonne
+#           l'encadrant considere que s'il donne une note dans
+#           l'intervalle [0.75*4, 1*4], c'est-à-dire [3, 4], il
+#           signifiera qu'il estime que ce critere revele une bonne
 #           maitrise
 ratioCriteriaOK = .75
-
-# Bonus sur note etudiant·e si l'etudiant·e juge critere comme l'encadrant
-# NB : Si ce bonus est decimal, utilisez un point ('.') et non une
-#      une virgule (',') pour separer la partie entiere et la partie decimale.
-#      Par exemple, pour un bonus egal a pi, ecrire (sans les guillemets)
-#      "3.14" et pas "3,14"
-bonusCriteriaOK = 0.1
 
 
 ######################################################################
@@ -57,7 +57,7 @@ bonusCriteriaOK = 0.1
 # Nom du fichier contenant la liste des soutenances
 defensesFilename= Phase_1_entree/listeSoutenances.txt
 
-# Nom du fichier contenant la liste des etudiant·e·s
+# Nom du fichier contenant la liste des etudiants
 studentsFilename= Phase_1_entree/listeEtudiants.csv
 
 # Nom du fichier contenant la liste des types de criteres
@@ -71,12 +71,12 @@ criteriasFilename = Phase_1_entree/listeCriteres.csv
 # Fichiers quand la phase de travail est la phase 1 (option '-1')
 ######################################################################
 
-# Nom du fichier contenant toutes les fiches nominatives des etudiant·e·s
+# Nom du fichier contenant toutes les fiches nominatives des etudiants
 nominativeSheetsFilename = Phase_1_sortie/listeFichesEtudiants.txt
 
-# Nom du fichier contenant une fiche generique a imprimer pour un etudiant·e
+# Nom du fichier contenant une fiche generique a imprimer pour un etudiant
 # qui n'est pas en mesure de remplir le fichier precedent (par exemple, parce
-# qu'il·elle n'a pas d'ordinateur
+# qu'il n'a pas d'ordinateur
 genericSheetFilename = Phase_1_sortie/ficheGeneriqueEtudiant.txt
 
 # Nom du fichier contenant la structure de base du fichier d'evaluation de
@@ -88,10 +88,10 @@ genericTeacherMarksFilename = Phase_1_sortie/canevasNotesEncadrant.csv
 ######################################################################
 
 # Nom du fichier contenant la version remplie des fiches nominatives
-# des etudiant·e·s (cf. outputListeFichesEtudiants.txt)
+# des etudiants (cf. outputListeFichesEtudiants.txt)
 filledNominativeSheetsFilename = Phase_3_entree/reponsesEtudiants.txt
 
-# Nom du fichier contenant les notes de l'encadrant·e et ses commentaires
+# Nom du fichier contenant les notes de l'encadrant et ses commentaires
 # pour chaque critere
 teacherMarksFilename = Phase_3_entree/notesEncadrant.csv
 
@@ -100,10 +100,10 @@ teacherMarksFilename = Phase_3_entree/notesEncadrant.csv
 synthesisCommentsFilename = Phase_3_sortie/syntheseCommentaires.txt
 
 # Nom du fichier contenant l'evaluation des commentaires que chaque 
-# etudiant·e avait ecrit dans le fichier reponsesEtudiants.txt
+# etudiant avait ecrit dans le fichier reponsesEtudiants.txt
 evaluationCommentsFilename = Phase_3_sortie/evaluationCommentaires.txt
 
-# Nom du fichier contenant les notes des etudiant·e·s
+# Nom du fichier contenant les notes des etudiants
 studentsMarksSheetFilename = Phase_3_sortie/notesEtudiants.csv
 
 

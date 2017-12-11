@@ -1,7 +1,7 @@
 #+TITLE:     Manuel Utilisateur de l'outil C.O.S. (Collecte d'Opinions lors de Soutenances)
 #+AUTHOR:    Michel SIMATIC
 #+EMAIL:     michel.simatic@telecom-sudparis.eu
-#+DATE:      24/11/2017
+#+DATE:      11/12/2017
 #+DESCRIPTION: 
 #+KEYWORDS: 
 #+LANGUAGE:  fr
@@ -98,9 +98,8 @@ suite de ce document:
 
 Dans la suite de ce document, nous commençons par présenter
 l'installation de /COS/, avant de détailler chacune des phases
-mentionnées dans cette introduction. La dernière section explique
-comment changer les noms de fichier et les valeurs utilisés par
-défaut.
+mentionnées dans cette introduction. L'annexe explique comment changer
+les noms de fichier et les valeurs utilisés par défaut.
 * Installation de /COS/
 ** Généralités
 - Téléchargez l'archive ZIP ~COS-master.zip~ de /COS/ sur [[https://github.com/simatic/COS][github]]
@@ -194,8 +193,7 @@ l'installation de /Python 2/. Pour ce faire :
 /Python 3/ est désormais installé sur votre machine. Mais, vous devez
 préciser à /COS/ qu'il doit utiliser ce /Python 3/ et non le /Python
 2/ auquel il accéderait spontanément :
-- Avec un explorateur de fichier, allez dans le répertoire où vous
-  avez dézippé /COS/.
+- Allez dans le répertoire où vous avez dézippé /COS/.
 - Clic gauche sur le fichier ~cos.bat~, puis clic droit pour choisir
   de l'éditer avec votre éditeur de texte (par exemple, /Notepad++/).
 - Ajoutez la ligne ~set PATH=C:\Program Files (x86)\Python36-32\~ 
@@ -211,12 +209,11 @@ pause
 
 * Configuration initiale de COS
 ** Configuration du système d'exploitation et du tableur que vous utilisez
-Avec un explorateur de fichier, allez dans le répertoire ~modeles~ de
-/COS/. Ce répertoire contient 4 fichiers archives. Double-cliquez sur
-l'archive correspondant à votre combinaison Système d'exploitation
-(Linux et MacOS OU BIEN Windows) / Tableur (LibreOffice Calc et
-OpenOffice Calc OU BIEN Excel), comme indiqué dans le tableau
-ci-dessous.
+Allez dans le répertoire ~modeles~ de /COS/. Ce répertoire contient 4
+fichiers archives. Double-cliquez sur l'archive correspondant à votre
+combinaison Système d'exploitation (Linux et MacOS OU BIEN Windows) /
+Tableur (LibreOffice Calc et OpenOffice Calc OU BIEN Excel), comme
+indiqué dans le tableau ci-dessous.
 |-------------+------------------------------------+-------------------------|
 |             | LibreOffice Calc                   | Excel                   |
 |-------------+------------------------------------+-------------------------|
@@ -265,8 +262,7 @@ non "3,14"), il vous faut changer, dans ~configuration.txt~, le champ
 "," (virgule, sans les guillemets).
 
 ** Configuration de votre nom dans les documents de synthèse générés par COS
-- Éditez le fichier ~configuration.txt~ en double-cliquant dessus
-  avec un explorateur de fichiers.
+- Éditez le fichier ~configuration.txt~ en double-cliquant dessus.
 - Modifiez le champ ~teacherName~ pour y indiquer le nom sous lequel
   vous souhaitez apparaître dans les documents générés par /COS/. Par
   exemple, ~teacherName = Jeanne Dupont~ si vous souhaitez que
@@ -284,78 +280,30 @@ phase 1*, pour pouvoir l'indiquer aux étudiants lors de la phase 2
 (soutenances).
 
 Pour changer la valeur de ce bonus :
-- Éditez le fichier ~configuration.txt~ en double-cliquant dessus
-  avec un explorateur de fichiers.
+- Éditez le fichier ~configuration.txt~ en double-cliquant dessus.
 - Modifiez le champ ~bonusCriteriaOK~ pour y indiquer la valeur de ce
   bonus. Par exemple, mettez ~bonusCriteriaOK = 0.1~ pour indiquer un
   bonus de /0.1/. NB : écrivez ce nombre décimal en notation
   américaine (donc, "." (point) pour séparer la partie entière de la
   partie décimale).
 - Sauvegardez le fichier.
-*** Configuration de votre mode de notation
-Lors de la phase 3, quand /COS/ comparera les évaluations des
-étudiants et les évaluations de l'enseignant, il attribuera à chaque
-étudiant un bonus par évaluation d'étudiant correspondant à
-l'évaluation enseignant. /COS/ vous permet de configurer :
-- le nombre total de points accordés aux différents critères évalués,
-- le nombre de points en dessous duquel une note de critère signifie
-  que ce critère nécessite des améliorations majeures,
-- le nombre de points au dessus duquel une note de critère signifie
-  que ce critère vous semble acquis.
-
-Même si ces données ne serviront qu'en phase 3, nous vous proposons de
-réfléchir à leur valeur, *dès la phase 1*, pour pouvoir l'indiquer aux
-étudiants lors de la phase 2 (soutenances).
-
-Pour changer ces données :
-- Éditez le fichier ~configuration.txt~ en double-cliquant dessus
-  avec un explorateur de fichiers.
-- Modifiez le champ ~totalPointsCriteria~ pour indiquer le nombre
-  total de points que vous souhaitez affecter aux différents
-  critères. Par exemple, ~totalPointsCriteria = 20.0~ (notez le point
-  qui est utilisé ici comme séparateur décimal) si vous souhaitez que
-  ce nombre soit de 20.
-- Modifiez ensuite le champ ~ratioCriteriaKO~ pour spécifier le nombre
-  de points signifiant que vous estimez qu'un critère requiert des
-  améliorations majeures. Ce nombre est un ratio qui s'exprime sous la
-  forme d'un coefficient multiplicateur dans l'intervalle [0, 1]. Par
-  exemple, supposons que la note maximale sur un critère est de 4, en
-  mettant ~ratioCriteriaKO = 0.25~ (NB : écrivez ce nombre décimal en
-  notation américaine, soit "." (point) pour séparer la partie entière
-  de la partie décimale), vous dites à /COS/ que, si vous donnez une note
-  dans l'intervalle [0x4, 0.25x4], c'est-à-dire [0, 1], /COS/ devra
-  estimer que vous considérez que ce critère requiert des
-  améliorations majeures.
-- Modifiez ensuite le champ ~ratioCriteriaOK~ pour spécifier le nombre
-  de points signifiant que vous estimez qu'un critère révèle une bonne
-  maîtrise. Ce nombre est un ratio qui s'exprime sous la forme d'un
-  coefficient multiplicateur dans l'intervalle [0, 1]. Par exemple,
-  supposons que la note maximale sur un critère est de 4, en mettant
-  ~ratioCriteriaOK = 0.75~ (NB : écrivez ce nombre décimal en notation
-  américaine, soit "." (point) pour séparer la partie entière de la
-  partie décimale), vous dites à /COS/ que, si vous donnez une note
-  dans l'intervalle [0.75x4, 1x4], c'est-à-dire [3, 4], /COS/ devra
-  estimer que vous considérez que ce critère révèle une bonne
-  maîtrise.
-- Sauvegardez le fichier.
 *** Types des critères d'évaluation
-/COS/ impose de catégoriser les différents critères d'évaluation. (par
+/COS/ a besoin de catégoriser les différents critères d'évaluation. (par
 exemple, "Fond", "Forme", etc.).
 
 Pour changer la liste des types de critères d'évaluation :
 - Éditez le fichier ~Phase_1_entree/listeTypesCriteres.txt~ en
-  double-cliquant dessus avec un explorateur de fichiers.
+  double-cliquant dessus.
 - Modifiez la liste des types de critère. L'exemple fourni définit les
-  types ~Fond~ et ~Forme~. Notez que, dans ce fichier, les '#' et tout
-  ce qui est à droite des '#' est ignoré : la ligne ~# Nom de chaque
-  type de critère~ est ignorée par /COS/.
+  types ~Fond~ et ~Forme~ (La ligne la ligne ~# Nom de chaque type de
+  critère~ est ignorée par /COS/ car elle commence par un '#').
 *** Critères d'évaluation
 /COS/ vous permet de personnaliser les critères d'évaluation de vos
 soutenances.
 
 Pour changer la liste des critères d'évaluation :
 1. Éditez le fichier ~Phase_1_entree/listeCriteres.csv~ en
-   double-cliquant dessus avec un explorateur de fichiers. Cela ouvre
+   double-cliquant dessus. Cela ouvre
    votre tableur.
    - NB (lié à LibreOffice/OpenOffice Calc) : Dans le cas de
      /LibreOffice Calc/, une fenêtre ~Import de texte~ s'affiche dans
@@ -364,51 +312,46 @@ Pour changer la liste des critères d'évaluation :
      soit coché.
 2. Modifiez la liste des critères et le nombre maximum de points que
    vous souhaitez donner à ce critère. L'exemple fourni avec /COS/
-   définit 10 critères (5 de ~Fond~ et 5 de ~Forme~), chacun pouvant
-   recevoir une note comprise entre 0 et un maximum de 2 points.
+   définit 10 critères (5 de ~Fond~ et 5 de ~Forme~).
 3. Sauvegardez le fichier (au format *CSV*).
 *** Titres des soutenances
-/COS/ impose de lui fournir la liste des titres des soutenances qui
-vont avoir lieu. Nous vous recommandons de les lui fournir dans
-l'ordre de passage envisagé (cela facilite le remplissage des fiches
-par les étudiants et l'enseignant).
+/COS/ a besoin de la liste des titres des soutenances qui vont avoir
+lieu. Nous vous recommandons de les lui fournir dans l'ordre de
+passage envisagé (cela facilite le remplissage des fiches par les
+étudiants et l'enseignant).
 
-Pour changer la liste des types de critères d'évaluation :
+Pour changer la liste des titres de soutenances :
 - Éditez le fichier ~Phase_1_entree/listeSoutenances.txt~ en
-  double-cliquant dessus avec un explorateur de fichiers.
+  double-cliquant dessus.
 - Modifiez la liste des soutenances. L'exemple fourni définit 3
   soutenances ~Eugénie Grandet~, ~La Touche étoile~ et ~... Et mon
-  tout est un homme~. Notez que, dans ce fichier, les '#' et tout ce
-  qui est à droite des '#' est ignoré : la ligne ~# Nom de
-  chaque soutenance~ est ignorée par /COS/.
+  tout est un homme~ (La ligne la ligne ~# Nom de chaque soutenance~
+  est ignorée par /COS/ car elle commence par un '#').
 - Sauvegardez le fichier.
 *** Liste des étudiants
-/COS/ impose de lui fournir la liste des étudiants qui vont soutenir
-et, sur quelle soutenance, ils vont soutenir. Notez que :
-- Plusieurs étudiants peuvent soutenir ensemble (cf., dans l'exemple,
-  ~M. AYRAUD Pierre (dit Thomas Narcejac)~ et ~M. BOILEAU Pierre
-  Louis~ qui font la même soutenance de titre ~... Et mon tout est un
-  homme~)
-- Une soutenance de ~Phase_1_entree/listeSoutenances.txt~ peut ne pas
-  se voir mentionnée à cette étape.
+/COS/ a besoin de la liste des étudiants qui vont soutenir et, sur
+quelle soutenance, ils vont soutenir. Notez que plusieurs étudiants
+peuvent soutenir ensemble (cf., dans l'exemple, ~M. AYRAUD Pierre (dit
+Thomas Narcejac)~ et ~M. BOILEAU Pierre Louis~ qui font la même
+soutenance de titre ~... Et mon tout est un homme~).
 
 Pour changer la liste des étudiants :
 1. Éditez le fichier ~Phase_1_entree/listeEtudiants.txt~ en
-   double-cliquant dessus avec un explorateur de fichiers. Cela ouvre
-   votre tableur.
+   double-cliquant dessus. Cela ouvre votre tableur.
    - NB (lié à LibreOffice/OpenOffice Calc) : Dans le cas de
      /LibreOffice Calc/, une fenêtre ~Import de texte~ s'affiche dans
      un premier temps. Veillez à ce que, dans la zone ~Options de
      séparateur~, 1) ~Séparé par~ soit sélectionné, 2) seul ~Virgule~
      soit coché.
-2. Modifiez la liste des étudiants. L'exemple définit 4 étudiants.
+2. Modifiez la liste des étudiants. L'exemple définit 4 étudiants et
+   leur soutenance.
 3. Sauvegardez le fichier (au format *CSV*).
 ** Exécution de la phase 1 de COS
 Le lancement de la phase 1 de /COS/ dépend de votre système
 d'exploitation.
 *** Linux/MacOS
 Dans le répertoire de /COS/, exécutez le programme
-~cos_phase_1.sh~. En cas d'erreur, un message vous explique le
+~cos_phase_1_linux_MacOS.sh~. En cas d'erreur, un message vous explique le
 problème détecté : à vous de le corriger. Si tout se passe bien, /COS/
 affiche le message :
 #+BEGIN_SRC sh
@@ -417,11 +360,11 @@ cos version 1.0.0
 OK, exécution de la phase 1 terminée : les fichiers...
 #+END_SRC
 *** Windows
-Avec un explorateur de fichiers, allez dans le répertoire de
-/COS/. Puis, double-cliquez sur le programme ~cos_phase_1.bat~ : une
-fenêtre s'ouvre et affiche un message d'erreur ou bien un message de
-bonne exécution (cf. exemple Linux/MacOS ci-dessus). Dans les 2 cas,
-appuyez sur une touche pour fermer la fenêtre.
+Dans le répertoire de /COS/, double-cliquez sur le programme
+~cos_phase_1_windows.bat~ : une fenêtre s'ouvre et affiche un message d'erreur
+ou bien un message de bonne exécution (cf. exemple Linux/MacOS
+ci-dessus). Dans les 2 cas, appuyez sur une touche pour fermer la
+fenêtre.
 ** Préparation de la soutenance
 *** Mise à disposition sur Internet des fiches d'évaluation nominatives
 - Dans un éditeur de texte collaboratif (par exemple, [[https://framapad.org/][framapad]]), créez
@@ -460,31 +403,29 @@ appuyez sur une touche pour fermer la fenêtre.
   et ~.xlsx~ pour Excel).
 * Phase 2 : Soutenance
 1. Indiquez aux étudiants comment ils peuvent fournir les
-   informations. En particulier, fournissez l'adresse du /pad/, voire
-   un crayon pour les étudiants qui rempliront un exemplaire papier.
+   informations. En particulier, fournissez l'adresse du /pad/.
 2. Expliquez les "règles du jeu", i.e. les informations que les
    étudiants doivent fournir et comment ces informations seront
    exploitées :
    - L'étudiant doit remplir la fiche correspondant à son nom.
-   - Pour chaque soutenance (hormis la sienne, évidemment), l'étudiant doit :
-     - Mettre un "+" au début de la ligne d'un critère dont il pense
-       que l'enseignant estimera que le critère ne nécessite aucune
-       amélioration (voire qu'il est impeccable).
+   - Pour chaque soutenance (hormis la sienne, évidemment) :
+     - L'étudiant doit mettre un "+" au début de la ligne d'un critère
+       qui, selon l'enseignant, ne nécessite aucune amélioration
+       (voire qu'il est impeccable).
        - NB : L'étudiant peut aussi mettre le "+" à la fin de la
          ligne. Mais, le mettre en début de ligne est plus lisible
          pour lui.
-     - Mettre un commentaire au niveau du champ
+     - Il doit écrire un commentaire au niveau du champ
        ~Commentaire/Justification du +~.
-     - S'il estime que l'enseignant considérera qu'il n'y aucun
-       critère impeccable pour cette soutenance, l'étudiant doit
-       mettre un "+" devant un critère dont il pense que l'enseignant
-       estimera que le critère ne nécessite qu'une (ou des)
-       amélioration(s) mineure(s).
+     - Notez que l'étudiant peut juger que l'enseignant considérera qu'il n'y
+       aucun critère impeccable pour cette soutenance. Dans ce cas, il
+       doit mettre un "+" devant un critère qui ne nécessite pas,
+       selon l'enseignant, des améliorations majeures.
      - Même principe avec un "-" correspondant à un critère
        nécessitant une (ou des) amélioration(s) majeure(s).
    - Au moment du dépouillement par l'enseignant :
      - Un "+" n'est pris en compte que si le champ
-       ~Commentaire/Justification du +~ est rempli (intelligemment).
+       ~Commentaire/Justification du +~ est rempli.
      - Idem pour un "-"
      - Si, pour une même soutenance, l'étudiant écrit plusieurs "+" ou
        plusieurs "-", aucun "+" ne sera considéré pour cette
@@ -495,12 +436,9 @@ appuyez sur une touche pour fermer la fenêtre.
        critère, son commentaire est ignoré.
      - Idem pour ~Commentaire/Justification du -~
      - Chaque "+" qui correspondant à un critère jugé impeccable par
-       l'enseignant rapport un bonus de /nombre de point bonus que
-       vous avez décidé précédemment/ à la note finale.
+       l'enseignant rapporte un bonus (tel qu'il l'avait défini) à la
+       note finale.
      - Idem pour chaque "-"
-     - Expliquez le principe de bonus si, pour une soutenance,
-       l'enseignant ne met aucun "+".
-     - Expliquez que c'est pareil dans le cas où il ne met aucun "-".
 3. Faites passer les soutenances.
 4. Remplissez votre fichier de notes/commentaires
 * Phase 3 : Post-soutenance
@@ -517,9 +455,9 @@ appuyez sur une touche pour fermer la fenêtre.
 ** Exécution de la phase 3 de COS
 De même que pour la phase 1, la phase 3 de /COS/ dépend de votre
 système d'exploitation :
-- Linux/MacOS : exécutez ~cos_phase_3.sh~ au lieu de ~cos_phase_1.sh~
+- Linux/MacOS : exécutez ~cos_phase_3_linux_MacOS.sh~ au lieu de ~cos_phase_1_linux_MacOS.sh~
   précédemment.
-- Windows : exécutez ~cos_phase_3.bat~ au lieu de ~cos_phase_1.bat~
+- Windows : exécutez ~cos_phase_3_windows.bat~ au lieu de ~cos_phase_1_windows.bat~
   précédemment.
 
 En cas d'exécution correcte, vous aurez l'affichage suivant :
@@ -529,7 +467,7 @@ cos version 1.0.0
 OK, exécution de la phase 3 terminée : les fichiers...
 #+END_SRC
 ** Exploitation des fichiers générés par COS (en phase 3)
-Les deux fichiers générés par /COS/ sont disponibles dans le
+Les trois fichiers générés par /COS/ sont disponibles dans le
 répertoire ~Phase_3_sortie~ :
 - ~syntheseCommentaires.txt~ contient la synthèse, par projet, des
   commentaires faits par les étudiants et vous durant la soutenance. À
@@ -545,7 +483,70 @@ répertoire ~Phase_3_sortie~ :
     ~bonusCriteriaOK~ dans le fichier ~configuration.txt~)
   - La note finale du module (qui est la somme de ces deux notes).
   - À vous de décider comment exploiter ~notesEtudiants.csv~.
-* Changement des noms ou des valeurs utilisés par défaut
+* Comment gérer une nouvelle soutenance avec /COS/
+Pour gérer une nouvelle soutenance avec /COS/ :
+- Recopiez le répertoire /COS/ (en donnant le nom que vous voulez à la
+  copie)
+- Travaillez sur cette copie.
+* Conclusion
+Nous espérons que /COS/ sera une invitation, pour vos étudiants, à
+changer d'angle de vue pendant les soutenances. Et, nous vous
+souhaitons des soutenances encore plus intéressantes qu'avant !
+N'hésitez pas à nous faire des retours sur [[https://github.com/simatic/COS][github]] ou à
+[[mailto:Michel.Simatic@telecom-sudparis.eu][Michel.Simatic@telecom-sudparis.eu]].
+* Remerciements
+/COS/ n'aurait jamais vu le jour sans :
+- Myriam Davidovici-Nora, Maître de Conférences à Télécom-ParisTech,
+  qui est l'auteur des critères listés dans le fichier
+  ~listeCriteres.csv~ fourni avec /COS/, et du barème associé,
+- Racha Hallal, ingénieure pédagogique à Télécom SudParis, dont les
+  remarques judicieuses ont permis et permettent encore d'améliorer
+  /COS/,
+- les étudiants de l'[[http://jin.telecom-sudparis.eu/][option JIN]] qui ont permis de tester l'intérêt de
+  /COS/.
+Merci à toutes ces personnes.
+* Annexe : Changement des noms ou des valeurs utilisés par défaut
+** Configuration de votre mode de notation
+Lors de la phase 3, quand /COS/ compare les évaluations des
+étudiants et les évaluations de l'enseignant, il attribue à chaque
+étudiant un bonus par évaluation d'étudiant correspondant à
+l'évaluation enseignant. /COS/ vous permet de configurer :
+- le nombre total de points accordés aux différents critères évalués,
+- le nombre de points en dessous duquel une note de critère signifie
+  que ce critère nécessite des améliorations majeures,
+- le nombre de points au dessus duquel une note de critère signifie
+  que ce critère vous semble acquis.
+
+Pour changer ces données :
+- Éditez le fichier ~configuration.txt~ en double-cliquant dessus.
+- Modifiez le champ ~totalPointsCriteria~ pour indiquer le nombre
+  total de points que vous souhaitez affecter aux différents
+  critères. Par exemple, ~totalPointsCriteria = 20.0~ (notez le point
+  qui est utilisé ici comme séparateur décimal) si vous souhaitez que
+  ce nombre soit de 20.
+- Modifiez ensuite le champ ~ratioCriteriaKO~ pour spécifier le nombre
+  de points signifiant que vous estimez qu'un critère requiert des
+  améliorations majeures. Ce nombre est un ourcentage qui s'exprime
+  sous la forme d'un coefficient multiplicateur dans l'intervalle [0,
+  1]. Par exemple, supposons que la note maximale sur un critère est
+  de 4, en mettant ~ratioCriteriaKO = 0.25~ (NB : écrivez ce nombre
+  décimal en notation américaine, soit "." (point) pour séparer la
+  partie entière de la partie décimale), vous dites à /COS/ que, si
+  vous donnez une note dans l'intervalle [0x4, 0.25x4], c'est-à-dire
+  [0, 1], /COS/ devra estimer que vous considérez que ce critère
+  requiert des améliorations majeures.
+- Modifiez ensuite le champ ~ratioCriteriaOK~ pour spécifier le nombre
+  de points signifiant que vous estimez qu'un critère révèle une bonne
+  maîtrise. Ce nombre est un pourcentage qui s'exprime sous la forme
+  d'un coefficient multiplicateur dans l'intervalle [0, 1]. Par
+  exemple, supposons que la note maximale sur un critère est de 4, en
+  mettant ~ratioCriteriaOK = 0.75~ (NB : écrivez ce nombre décimal en
+  notation américaine, soit "." (point) pour séparer la partie entière
+  de la partie décimale), vous dites à /COS/ que, si vous donnez une
+  note dans l'intervalle [0.75x4, 1x4], c'est-à-dire [3, 4], /COS/
+  devra estimer que vous considérez que ce critère révèle une bonne
+  maîtrise.
+- Sauvegardez le fichier.
 ** Changement des noms de fichier
 *** Ajout automatique de la date dans le nom des fichiers générés
 À chaque fois que vous exécutez /COS/, les fichiers qu'il génère
@@ -585,9 +586,8 @@ vous voulez que le fichier s'appelle désormais
 
 ~filledNominativeSheetsFilename = retoursDesEtudiants.txt~
 ** Changement des valeurs par défaut
-Nous avons déjà évoqué comment (et pourquoi) changer dans
-~configuration.txt~:
-- ~bonusCriteriaOK~
+Nous avons déjà évoqué comment changer ~bonusCriteriaOK~ dans
+~configuration.txt~.
 
 ~configuration.txt~ contient également la configuration des lignes
 générées dans ~listeFichesEtudiants.txt~ lors de la phase 1 :
@@ -599,20 +599,3 @@ générées dans ~listeFichesEtudiants.txt~ lors de la phase 1 :
   les fichiers avec les fiches (nominatives ou generiques))
 - ~negativeCommentBound~ (Délimiteur des commentaires négatifs dans
   les fichiers avec les fiches (nominatives ou generiques))
-* Conclusion
-Nous espérons que /COS/ sera une invitation, pour vos étudiants, à
-changer d'angle de vue pendant les soutenances. Et, nous vous
-souhaitons des soutenances encore plus intéressantes qu'avant !
-N'hésitez pas à nous faire des retours sur [[https://github.com/simatic/COS][github]] ou à
-[[mailto:Michel.Simatic@telecom-sudparis.eu][Michel.Simatic@telecom-sudparis.eu]].
-* Remerciements
-/COS/ n'aurait jamais vu le jour sans :
-- Myriam Davidovici-Nora, Maître de Conférences à Télécom-ParisTech,
-  qui est l'auteur des critères listés dans le fichier
-  ~listeCriteres.csv~ fourni avec /COS/, et du barème associé,
-- Racha Hallal, ingénieure pédagogique à Télécom SudParis, dont les
-  remarques judicieuses ont permis et permettent encore d'améliorer
-  /COS/,
-- les étudiants de l'[[http://jin.telecom-sudparis.eu/][option JIN]] qui ont permis de tester l'intérêt de
-  /COS/.
-Merci à toutes ces personnes.

@@ -32,11 +32,10 @@
 <li><a href="#sec-4-1">4.1. Configuration de COS</a>
 <ul>
 <li><a href="#sec-4-1-1">4.1.1. Bonus accordé aux étudiants</a></li>
-<li><a href="#sec-4-1-2">4.1.2. Configuration de votre mode de notation</a></li>
-<li><a href="#sec-4-1-3">4.1.3. Types des critères d'évaluation</a></li>
-<li><a href="#sec-4-1-4">4.1.4. Critères d'évaluation</a></li>
-<li><a href="#sec-4-1-5">4.1.5. Titres des soutenances</a></li>
-<li><a href="#sec-4-1-6">4.1.6. Liste des étudiants</a></li>
+<li><a href="#sec-4-1-2">4.1.2. Types des critères d'évaluation</a></li>
+<li><a href="#sec-4-1-3">4.1.3. Critères d'évaluation</a></li>
+<li><a href="#sec-4-1-4">4.1.4. Titres des soutenances</a></li>
+<li><a href="#sec-4-1-5">4.1.5. Liste des étudiants</a></li>
 </ul>
 </li>
 <li><a href="#sec-4-2">4.2. Exécution de la phase 1 de COS</a>
@@ -62,21 +61,23 @@
 <li><a href="#sec-6-3">6.3. Exploitation des fichiers générés par COS (en phase 3)</a></li>
 </ul>
 </li>
-<li><a href="#sec-7">7. Changement des noms ou des valeurs utilisés par défaut</a>
-<ul>
-<li><a href="#sec-7-1">7.1. Changement des noms de fichier</a>
-<ul>
-<li><a href="#sec-7-1-1">7.1.1. Ajout automatique de la date dans le nom des fichiers générés</a></li>
-<li><a href="#sec-7-1-2">7.1.2. Répertoire racine</a></li>
-<li><a href="#sec-7-1-3">7.1.3. Renommage de configuration.txt</a></li>
-<li><a href="#sec-7-1-4">7.1.4. Renommage des fichiers autres que configuration.txt</a></li>
-</ul>
-</li>
-<li><a href="#sec-7-2">7.2. Changement des valeurs par défaut</a></li>
-</ul>
-</li>
+<li><a href="#sec-7">7. Comment gérer une nouvelle soutenance avec <i>COS</i></a></li>
 <li><a href="#sec-8">8. Conclusion</a></li>
 <li><a href="#sec-9">9. Remerciements</a></li>
+<li><a href="#sec-10">10. Annexe : Changement des noms ou des valeurs utilisés par défaut</a>
+<ul>
+<li><a href="#sec-10-1">10.1. Configuration de votre mode de notation</a></li>
+<li><a href="#sec-10-2">10.2. Changement des noms de fichier</a>
+<ul>
+<li><a href="#sec-10-2-1">10.2.1. Ajout automatique de la date dans le nom des fichiers générés</a></li>
+<li><a href="#sec-10-2-2">10.2.2. Répertoire racine</a></li>
+<li><a href="#sec-10-2-3">10.2.3. Renommage de configuration.txt</a></li>
+<li><a href="#sec-10-2-4">10.2.4. Renommage des fichiers autres que configuration.txt</a></li>
+</ul>
+</li>
+<li><a href="#sec-10-3">10.3. Changement des valeurs par défaut</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -167,9 +168,8 @@ suite de ce document:
 
 Dans la suite de ce document, nous commençons par présenter
 l'installation de *COS*, avant de détailler chacune des phases
-mentionnées dans cette introduction. La dernière section explique
-comment changer les noms de fichier et les valeurs utilisés par
-défaut.
+mentionnées dans cette introduction. L'annexe explique comment changer
+les noms de fichier et les valeurs utilisés par défaut.
 
 # Installation de *COS*<a id="sec-2" name="sec-2"></a>
 
@@ -275,8 +275,7 @@ l'installation de *Python 2*. Pour ce faire :
 *Python 3* est désormais installé sur votre machine. Mais, vous devez
 préciser à *COS* qu'il doit utiliser ce *Python 3* et non le *Python
 2* auquel il accéderait spontanément :
--   Avec un explorateur de fichier, allez dans le répertoire où vous
-    avez dézippé *COS*.
+-   Allez dans le répertoire où vous avez dézippé *COS*.
 -   Clic gauche sur le fichier `cos.bat`, puis clic droit pour choisir
     de l'éditer avec votre éditeur de texte (par exemple, *Notepad++*).
 -   Ajoutez la ligne `set PATH=C:\Program Files (x86)\Python36-32\` 
@@ -293,12 +292,11 @@ préciser à *COS* qu'il doit utiliser ce *Python 3* et non le *Python
 
 ## Configuration du système d'exploitation et du tableur que vous utilisez<a id="sec-3-1" name="sec-3-1"></a>
 
-Avec un explorateur de fichier, allez dans le répertoire `modeles` de
-*COS*. Ce répertoire contient 4 fichiers archives. Double-cliquez sur
-l'archive correspondant à votre combinaison Système d'exploitation
-(Linux et MacOS OU BIEN Windows) / Tableur (LibreOffice Calc et
-OpenOffice Calc OU BIEN Excel), comme indiqué dans le tableau
-ci-dessous.
+Allez dans le répertoire `modeles` de *COS*. Ce répertoire contient 4
+fichiers archives. Double-cliquez sur l'archive correspondant à votre
+combinaison Système d'exploitation (Linux et MacOS OU BIEN Windows) /
+Tableur (LibreOffice Calc et OpenOffice Calc OU BIEN Excel), comme
+indiqué dans le tableau ci-dessous.
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -377,8 +375,7 @@ non "3,14"), il vous faut changer, dans `configuration.txt`, le champ
 
 ## Configuration de votre nom dans les documents de synthèse générés par COS<a id="sec-3-2" name="sec-3-2"></a>
 
--   Éditez le fichier `configuration.txt` en double-cliquant dessus
-    avec un explorateur de fichiers.
+-   Éditez le fichier `configuration.txt` en double-cliquant dessus.
 -   Modifiez le champ `teacherName` pour y indiquer le nom sous lequel
     vous souhaitez apparaître dans les documents générés par *COS*. Par
     exemple, `teacherName = Jeanne Dupont` si vous souhaitez que
@@ -400,8 +397,7 @@ phase 1**, pour pouvoir l'indiquer aux étudiants lors de la phase 2
 (soutenances).
 
 Pour changer la valeur de ce bonus :
--   Éditez le fichier `configuration.txt` en double-cliquant dessus
-    avec un explorateur de fichiers.
+-   Éditez le fichier `configuration.txt` en double-cliquant dessus.
 -   Modifiez le champ `bonusCriteriaOK` pour y indiquer la valeur de ce
     bonus. Par exemple, mettez `bonusCriteriaOK = 0.1` pour indiquer un
     bonus de *0.1*. NB : écrivez ce nombre décimal en notation
@@ -409,75 +405,26 @@ Pour changer la valeur de ce bonus :
     partie décimale).
 -   Sauvegardez le fichier.
 
-### Configuration de votre mode de notation<a id="sec-4-1-2" name="sec-4-1-2"></a>
+### Types des critères d'évaluation<a id="sec-4-1-2" name="sec-4-1-2"></a>
 
-Lors de la phase 3, quand *COS* comparera les évaluations des
-étudiants et les évaluations de l'enseignant, il attribuera à chaque
-étudiant un bonus par évaluation d'étudiant correspondant à
-l'évaluation enseignant. *COS* vous permet de configurer :
--   le nombre total de points accordés aux différents critères évalués,
--   le nombre de points en dessous duquel une note de critère signifie
-    que ce critère nécessite des améliorations majeures,
--   le nombre de points au dessus duquel une note de critère signifie
-    que ce critère vous semble acquis.
-
-Même si ces données ne serviront qu'en phase 3, nous vous proposons de
-réfléchir à leur valeur, **dès la phase 1**, pour pouvoir l'indiquer aux
-étudiants lors de la phase 2 (soutenances).
-
-Pour changer ces données :
--   Éditez le fichier `configuration.txt` en double-cliquant dessus
-    avec un explorateur de fichiers.
--   Modifiez le champ `totalPointsCriteria` pour indiquer le nombre
-    total de points que vous souhaitez affecter aux différents
-    critères. Par exemple, `totalPointsCriteria = 20.0` (notez le point
-    qui est utilisé ici comme séparateur décimal) si vous souhaitez que
-    ce nombre soit de 20.
--   Modifiez ensuite le champ `ratioCriteriaKO` pour spécifier le nombre
-    de points signifiant que vous estimez qu'un critère requiert des
-    améliorations majeures. Ce nombre est un ratio qui s'exprime sous la
-    forme d'un coefficient multiplicateur dans l'intervalle [0, 1]. Par
-    exemple, supposons que la note maximale sur un critère est de 4, en
-    mettant `ratioCriteriaKO = 0.25` (NB : écrivez ce nombre décimal en
-    notation américaine, soit "." (point) pour séparer la partie entière
-    de la partie décimale), vous dites à *COS* que, si vous donnez une note
-    dans l'intervalle [0x4, 0.25x4], c'est-à-dire [0, 1], *COS* devra
-    estimer que vous considérez que ce critère requiert des
-    améliorations majeures.
--   Modifiez ensuite le champ `ratioCriteriaOK` pour spécifier le nombre
-    de points signifiant que vous estimez qu'un critère révèle une bonne
-    maîtrise. Ce nombre est un ratio qui s'exprime sous la forme d'un
-    coefficient multiplicateur dans l'intervalle [0, 1]. Par exemple,
-    supposons que la note maximale sur un critère est de 4, en mettant
-    `ratioCriteriaOK = 0.75` (NB : écrivez ce nombre décimal en notation
-    américaine, soit "." (point) pour séparer la partie entière de la
-    partie décimale), vous dites à *COS* que, si vous donnez une note
-    dans l'intervalle [0.75x4, 1x4], c'est-à-dire [3, 4], *COS* devra
-    estimer que vous considérez que ce critère révèle une bonne
-    maîtrise.
--   Sauvegardez le fichier.
-
-### Types des critères d'évaluation<a id="sec-4-1-3" name="sec-4-1-3"></a>
-
-*COS* impose de catégoriser les différents critères d'évaluation. (par
+*COS* a besoin de catégoriser les différents critères d'évaluation. (par
 exemple, "Fond", "Forme", etc.).
 
 Pour changer la liste des types de critères d'évaluation :
 -   Éditez le fichier `Phase_1_entree/listeTypesCriteres.txt` en
-    double-cliquant dessus avec un explorateur de fichiers.
+    double-cliquant dessus.
 -   Modifiez la liste des types de critère. L'exemple fourni définit les
-    types `Fond` et `Forme`. Notez que, dans ce fichier, les '#' et tout
-    ce qui est à droite des '#' est ignoré : la ligne `# Nom de chaque
-      type de critère` est ignorée par *COS*.
+    types `Fond` et `Forme` (La ligne la ligne `# Nom de chaque type de
+      critère` est ignorée par *COS* car elle commence par un '#').
 
-### Critères d'évaluation<a id="sec-4-1-4" name="sec-4-1-4"></a>
+### Critères d'évaluation<a id="sec-4-1-3" name="sec-4-1-3"></a>
 
 *COS* vous permet de personnaliser les critères d'évaluation de vos
 soutenances.
 
 Pour changer la liste des critères d'évaluation :
 1.  Éditez le fichier `Phase_1_entree/listeCriteres.csv` en
-    double-cliquant dessus avec un explorateur de fichiers. Cela ouvre
+    double-cliquant dessus. Cela ouvre
     votre tableur.
     -   NB (lié à LibreOffice/OpenOffice Calc) : Dans le cas de
         *LibreOffice Calc*, une fenêtre `Import de texte` s'affiche dans
@@ -486,48 +433,43 @@ Pour changer la liste des critères d'évaluation :
         soit coché.
 2.  Modifiez la liste des critères et le nombre maximum de points que
     vous souhaitez donner à ce critère. L'exemple fourni avec *COS*
-    définit 10 critères (5 de `Fond` et 5 de `Forme`), chacun pouvant
-    recevoir une note comprise entre 0 et un maximum de 2 points.
+    définit 10 critères (5 de `Fond` et 5 de `Forme`).
 3.  Sauvegardez le fichier (au format **CSV**).
 
-### Titres des soutenances<a id="sec-4-1-5" name="sec-4-1-5"></a>
+### Titres des soutenances<a id="sec-4-1-4" name="sec-4-1-4"></a>
 
-*COS* impose de lui fournir la liste des titres des soutenances qui
-vont avoir lieu. Nous vous recommandons de les lui fournir dans
-l'ordre de passage envisagé (cela facilite le remplissage des fiches
-par les étudiants et l'enseignant).
+*COS* a besoin de la liste des titres des soutenances qui vont avoir
+lieu. Nous vous recommandons de les lui fournir dans l'ordre de
+passage envisagé (cela facilite le remplissage des fiches par les
+étudiants et l'enseignant).
 
-Pour changer la liste des types de critères d'évaluation :
+Pour changer la liste des titres de soutenances :
 -   Éditez le fichier `Phase_1_entree/listeSoutenances.txt` en
-    double-cliquant dessus avec un explorateur de fichiers.
+    double-cliquant dessus.
 -   Modifiez la liste des soutenances. L'exemple fourni définit 3
     soutenances `Eugénie Grandet`, `La Touche étoile` et `... Et mon
-      tout est un homme`. Notez que, dans ce fichier, les '#' et tout ce
-    qui est à droite des '#' est ignoré : la ligne `# Nom de
-      chaque soutenance` est ignorée par *COS*.
+      tout est un homme` (La ligne la ligne `# Nom de chaque soutenance`
+    est ignorée par *COS* car elle commence par un '#').
 -   Sauvegardez le fichier.
 
-### Liste des étudiants<a id="sec-4-1-6" name="sec-4-1-6"></a>
+### Liste des étudiants<a id="sec-4-1-5" name="sec-4-1-5"></a>
 
-*COS* impose de lui fournir la liste des étudiants qui vont soutenir
-et, sur quelle soutenance, ils vont soutenir. Notez que :
--   Plusieurs étudiants peuvent soutenir ensemble (cf., dans l'exemple,
-    `M. AYRAUD Pierre (dit Thomas Narcejac)` et `M. BOILEAU Pierre
-      Louis` qui font la même soutenance de titre `... Et mon tout est un
-      homme`)
--   Une soutenance de `Phase_1_entree/listeSoutenances.txt` peut ne pas
-    se voir mentionnée à cette étape.
+*COS* a besoin de la liste des étudiants qui vont soutenir et, sur
+quelle soutenance, ils vont soutenir. Notez que plusieurs étudiants
+peuvent soutenir ensemble (cf., dans l'exemple, `M. AYRAUD Pierre (dit
+Thomas Narcejac)` et `M. BOILEAU Pierre Louis` qui font la même
+soutenance de titre `... Et mon tout est un homme`).
 
 Pour changer la liste des étudiants :
 1.  Éditez le fichier `Phase_1_entree/listeEtudiants.txt` en
-    double-cliquant dessus avec un explorateur de fichiers. Cela ouvre
-    votre tableur.
+    double-cliquant dessus. Cela ouvre votre tableur.
     -   NB (lié à LibreOffice/OpenOffice Calc) : Dans le cas de
         *LibreOffice Calc*, une fenêtre `Import de texte` s'affiche dans
         un premier temps. Veillez à ce que, dans la zone `Options de
              séparateur`, 1) `Séparé par` soit sélectionné, 2) seul `Virgule`
         soit coché.
-2.  Modifiez la liste des étudiants. L'exemple définit 4 étudiants.
+2.  Modifiez la liste des étudiants. L'exemple définit 4 étudiants et
+    leur soutenance.
 3.  Sauvegardez le fichier (au format **CSV**).
 
 ## Exécution de la phase 1 de COS<a id="sec-4-2" name="sec-4-2"></a>
@@ -538,7 +480,7 @@ d'exploitation.
 ### Linux/MacOS<a id="sec-4-2-1" name="sec-4-2-1"></a>
 
 Dans le répertoire de *COS*, exécutez le programme
-`cos_phase_1.sh`. En cas d'erreur, un message vous explique le
+`cos_phase_1_linux_MacOS.sh`. En cas d'erreur, un message vous explique le
 problème détecté : à vous de le corriger. Si tout se passe bien, *COS*
 affiche le message :
 
@@ -548,11 +490,11 @@ affiche le message :
 
 ### Windows<a id="sec-4-2-2" name="sec-4-2-2"></a>
 
-Avec un explorateur de fichiers, allez dans le répertoire de
-*COS*. Puis, double-cliquez sur le programme `cos_phase_1.bat` : une
-fenêtre s'ouvre et affiche un message d'erreur ou bien un message de
-bonne exécution (cf. exemple Linux/MacOS ci-dessus). Dans les 2 cas,
-appuyez sur une touche pour fermer la fenêtre.
+Dans le répertoire de *COS*, double-cliquez sur le programme
+`cos_phase_1_windows.bat` : une fenêtre s'ouvre et affiche un message d'erreur
+ou bien un message de bonne exécution (cf. exemple Linux/MacOS
+ci-dessus). Dans les 2 cas, appuyez sur une touche pour fermer la
+fenêtre.
 
 ## Préparation de la soutenance<a id="sec-4-3" name="sec-4-3"></a>
 
@@ -600,31 +542,29 @@ appuyez sur une touche pour fermer la fenêtre.
 # Phase 2 : Soutenance<a id="sec-5" name="sec-5"></a>
 
 1.  Indiquez aux étudiants comment ils peuvent fournir les
-    informations. En particulier, fournissez l'adresse du *pad*, voire
-    un crayon pour les étudiants qui rempliront un exemplaire papier.
+    informations. En particulier, fournissez l'adresse du *pad*.
 2.  Expliquez les "règles du jeu", i.e. les informations que les
     étudiants doivent fournir et comment ces informations seront
     exploitées :
     -   L'étudiant doit remplir la fiche correspondant à son nom.
-    -   Pour chaque soutenance (hormis la sienne, évidemment), l'étudiant doit :
-        -   Mettre un "+" au début de la ligne d'un critère dont il pense
-            que l'enseignant estimera que le critère ne nécessite aucune
-            amélioration (voire qu'il est impeccable).
+    -   Pour chaque soutenance (hormis la sienne, évidemment) :
+        -   L'étudiant doit mettre un "+" au début de la ligne d'un critère
+            qui, selon l'enseignant, ne nécessite aucune amélioration
+            (voire qu'il est impeccable).
             -   NB : L'étudiant peut aussi mettre le "+" à la fin de la
                 ligne. Mais, le mettre en début de ligne est plus lisible
                 pour lui.
-        -   Mettre un commentaire au niveau du champ
+        -   Il doit écrire un commentaire au niveau du champ
             `Commentaire/Justification du +`.
-        -   S'il estime que l'enseignant considérera qu'il n'y aucun
-            critère impeccable pour cette soutenance, l'étudiant doit
-            mettre un "+" devant un critère dont il pense que l'enseignant
-            estimera que le critère ne nécessite qu'une (ou des)
-            amélioration(s) mineure(s).
+        -   Notez que l'étudiant peut juger que l'enseignant considérera qu'il n'y
+            aucun critère impeccable pour cette soutenance. Dans ce cas, il
+            doit mettre un "+" devant un critère qui ne nécessite pas,
+            selon l'enseignant, des améliorations majeures.
         -   Même principe avec un "-" correspondant à un critère
             nécessitant une (ou des) amélioration(s) majeure(s).
     -   Au moment du dépouillement par l'enseignant :
         -   Un "+" n'est pris en compte que si le champ
-            `Commentaire/Justification du +` est rempli (intelligemment).
+            `Commentaire/Justification du +` est rempli.
         -   Idem pour un "-"
         -   Si, pour une même soutenance, l'étudiant écrit plusieurs "+" ou
             plusieurs "-", aucun "+" ne sera considéré pour cette
@@ -635,12 +575,9 @@ appuyez sur une touche pour fermer la fenêtre.
             critère, son commentaire est ignoré.
         -   Idem pour `Commentaire/Justification du -`
         -   Chaque "+" qui correspondant à un critère jugé impeccable par
-            l'enseignant rapport un bonus de *nombre de point bonus que
-            vous avez décidé précédemment* à la note finale.
+            l'enseignant rapporte un bonus (tel qu'il l'avait défini) à la
+            note finale.
         -   Idem pour chaque "-"
-        -   Expliquez le principe de bonus si, pour une soutenance,
-            l'enseignant ne met aucun "+".
-        -   Expliquez que c'est pareil dans le cas où il ne met aucun "-".
 3.  Faites passer les soutenances.
 4.  Remplissez votre fichier de notes/commentaires
 
@@ -662,9 +599,9 @@ appuyez sur une touche pour fermer la fenêtre.
 
 De même que pour la phase 1, la phase 3 de *COS* dépend de votre
 système d'exploitation :
--   Linux/MacOS : exécutez `cos_phase_3.sh` au lieu de `cos_phase_1.sh`
+-   Linux/MacOS : exécutez `cos_phase_3_linux_MacOS.sh` au lieu de `cos_phase_1_linux_MacOS.sh`
       précédemment.
--   Windows : exécutez `cos_phase_3.bat` au lieu de `cos_phase_1.bat`
+-   Windows : exécutez `cos_phase_3_windows.bat` au lieu de `cos_phase_1_windows.bat`
       précédemment.
 
 En cas d'exécution correcte, vous aurez l'affichage suivant :
@@ -675,7 +612,7 @@ En cas d'exécution correcte, vous aurez l'affichage suivant :
 
 ## Exploitation des fichiers générés par COS (en phase 3)<a id="sec-6-3" name="sec-6-3"></a>
 
-Les deux fichiers générés par *COS* sont disponibles dans le
+Les trois fichiers générés par *COS* sont disponibles dans le
 répertoire `Phase_3_sortie` :
 -   `syntheseCommentaires.txt` contient la synthèse, par projet, des
     commentaires faits par les étudiants et vous durant la soutenance. À
@@ -692,71 +629,12 @@ répertoire `Phase_3_sortie` :
     -   La note finale du module (qui est la somme de ces deux notes).
     -   À vous de décider comment exploiter `notesEtudiants.csv`.
 
-# Changement des noms ou des valeurs utilisés par défaut<a id="sec-7" name="sec-7"></a>
+# Comment gérer une nouvelle soutenance avec *COS*<a id="sec-7" name="sec-7"></a>
 
-## Changement des noms de fichier<a id="sec-7-1" name="sec-7-1"></a>
-
-### Ajout automatique de la date dans le nom des fichiers générés<a id="sec-7-1-1" name="sec-7-1-1"></a>
-
-À chaque fois que vous exécutez *COS*, les fichiers qu'il génère
-écrase les anciens fichiers présents dans `Phase_1_sortie` et
-`Phase_1_sortie`. Vous pouvez demander à *COS* de générer un fichier à
-chaque fois différent. Pour ce faire, dans `configuration.txt`, mettre
-`insertDateInFilename = 0`. Les fichiers générés incluent désormais la
-date et l'heure d'éxécution de *COS*. Par exemple, au lieu de générer
-le fichier `listeFichesEtudiants.txt`, *COS* génère le fichier
-`listeFichesEtudiants_2017-10-29_07:15:21.txt`.
-
-### Répertoire racine<a id="sec-7-1-2" name="sec-7-1-2"></a>
-
-Dans `configuration.txt`, le champ `rootDirectory` permet de spécifier
-à partir de quel répertoire *COS* doit chercher les fichiers qu'il lit
-ou écrit. Par exemple, `rootDirectory = Soutenances/Eco/Nov2016` dit à
-*COS* de chercher ses fichiers à partir du répertoire `Nov2016` qui
-est dans le répertoire `Eco` qui est lui-même dans le répertoire
-`Soutenances`. `rootDirectory =` (notez qu'il n'y a rien derrière le
-signe "=") dit à *COS* de chercher ses fichiers à partir du répertoire
-courant.
-
-### Renommage de configuration.txt<a id="sec-7-1-3" name="sec-7-1-3"></a>
-
-Si vous souhaitez que le fichier `configuration.txt` s'appelle
-autrement, renommez-le et modifiez le nom dans `cos.sh` (si vous êtes
-sous Linux/MacOS) et `cos.bat` (si vous êtes sous Windows).
-
-### Renommage des fichiers autres que configuration.txt<a id="sec-7-1-4" name="sec-7-1-4"></a>
-
-Le nom des autres fichiers et leur localisation peuvent être changés
-en modifiant le champ correspondant à ce fichier dans le fichier
-`configuration.txt`.
-
-Imaginons, par exemple, que vous n'êtes pas satisfait du fait que le
-fichier des retours des étudiants s'appelle `reponsesEtudiants.txt` et
-est stocké dans `Phase_3_entree`. Il faut alors changer la valeur du
-champ `filledNominativeSheetsFilename`. Par exemple, supposons que
-vous voulez que le fichier s'appelle désormais
-`retoursDesEtudiants.txt` et soit stocké au même niveau que le fichier
-`configuration.txt`, il faut modifier `configuration.txt` en
-écrivant :
-
-`filledNominativeSheetsFilename = retoursDesEtudiants.txt`
-
-## Changement des valeurs par défaut<a id="sec-7-2" name="sec-7-2"></a>
-
-Nous avons déjà évoqué comment (et pourquoi) changer dans
-`configuration.txt`:
--   `bonusCriteriaOK`
-
-`configuration.txt` contient également la configuration des lignes
-générées dans `listeFichesEtudiants.txt` lors de la phase 1 :
--   `studentBound` (Délimiteur entre les etudiants dans le fichier avec
-    toutes les fiches nominatives)
--   `defenseBound` (Délimiteur entre les soutenances dans les fichiers
-    avec les fiches (nominatives ou génériques))
--   `positiveCommentBound` (Délimiteur des commentaires positifs dans
-    les fichiers avec les fiches (nominatives ou generiques))
--   `negativeCommentBound` (Délimiteur des commentaires négatifs dans
-    les fichiers avec les fiches (nominatives ou generiques))
+Pour gérer une nouvelle soutenance avec *COS* :
+-   Recopiez le répertoire *COS* (en donnant le nom que vous voulez à la
+    copie)
+-   Travaillez sur cette copie.
 
 # Conclusion<a id="sec-8" name="sec-8"></a>
 
@@ -779,3 +657,111 @@ N'hésitez pas à nous faire des retours sur [github](https://github.com/simatic
     *COS*.
 
 Merci à toutes ces personnes.
+
+# Annexe : Changement des noms ou des valeurs utilisés par défaut<a id="sec-10" name="sec-10"></a>
+
+## Configuration de votre mode de notation<a id="sec-10-1" name="sec-10-1"></a>
+
+Lors de la phase 3, quand *COS* compare les évaluations des
+étudiants et les évaluations de l'enseignant, il attribue à chaque
+étudiant un bonus par évaluation d'étudiant correspondant à
+l'évaluation enseignant. *COS* vous permet de configurer :
+-   le nombre total de points accordés aux différents critères évalués,
+-   le nombre de points en dessous duquel une note de critère signifie
+    que ce critère nécessite des améliorations majeures,
+-   le nombre de points au dessus duquel une note de critère signifie
+    que ce critère vous semble acquis.
+
+Pour changer ces données :
+-   Éditez le fichier `configuration.txt` en double-cliquant dessus.
+-   Modifiez le champ `totalPointsCriteria` pour indiquer le nombre
+    total de points que vous souhaitez affecter aux différents
+    critères. Par exemple, `totalPointsCriteria = 20.0` (notez le point
+    qui est utilisé ici comme séparateur décimal) si vous souhaitez que
+    ce nombre soit de 20.
+-   Modifiez ensuite le champ `ratioCriteriaKO` pour spécifier le nombre
+    de points signifiant que vous estimez qu'un critère requiert des
+    améliorations majeures. Ce nombre est un ourcentage qui s'exprime
+    sous la forme d'un coefficient multiplicateur dans l'intervalle [0,
+    1]. Par exemple, supposons que la note maximale sur un critère est
+    de 4, en mettant `ratioCriteriaKO = 0.25` (NB : écrivez ce nombre
+    décimal en notation américaine, soit "." (point) pour séparer la
+    partie entière de la partie décimale), vous dites à *COS* que, si
+    vous donnez une note dans l'intervalle [0x4, 0.25x4], c'est-à-dire
+    [0, 1], *COS* devra estimer que vous considérez que ce critère
+    requiert des améliorations majeures.
+-   Modifiez ensuite le champ `ratioCriteriaOK` pour spécifier le nombre
+    de points signifiant que vous estimez qu'un critère révèle une bonne
+    maîtrise. Ce nombre est un pourcentage qui s'exprime sous la forme
+    d'un coefficient multiplicateur dans l'intervalle [0, 1]. Par
+    exemple, supposons que la note maximale sur un critère est de 4, en
+    mettant `ratioCriteriaOK = 0.75` (NB : écrivez ce nombre décimal en
+    notation américaine, soit "." (point) pour séparer la partie entière
+    de la partie décimale), vous dites à *COS* que, si vous donnez une
+    note dans l'intervalle [0.75x4, 1x4], c'est-à-dire [3, 4], *COS*
+    devra estimer que vous considérez que ce critère révèle une bonne
+    maîtrise.
+-   Sauvegardez le fichier.
+
+## Changement des noms de fichier<a id="sec-10-2" name="sec-10-2"></a>
+
+### Ajout automatique de la date dans le nom des fichiers générés<a id="sec-10-2-1" name="sec-10-2-1"></a>
+
+À chaque fois que vous exécutez *COS*, les fichiers qu'il génère
+écrase les anciens fichiers présents dans `Phase_1_sortie` et
+`Phase_1_sortie`. Vous pouvez demander à *COS* de générer un fichier à
+chaque fois différent. Pour ce faire, dans `configuration.txt`, mettre
+`insertDateInFilename = 0`. Les fichiers générés incluent désormais la
+date et l'heure d'éxécution de *COS*. Par exemple, au lieu de générer
+le fichier `listeFichesEtudiants.txt`, *COS* génère le fichier
+`listeFichesEtudiants_2017-10-29_07:15:21.txt`.
+
+### Répertoire racine<a id="sec-10-2-2" name="sec-10-2-2"></a>
+
+Dans `configuration.txt`, le champ `rootDirectory` permet de spécifier
+à partir de quel répertoire *COS* doit chercher les fichiers qu'il lit
+ou écrit. Par exemple, `rootDirectory = Soutenances/Eco/Nov2016` dit à
+*COS* de chercher ses fichiers à partir du répertoire `Nov2016` qui
+est dans le répertoire `Eco` qui est lui-même dans le répertoire
+`Soutenances`. `rootDirectory =` (notez qu'il n'y a rien derrière le
+signe "=") dit à *COS* de chercher ses fichiers à partir du répertoire
+courant.
+
+### Renommage de configuration.txt<a id="sec-10-2-3" name="sec-10-2-3"></a>
+
+Si vous souhaitez que le fichier `configuration.txt` s'appelle
+autrement, renommez-le et modifiez le nom dans `cos.sh` (si vous êtes
+sous Linux/MacOS) et `cos.bat` (si vous êtes sous Windows).
+
+### Renommage des fichiers autres que configuration.txt<a id="sec-10-2-4" name="sec-10-2-4"></a>
+
+Le nom des autres fichiers et leur localisation peuvent être changés
+en modifiant le champ correspondant à ce fichier dans le fichier
+`configuration.txt`.
+
+Imaginons, par exemple, que vous n'êtes pas satisfait du fait que le
+fichier des retours des étudiants s'appelle `reponsesEtudiants.txt` et
+est stocké dans `Phase_3_entree`. Il faut alors changer la valeur du
+champ `filledNominativeSheetsFilename`. Par exemple, supposons que
+vous voulez que le fichier s'appelle désormais
+`retoursDesEtudiants.txt` et soit stocké au même niveau que le fichier
+`configuration.txt`, il faut modifier `configuration.txt` en
+écrivant :
+
+`filledNominativeSheetsFilename = retoursDesEtudiants.txt`
+
+## Changement des valeurs par défaut<a id="sec-10-3" name="sec-10-3"></a>
+
+Nous avons déjà évoqué comment changer `bonusCriteriaOK` dans
+`configuration.txt`.
+
+`configuration.txt` contient également la configuration des lignes
+générées dans `listeFichesEtudiants.txt` lors de la phase 1 :
+-   `studentBound` (Délimiteur entre les etudiants dans le fichier avec
+    toutes les fiches nominatives)
+-   `defenseBound` (Délimiteur entre les soutenances dans les fichiers
+    avec les fiches (nominatives ou génériques))
+-   `positiveCommentBound` (Délimiteur des commentaires positifs dans
+    les fichiers avec les fiches (nominatives ou generiques))
+-   `negativeCommentBound` (Délimiteur des commentaires négatifs dans
+    les fichiers avec les fiches (nominatives ou generiques))
